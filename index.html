@@ -115,20 +115,20 @@
   <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_12px_rgba(74,50,40,0.06)]">
     <div class="h-20 max-w-[1280px] mx-auto px-margin-desktop flex items-center justify-between">
       <div class="flex items-center gap-4">
-        <img alt="Logo Circular hj" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTEmyJiGyCshEMgKKZ01lzHcskNnmIOn2bcw0kVWsAESqYilmukEiHaVjH7Jb9k4295PaE5hTMaeM1mD6wiDvtlLI8pi2hfsq3nNc8FfXZleboaxF7m7YuMZAFDpRBKJ6VYa4-FiKnHhZu2MITxVHEi6PsfMToooPQtcPIe03Mq6oFmNPxkm9P1s3obMXJsaqwHqGCNvFiyFL5FL2rMfPvWFyjYHxMdbPt-TesvQB6j4pFGp2aZ10U"/>
+        <img alt="Logo Circular hj" class="h-10 w-auto object-contain" src="assets/images/logo.svg"/>
         <span class="font-headline-md text-headline-md tracking-tight text-primary">Hermanos Jota</span>
       </div>
-      <nav class="hidden md:flex items-center gap-8" data-active-classes="text-primary font-semibold border-b-2 border-primary">
-        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase" data-path="inicio" href="#">Inicio</a>
-        <a aria-current="page" class="transition-colors tracking-widest uppercase text-primary font-semibold border-b-2 border-primary" data-path="catalogo" href="#">Catálogo</a>
-        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase" data-path="contacto" href="#">Contacto</a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase" href="#">Inicio</a>
+        <a aria-current="page" class="transition-colors tracking-widest uppercase text-primary font-semibold border-b-2 border-primary" href="#">Catálogo</a>
+        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase" href="#contacto">Contacto</a>
       </nav>
       <div class="flex items-center gap-6">
         <button class="relative p-2 text-on-surface-variant hover:text-primary transition-colors" onclick="openCartModal()">
           <span class="material-symbols-outlined">shopping_bag</span>
           <span id="cartCount" class="absolute top-0 right-0 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
-        <div class="flex items-center gap-3 pl-6 border-l border-outline-variant cursor-pointer" onclick="openBespokeModal()">
+        <div class="flex items-center gap-3 pl-6 border-l border-outline-variant cursor-pointer" onclick="openBespokeModal('Consulta General')">
           <div class="text-right hidden sm:block">
             <p class="font-label-sm text-label-sm text-on-surface-variant">Consultor</p>
             <p class="font-label-md text-label-md text-on-surface">En Línea</p>
@@ -144,7 +144,6 @@
     <div class="flex flex-col w-full">
       <!-- Header with Search -->
       <div class="w-full bg-surface-container py-8 md:py-16 px-margin-mobile md:px-margin-desktop rounded-b-xl shadow-sm mb-16 relative overflow-hidden">
-        <!-- Decorative Background Elements -->
         <div class="absolute -top-32 -right-32 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute top-1/2 -left-32 w-72 h-72 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none"></div>
         <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
@@ -173,7 +172,7 @@
       </div>
 
       <!-- Main Content Area: Sidebar + Grid -->
-      <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop w-full pb-32">
+      <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop w-full pb-32" id="catalogSection">
         <div class="flex flex-col lg:flex-row gap-gutter items-start">
           
           <!-- Sidebar Filters -->
@@ -183,7 +182,7 @@
                 <span class="material-symbols-outlined text-[18px]">filter_list</span> Filtrar
               </h3>
               
-              <!-- Filter Group 1: Categorías -->
+              <!-- Categorías -->
               <div class="mb-8">
                 <h4 class="font-headline-md text-headline-md text-on-surface mb-4">Categorías</h4>
                 <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
@@ -194,7 +193,7 @@
                 </ul>
               </div>
               
-              <!-- Filter Group 2: Materiales -->
+              <!-- Materiales -->
               <div>
                 <h4 class="font-headline-md text-headline-md text-on-surface mb-4">Materiales</h4>
                 <div class="flex flex-col gap-3">
@@ -217,7 +216,7 @@
               </div>
             </div>
 
-            <!-- Promotional Mini-Card: Servicio Bespoke -->
+            <!-- Servicio Bespoke -->
             <div class="mt-12 bg-primary-container p-6 rounded-xl text-on-primary-container relative overflow-hidden group">
               <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
               <div class="relative z-10">
@@ -233,16 +232,17 @@
 
           <!-- Product Grid Area -->
           <div class="flex-1 w-full min-w-0">
-            <!-- Sort and view options -->
+            <!-- Toolbar -->
             <div class="flex justify-between items-center mb-8 pb-4 border-b border-surface-variant hidden md:flex">
-              <span class="font-body-md text-body-md text-on-surface-variant">Mostrando <strong class="text-on-surface">12</strong> de 48 piezas</span>
+              <span class="font-body-md text-body-md text-on-surface-variant">Mostrando <strong id="shownCount" class="text-on-surface">6</strong> de <strong id="totalPiecesCount">11</strong> piezas</span>
               <div class="flex items-center gap-6">
                 <div class="flex items-center gap-2">
                   <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Ordenar por:</span>
-                  <select class="bg-transparent font-body-md text-body-md text-on-surface focus:outline-none cursor-pointer">
-                    <option>Novedades</option>
-                    <option>Precio: Menor a Mayor</option>
-                    <option>Precio: Mayor a Menor</option>
+                  <select id="sortSelect" class="bg-transparent font-body-md text-body-md text-on-surface focus:outline-none cursor-pointer">
+                    <option value="novedades">Novedades</option>
+                    <option value="precio-asc">Precio: Menor a Mayor</option>
+                    <option value="precio-desc">Precio: Mayor a Menor</option>
+                    <option value="alfabetico">Nombre A-Z</option>
                   </select>
                 </div>
                 <div class="flex gap-2 text-on-surface-variant">
@@ -252,175 +252,14 @@
               </div>
             </div>
 
-            <!-- 6 Grid Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-12">
-              
-              <!-- Product Card 1 -->
-              <div class="group flex flex-col h-full bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                <div class="relative aspect-[4/5] overflow-hidden bg-surface-container">
-                  <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A meticulously crafted mid-century modern lounge chair made of dark walnut wood with woven leather seating." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBThk1-HEb8MsKox6j7Go-bFMN7MeKXsk4MPckZT-nB2sefgYuPoypaVgtdjz6FfZv9eVdVl6MEiCH4li-aHWGjB-SlY0A2aCuWL-Y8q6843sXzg9f776zBRl0jvvHKyi9uYtqZ7HSU3XuVRN694adoqIX4XVJlABuU5zm1V5-fhXnZFkbQxaW6jY83cKcV0lbDRtwcKvayGwq_k-vM3oohnaI5SpsFDlSkY_jG6G3s0-YX3ILofyzI"/>
-                  <div class="absolute top-4 left-4 bg-secondary/90 backdrop-blur text-on-secondary font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider">
-                    Nuevo
-                  </div>
-                  <!-- Hover Action Overlay -->
-                  <div class="absolute inset-0 bg-surface/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                    <button onclick="addToCart('Sillón Kierkegaard', 1450000)" class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
-                      <span class="material-symbols-outlined text-[18px]">visibility</span> Ver Detalle
-                    </button>
-                  </div>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                  <div class="flex items-start justify-between mb-2">
-                    <h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1">Sillón 'Kierkegaard'</h2>
-                    <button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">favorite_border</span></button>
-                  </div>
-                  <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Nogal macizo &amp; Cuero trenzado</p>
-                  <div class="flex items-center justify-between mt-auto">
-                    <span class="font-headline-md text-headline-md text-primary">$ 1,450,000</span>
-                    <!-- Material Chips -->
-                    <div class="flex gap-1">
-                      <div class="w-4 h-4 rounded-full bg-[#5c4033] shadow-sm" title="Nogal"></div>
-                      <div class="w-4 h-4 rounded-full bg-[#8b4513] shadow-sm" title="Cuero"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Product Card 2 -->
-              <div class="group flex flex-col h-full bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                <div class="relative aspect-[4/5] overflow-hidden bg-surface-container">
-                  <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A minimalist low coffee table made of solid oak with visible joinery details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv_bk-Of95ifmdAScwCwA_Z1WqWIJRWMvdzyTeh62aV8zBEHdd1DufdLr0hhz2nPb_Jp1UvE4Mq9OztoCAQ4nuj8lWB6Zou8-y5IPTvTiR5kCFdWzuIuLfKSenW6Cm52HAySQDpQUNi8JmQR_d0m8lvs1JI9wb-eAIE5499_34QzuGQ_oByac7jPloAObUWXl9DjadjpV3T9rcbdSXNIihdhiqKTeE00N3ku9GcIRT-kHQEWeJTutg"/>
-                  <div class="absolute inset-0 bg-surface/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                    <button onclick="addToCart('Mesa Baja Boreal', 890000)" class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
-                      <span class="material-symbols-outlined text-[18px]">visibility</span> Ver Detalle
-                    </button>
-                  </div>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                  <div class="flex items-start justify-between mb-2">
-                    <h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1">Mesa Baja 'Boreal'</h2>
-                    <button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">favorite_border</span></button>
-                  </div>
-                  <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Roble claro acabado a la cera</p>
-                  <div class="flex items-center justify-between mt-auto">
-                    <span class="font-headline-md text-headline-md text-primary">$ 890,000</span>
-                    <div class="flex gap-1">
-                      <div class="w-4 h-4 rounded-full bg-[#d2b48c] shadow-sm" title="Roble"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Product Card 3 -->
-              <div class="group flex flex-col h-full bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                <div class="relative aspect-[4/5] overflow-hidden bg-surface-container">
-                  <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 mix-blend-multiply grayscale-[30%]" data-alt="A sleek mid-century credenza sideboard made of warm teak wood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv8HIoTlMXse_Jcpf09H3KdAhPXCAIp8LjSJZiFy99XNz2Wakrqvp8UF0cUKorf8ezUPh9W7EsL4sG-gKCkJ1yF7fH0jZIlofsdTb-YpiPyeOlTKzhhOdK5VEn1enjUkWhn5VrIJ6y4vwiDvdPSl2ksNmnJsHLNgUPJsvWfQwRODoQBi8CS3WnHANza9f4YKE_UYPJGguRBGOcjfdx2ZPVGILgOfFvU5-1sCXFjChGB9OIu2Tzz00V"/>
-                  <div class="absolute top-4 left-4 bg-surface-variant text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-                    Agotado
-                  </div>
-                  <div class="absolute inset-0 bg-surface/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                    <button class="bg-surface text-on-surface font-label-md text-label-md px-6 py-3 rounded shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2" onclick="alert('Te avisaremos cuando haya stock de Credenza Aalto')">
-                      <span class="material-symbols-outlined text-[18px]">notifications_active</span> Avisarme
-                    </button>
-                  </div>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                  <div class="flex items-start justify-between mb-2">
-                    <h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1 opacity-70">Credenza 'Aalto'</h2>
-                    <button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">favorite_border</span></button>
-                  </div>
-                  <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow opacity-70">Teca maciza &amp; Detalles en latón</p>
-                  <div class="flex items-center justify-between mt-auto">
-                    <span class="font-headline-md text-headline-md text-on-surface-variant opacity-70">$ 2,100,000</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Product Card 4 -->
-              <div class="group flex flex-col h-full bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                <div class="relative aspect-[4/5] overflow-hidden bg-surface-container">
-                  <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A tall minimalist shelving unit made of dark stained ash wood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDLmWGgfM1ISCeXu1FeQ7kiFDrtkkWh5xGjvdg8Q0D3uojFX9mDRP4lABAdcSJBV0n-pXK_rtCaCy6XfvDeEdzxnYJ0NttOGr7d9PSERmqPemMU7yxuI8o4dPbmAJcfy7_y-q7bRq24iMAS8a7vqhjxLO_-s2RJHTaitc55e3Jha_KlNaeq1DgbgAHPN1BkMDyzty1NWp9qSfkWgHei9YVHZKopsxlkycB2a4JbwLdNTN_v3zGgyTL"/>
-                  <div class="absolute inset-0 bg-surface/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                    <button onclick="addToCart('Estantería Líneas', 1150000)" class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
-                      <span class="material-symbols-outlined text-[18px]">visibility</span> Ver Detalle
-                    </button>
-                  </div>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                  <div class="flex items-start justify-between mb-2">
-                    <h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1">Estantería 'Líneas'</h2>
-                    <button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">favorite_border</span></button>
-                  </div>
-                  <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Fresno teñido oscuro</p>
-                  <div class="flex items-center justify-between mt-auto">
-                    <span class="font-headline-md text-headline-md text-primary">$ 1,150,000</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Product Card 5 -->
-              <div class="group flex flex-col h-full bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                <div class="relative aspect-[4/5] overflow-hidden bg-surface-container">
-                  <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A beautifully crafted dining chair with a curved backrest made of bentwood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIAcfAXBSxb-zdBE4ZtwySltlV6dB-3-tkO_-Sg-5vK6lFI2Ks6-68PcCd-xO21OP-RPqZIW9noRDoH5DxF7xhexCIlkTkk2lfckcW8aBcLVfY9dYCzLcgSTxzKdgqIC-UlyhfnoXyY5sz2hzVZc2u5hYXGbkS0DqCQ1QYGGx7ljurgLjMwWF09ZiwjUJNDBlleHPyR1a3RmRoleBOc65RDcMrRodtliQpCMGEEDCrji3rDxc_gxWJ"/>
-                  <div class="absolute top-4 left-4 bg-secondary/90 backdrop-blur text-on-secondary font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider">
-                    Sustentable
-                  </div>
-                  <div class="absolute inset-0 bg-surface/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                    <button onclick="addToCart('Silla Curva', 420000)" class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
-                      <span class="material-symbols-outlined text-[18px]">visibility</span> Ver Detalle
-                    </button>
-                  </div>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                  <div class="flex items-start justify-between mb-2">
-                    <h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1">Silla 'Curva'</h2>
-                    <button class="text-primary"><span class="material-symbols-outlined">favorite</span></button>
-                  </div>
-                  <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Haya curvada al vapor &amp; Esterilla</p>
-                  <div class="flex items-center justify-between mt-auto">
-                    <span class="font-headline-md text-headline-md text-primary">$ 420,000</span>
-                    <span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-1 rounded">x4 disp.</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Product Card 6 -->
-              <div class="group flex flex-col h-full bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 md:col-span-2 xl:col-span-1">
-                <div class="relative aspect-[4/5] overflow-hidden bg-surface-container">
-                  <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A monumental solid wood dining table in a grand room with large windows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtDkBFJSWUmnpGPle7cGIR-_x-4q-5YwaeXO8egfRNyX0gFGkZPmUpIcKMpzs8IeQFBhU-GwczqIxyG_-ldHk6RIhgfbnt-apgBTrWzIPKMU17RI_uENfdkfW6iXdTlmTpFzQFTr7RvMNabaqDNjscKOQQDW0Dp0pyA_ieVn2hDjcCnle49WGeZHJiJ-NMjUCUNXWNLKgaUc7EPQrsVIvCbj029FhGQ2dXtqWG8N46C6BMjpV38v_i"/>
-                  <div class="absolute inset-0 bg-surface/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                    <button onclick="addToCart('Mesa Comedor Origen', 3200000)" class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
-                      <span class="material-symbols-outlined text-[18px]">visibility</span> Ver Detalle
-                    </button>
-                  </div>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                  <div class="flex items-start justify-between mb-2">
-                    <h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1">Mesa Comedor 'Origen'</h2>
-                    <button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">favorite_border</span></button>
-                  </div>
-                  <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Lenga patagónica maciza, 2.4m</p>
-                  <div class="flex items-center justify-between mt-auto">
-                    <span class="font-headline-md text-headline-md text-primary">$ 3,200,000</span>
-                  </div>
-                </div>
-              </div>
-
+            <!-- Dynamic Products Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-12" id="productsGrid">
+              <!-- Populated by app.js -->
             </div>
 
             <!-- Pagination -->
-            <div class="mt-16 flex justify-center items-center gap-2">
-              <button class="w-10 h-10 flex items-center justify-center rounded bg-surface-container text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors shadow-sm disabled:opacity-50 disabled:hover:bg-surface-container disabled:hover:text-on-surface-variant" disabled="">
-                <span class="material-symbols-outlined">chevron_left</span>
-              </button>
-              <button class="w-10 h-10 flex items-center justify-center rounded bg-primary text-on-primary font-label-md shadow-sm">1</button>
-              <button class="w-10 h-10 flex items-center justify-center rounded bg-surface-container text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors font-label-md shadow-sm">2</button>
-              <button class="w-10 h-10 flex items-center justify-center rounded bg-surface-container text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors font-label-md shadow-sm">3</button>
-              <span class="text-on-surface-variant font-label-md">...</span>
-              <button class="w-10 h-10 flex items-center justify-center rounded bg-surface-container text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors font-label-md shadow-sm">8</button>
-              <button class="w-10 h-10 flex items-center justify-center rounded bg-surface-container text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors shadow-sm">
-                <span class="material-symbols-outlined">chevron_right</span>
-              </button>
+            <div class="mt-16 flex justify-center items-center gap-2" id="paginationContainer">
+              <!-- Populated by app.js -->
             </div>
           </div>
         </div>
@@ -429,12 +268,12 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="w-full bg-surface-container-high mt-20 py-16">
+  <footer class="w-full bg-surface-container-high mt-20 py-16" id="contacto">
     <div class="max-w-[1280px] mx-auto px-margin-desktop">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-start">
         <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <img alt="Logo" class="h-8 opacity-80 grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTEmyJiGyCshEMgKKZ01lzHcskNnmIOn2bcw0kVWsAESqYilmukEiHaVjH7Jb9k4295PaE5hTMaeM1mD6wiDvtlLI8pi2hfsq3nNc8FfXZleboaxF7m7YuMZAFDpRBKJ6VYa4-FiKnHhZu2MITxVHEi6PsfMToooPQtcPIe03Mq6oFmNPxkm9P1s3obMXJsaqwHqGCNvFiyFL5FL2rMfPvWFyjYHxMdbPt-TesvQB6j4pFGp2aZ10U"/>
+            <img alt="Logo" class="h-8 opacity-80" src="assets/images/logo.svg"/>
             <div>
               <h4 class="font-headline-md text-headline-md text-on-surface">Hermanos Jota</h4>
               <p class="font-body-md text-body-md text-on-surface-variant">Estética de los 60, calidad eterna.</p>
@@ -452,6 +291,7 @@
           <div>
             <h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">Conectemos</h5>
             <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer"><span class="material-symbols-outlined text-sm">share</span> @hermanosjota_ba</p>
+            <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer"><span class="material-symbols-outlined text-sm">chat</span> +54 11 4567-8900</p>
           </div>
         </div>
       </div>
@@ -461,24 +301,33 @@
     </div>
   </footer>
 
+  <!-- PRODUCT MODAL -->
+  <div id="productModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-surface rounded-xl p-8 max-w-2xl w-full shadow-xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('productModal')" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">close</span></button>
+      <div id="productModalContent"></div>
+    </div>
+  </div>
+
   <!-- BESPOKE MODAL -->
   <div id="bespokeModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-surface rounded-xl p-8 max-w-lg w-full shadow-xl relative">
       <button onclick="closeBespokeModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">close</span></button>
       <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Servicio Bespoke</h3>
       <p class="font-body-md text-on-surface-variant mb-6">Personalice dimensiones, maderas nobles y acabados a medida.</p>
-      <form onsubmit="event.preventDefault(); alert('Solicitud enviada exitosamente.'); closeBespokeModal();" class="space-y-4">
+      <form onsubmit="event.preventDefault(); showToast('Solicitud Bespoke recibida', '✨'); closeBespokeModal();" class="space-y-4">
         <div>
           <label class="block font-label-sm text-on-surface mb-1">Pieza o Tipología</label>
-          <input class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Ej. Mesa Comedor o Credenza" required />
+          <input id="bespokePieceInput" class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Ej. Aparador Uspallata o Mesa Comedor Pampa" required />
         </div>
         <div>
           <label class="block font-label-sm text-on-surface mb-1">Madera / Acabado</label>
           <select class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary">
-            <option>Nogal Macizo</option>
-            <option>Roble Claro</option>
+            <option>Nogal Macizo FSC®</option>
+            <option>Roble Claro al Aceite</option>
+            <option>Guatambú Macizo</option>
             <option>Ébano / Fresno Teñido</option>
-            <option>Lenga Patagónica</option>
+            <option>Bambú Laminado</option>
           </select>
         </div>
         <div>
@@ -490,22 +339,25 @@
     </div>
   </div>
 
-  <script>
-    let cartItems = 0;
-    function addToCart(title, price) {
-      cartItems++;
-      document.getElementById('cartCount').textContent = cartItems;
-      alert(`"${title}" agregado a tu cotización ($ ${price.toLocaleString('es-AR')})`);
-    }
-    function openBespokeModal() {
-      document.getElementById('bespokeModal').classList.remove('hidden');
-    }
-    function closeBespokeModal() {
-      document.getElementById('bespokeModal').classList.add('hidden');
-    }
-    function openCartModal() {
-      alert(`Tienes ${cartItems} pieza(s) en tu cotización.`);
-    }
-  </script>
+  <!-- CART MODAL -->
+  <div id="cartModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-surface rounded-xl p-8 max-w-md w-full shadow-xl relative">
+      <button onclick="closeModal('cartModal')" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">close</span></button>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Tu Selección de Cotización</h3>
+      <div id="cartItemsList" class="my-4 max-h-60 overflow-y-auto"></div>
+      <div class="flex justify-between items-center py-3 border-t border-outline-variant">
+        <span class="font-semibold">Total Estimado:</span>
+        <span id="cartTotalAmount" class="font-bold text-primary font-headline-md text-lg">$ 0</span>
+      </div>
+      <button onclick="closeModal('cartModal'); showToast('Cotización enviada a Hermanos Jota', '✓')" class="w-full py-3 bg-primary text-on-primary font-label-md rounded shadow hover:bg-primary-container transition-colors mt-4">
+        Solicitar Presupuesto Formal
+      </button>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATIONS -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2"></div>
+
+  <script src="app.js"></script>
 </body>
 </html>
