@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestra Colección | Hermanos Jota - Mueblería de Autor</title>
+  <meta name="description" content="Piezas únicas, donde la honestidad del material y la precisión del diseño convergen. Estética de los 60, calidad eterna.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪑</text></svg>">
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <span class="monogram-badge">hj</span>
+        <span>Hermanos Jota</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="index.html" class="nav-link active">Catálogo</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="cart-button" id="cartBtn" onclick="openCartModal()" aria-label="Ver carrito">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+
+        <div class="consultant-pill" onclick="openBespokeModal('Consulta General')">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Consultor en línea" class="consultant-avatar">
+          <span>Consultar En Línea</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="catalog-hero">
+    <div class="hero-container">
+      <div class="hero-copy">
+        <h1 class="hero-title">Nuestra Colección</h1>
+        <p class="hero-subtitle">Piezas únicas, donde la honestidad del material y la precisión del diseño convergen.</p>
+      </div>
+
+      <div class="hero-search-wrapper">
+        <div class="search-box">
+          <span class="search-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Buscar por material, línea o tipo...">
+          <button id="searchBtn" class="search-btn">Buscar</button>
+        </div>
+
+        <div class="quick-tags">
+          <button class="quick-tag-pill" data-tag="madera-maciza">Madera Maciza</button>
+          <button class="quick-tag-pill" data-tag="enchapados">Enchapados</button>
+          <button class="quick-tag-pill" data-tag="edicion-limitada">Edición Limitada</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CATALOG CONTENT -->
+  <main class="catalog-content-section" id="catalogSection">
+    <div class="catalog-layout">
+      
+      <!-- SIDEBAR FILTERS -->
+      <aside class="catalog-sidebar">
+        <div class="filter-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+          </svg>
+          <span>FILTRAR</span>
+        </div>
+
+        <!-- Categorías -->
+        <div class="filter-group">
+          <h3 class="filter-group-title">Categorías</h3>
+          <ul class="filter-list">
+            <li class="filter-item active" data-category="asientos">
+              <span class="custom-checkbox">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span>Asientos</span>
+            </li>
+            <li class="filter-item" data-category="mesas">
+              <span class="custom-checkbox">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span>Mesas</span>
+            </li>
+            <li class="filter-item" data-category="almacenaje">
+              <span class="custom-checkbox">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span>Almacenaje</span>
+            </li>
+            <li class="filter-item" data-category="accesorios">
+              <span class="custom-checkbox">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span>Accesorios</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Materiales -->
+        <div class="filter-group">
+          <h3 class="filter-group-title">Materiales</h3>
+          <ul class="filter-list">
+            <li class="filter-item active" data-material="nogal">
+              <span class="material-swatch-box nogal"></span>
+              <span>Nogal</span>
+            </li>
+            <li class="filter-item" data-material="roble">
+              <span class="material-swatch-box roble"></span>
+              <span>Roble Claro</span>
+            </li>
+            <li class="filter-item" data-material="ebano">
+              <span class="material-swatch-box ebano"></span>
+              <span>Ébano</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bespoke Callout Banner -->
+        <div class="bespoke-card">
+          <div class="bespoke-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+          </div>
+          <h4 class="bespoke-title">Servicio Bespoke</h4>
+          <p class="bespoke-text">Personalice dimensiones y acabados.</p>
+          <a class="bespoke-cta" onclick="openBespokeModal()">
+            CONSULTAR &rarr;
+          </a>
+        </div>
+      </aside>
+
+      <!-- MAIN CATALOG AREA -->
+      <section class="catalog-main">
+        <div class="catalog-toolbar">
+          <div class="results-count">
+            Mostrando <strong id="shownCount">12</strong> de <strong id="totalPiecesCount">48</strong> piezas
+          </div>
+
+          <div class="toolbar-controls">
+            <div class="sort-wrapper">
+              <span>ORDENAR POR:</span>
+              <select id="sortSelect" class="sort-select">
+                <option value="novedades">Novedades</option>
+                <option value="precio-asc">Precio: Menor a Mayor</option>
+                <option value="precio-desc">Precio: Mayor a Menor</option>
+                <option value="alfabetico">Nombre (A - Z)</option>
+              </select>
+            </div>
+
+            <div class="view-modes">
+              <button class="view-btn active" id="gridViewBtn" title="Vista en cuadrícula">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+              </button>
+              <button class="view-btn" id="listViewBtn" title="Vista en lista">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUCTS GRID -->
+        <div class="products-grid" id="productsGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+        <!-- PAGINATION -->
+        <nav class="pagination-wrapper" id="paginationContainer" aria-label="Navegación de páginas">
+          <!-- Populated by app.js -->
+        </nav>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contacto">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-brand-title">
+          <span class="monogram-badge">hj</span>
+          <span>Hermanos Jota</span>
+        </div>
+        <p class="footer-brand-tagline">Estética de los 60, calidad eterna.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">SHOWROOM</h4>
+        <div class="footer-col-content">
+          <p>📍 Av. San Juan 2847, CABA</p>
+          <p>🕒 Lun - Vie 10:00 a 19:00</p>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">CONECTEMOS</h4>
+        <div class="footer-col-content">
+          <p>💬 <a href="https://instagram.com" target="_blank" rel="noopener">@hermanosjota_ba</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 Hermanos Jota. Hecho a mano con herencia y modernidad.
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <!-- Product Details Modal -->
+  <div class="modal-backdrop" id="productModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('productModal')">&times;</button>
+      <div id="productModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Bespoke Service Modal -->
+  <div class="modal-backdrop" id="bespokeModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('bespokeModal')">&times;</button>
+      <h2 class="modal-title">Servicio Bespoke</h2>
+      <p class="modal-subtitle">Cuéntanos sobre tu proyecto a medida y nuestro equipo de ebanistas te asesorará.</p>
+      <form id="bespokeForm">
+        <div class="form-group">
+          <label class="form-label">Pieza o Tipología</label>
+          <input type="text" id="bespokePieceInput" class="form-input" placeholder="Ej. Mesa Comedor o Credenza especial" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Madera / Acabado deseado</label>
+          <select class="form-select">
+            <option>Nogal Macizo</option>
+            <option>Roble Claro al Aceite</option>
+            <option>Ébano / Fresno Teñido</option>
+            <option>Lenga Patagónica</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Dimensiones aproximadas (cm)</label>
+          <input type="text" class="form-input" placeholder="Ej. 240cm x 110cm x 75cm">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email o WhatsApp de contacto</label>
+          <input type="text" class="form-input" placeholder="tu@email.com o +54 9 11..." required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Detalles adicionales</label>
+          <textarea class="form-textarea" rows="3" placeholder="Comentarios sobre el espacio, vetas, herrajes..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Enviar Solicitud</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Cart / Selection Modal -->
+  <div class="modal-backdrop" id="cartModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('cartModal')">&times;</button>
+      <h2 class="modal-title">Tu Selección de Cotización</h2>
+      <p class="modal-subtitle">Revisa las piezas seleccionadas para coordinar visita o envío.</p>
+      <div id="cartItemsList" style="margin-bottom: 1.5rem;"></div>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-top: 2px solid var(--bg-secondary); margin-bottom: 1.5rem;">
+        <span style="font-weight: 600; font-size: 1.1rem;">Estimado Total:</span>
+        <span id="cartTotalAmount" style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--accent-rust); font-weight: 700;">$ 0</span>
+      </div>
+      <button class="btn-primary" style="width: 100%;" onclick="closeModal('cartModal'); showToast('Cotización enviada a Hermanos Jota', '✓');">
+        Solicitar Presupuesto Formal
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
