@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nuestra Colección | Hermanos Jota - Mueblería de Autor</title>
+  <title>Nuestra Colección | Hermanos Jota — Manual Oficial 2026</title>
   <meta name="description" content="Piezas únicas, donde la honestidad del material y la precisión del diseño convergen. Estética de los 60, calidad eterna.">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪑</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23F5E6D3' stroke='%23A0522D' stroke-width='4'/><text x='50%' y='60%' text-anchor='middle' font-family='serif' font-weight='bold' font-size='42' fill='%23A0522D'>hj</text></svg>">
 </head>
 <body>
 
@@ -14,7 +14,17 @@
   <header class="site-header" id="siteHeader">
     <div class="nav-container">
       <a href="index.html" class="brand-logo">
-        <span class="monogram-badge">hj</span>
+        <span class="monogram-badge">
+          <!-- Monograma Oficial 'hj' en Siena Tostado (#A0522D) -->
+          <svg class="monogram-svg" viewBox="0 0 100 100">
+            <!-- Letra h estilizada con semicírculo característico de la marca -->
+            <path d="M24 16 v68 h14 v-28 c0-11 8-18 18-18 v-14 c-8 0-14 4-18 10 v-18 Z" fill="#A0522D"/>
+            <path d="M42 42 A 18 18 0 0 0 24 60 h 18 Z" fill="#A0522D" opacity="0.9"/>
+            <!-- Letra j estilizada con punto circular -->
+            <circle cx="70" cy="24" r="7" fill="#A0522D"/>
+            <path d="M63 38 v34 c0 10 -7 14 -15 14 v-13 c4 0 5-1 5-5 v-30 Z" fill="#A0522D"/>
+          </svg>
+        </span>
         <span>Hermanos Jota</span>
       </a>
 
@@ -25,8 +35,8 @@
       </nav>
 
       <div class="nav-actions">
-        <button class="cart-button" id="cartBtn" onclick="openCartModal()" aria-label="Ver carrito">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <button class="cart-button" id="cartBtn" onclick="openCartModal()" aria-label="Ver carrito de cotización">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A0522D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
@@ -43,7 +53,7 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="catalog-hero">
+  <section class="catalog-hero" id="inicio">
     <div class="hero-container">
       <div class="hero-copy">
         <h1 class="hero-title">Nuestra Colección</h1>
@@ -145,7 +155,7 @@
         <!-- Bespoke Callout Banner -->
         <div class="bespoke-card">
           <div class="bespoke-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
             </svg>
           </div>
@@ -211,35 +221,51 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER OFICIAL -->
   <footer class="site-footer" id="contacto">
     <div class="footer-container">
       <div class="footer-brand">
         <div class="footer-brand-title">
-          <span class="monogram-badge">hj</span>
+          <span class="monogram-badge">
+            <svg class="monogram-svg" viewBox="0 0 100 100">
+              <path d="M24 16 v68 h14 v-28 c0-11 8-18 18-18 v-14 c-8 0-14 4-18 10 v-18 Z" fill="#A0522D"/>
+              <path d="M42 42 A 18 18 0 0 0 24 60 h 18 Z" fill="#A0522D" opacity="0.9"/>
+              <circle cx="70" cy="24" r="7" fill="#A0522D"/>
+              <path d="M63 38 v34 c0 10 -7 14 -15 14 v-13 c4 0 5-1 5-5 v-30 Z" fill="#A0522D"/>
+            </svg>
+          </span>
           <span>Hermanos Jota</span>
         </div>
         <p class="footer-brand-tagline">Estética de los 60, calidad eterna.</p>
+        <p style="font-size: 0.8rem; color: var(--text-muted);">
+          Garantía extendida Programa <em>"Herencia Viva"</em>: 10 años en estructura, 5 años en acabados.
+        </p>
       </div>
 
       <div>
-        <h4 class="footer-col-title">SHOWROOM</h4>
+        <h4 class="footer-col-title">SHOWROOM Y TALLER</h4>
         <div class="footer-col-content">
-          <p>📍 Av. San Juan 2847, CABA</p>
-          <p>🕒 Lun - Vie 10:00 a 19:00</p>
+          <p><strong>Casa Taller</strong></p>
+          <p>📍 Av. San Juan 2847, C1232AAB</p>
+          <p>Barrio de San Cristóbal, CABA</p>
+          <p style="margin-top: 0.35rem;">🕒 Lun a Vie: 10:00 - 19:00</p>
+          <p>🕒 Sábados: 10:00 - 14:00</p>
         </div>
       </div>
 
       <div>
         <h4 class="footer-col-title">CONECTEMOS</h4>
         <div class="footer-col-content">
-          <p>💬 <a href="https://instagram.com" target="_blank" rel="noopener">@hermanosjota_ba</a></p>
+          <p>💬 <a href="https://instagram.com/hermanosjota_ba" target="_blank" rel="noopener">@hermanosjota_ba</a></p>
+          <p>📱 <a href="https://wa.me/541145678900" target="_blank" rel="noopener">+54 11 4567-8900</a></p>
+          <p>✉️ <a href="mailto:info@hermanosjota.com.ar">info@hermanosjota.com.ar</a></p>
+          <p>💼 <a href="mailto:ventas@hermanosjota.com.ar">ventas@hermanosjota.com.ar</a></p>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      &copy; 2026 Hermanos Jota. Hecho a mano con herencia y modernidad.
+      &copy; 2026 Hermanos Jota. Hecho a mano con herencia y modernidad. Todos los derechos reservados.
     </div>
   </footer>
 
@@ -247,7 +273,7 @@
   <!-- Product Details Modal -->
   <div class="modal-backdrop" id="productModal">
     <div class="modal-card">
-      <button class="modal-close" onclick="closeModal('productModal')">&times;</button>
+      <button class="modal-close" onclick="closeModal('productModal')" aria-label="Cerrar">&times;</button>
       <div id="productModalContent"></div>
     </div>
   </div>
@@ -255,7 +281,7 @@
   <!-- Bespoke Service Modal -->
   <div class="modal-backdrop" id="bespokeModal">
     <div class="modal-card">
-      <button class="modal-close" onclick="closeModal('bespokeModal')">&times;</button>
+      <button class="modal-close" onclick="closeModal('bespokeModal')" aria-label="Cerrar">&times;</button>
       <h2 class="modal-title">Servicio Bespoke</h2>
       <p class="modal-subtitle">Cuéntanos sobre tu proyecto a medida y nuestro equipo de ebanistas te asesorará.</p>
       <form id="bespokeForm">
@@ -266,10 +292,11 @@
         <div class="form-group">
           <label class="form-label">Madera / Acabado deseado</label>
           <select class="form-select">
-            <option>Nogal Macizo</option>
+            <option>Nogal Macizo (Siena Tostado)</option>
             <option>Roble Claro al Aceite</option>
-            <option>Ébano / Fresno Teñido</option>
-            <option>Lenga Patagónica</option>
+            <option>Ébano / Fresno Teñido Oscuro</option>
+            <option>Lenga Patagónica Maciza</option>
+            <option>Algarrobo / Quebracho / Caldén Nativo</option>
           </select>
         </div>
         <div class="form-group">
@@ -282,9 +309,9 @@
         </div>
         <div class="form-group">
           <label class="form-label">Detalles adicionales</label>
-          <textarea class="form-textarea" rows="3" placeholder="Comentarios sobre el espacio, vetas, herrajes..."></textarea>
+          <textarea class="form-textarea" rows="3" placeholder="Comentarios sobre el espacio, vetas, herrajes de latón..."></textarea>
         </div>
-        <button type="submit" class="submit-btn">Enviar Solicitud</button>
+        <button type="submit" class="btn-primary" style="width: 100%;">Enviar Solicitud Bespoke</button>
       </form>
     </div>
   </div>
@@ -292,13 +319,13 @@
   <!-- Cart / Selection Modal -->
   <div class="modal-backdrop" id="cartModal">
     <div class="modal-card">
-      <button class="modal-close" onclick="closeModal('cartModal')">&times;</button>
+      <button class="modal-close" onclick="closeModal('cartModal')" aria-label="Cerrar">&times;</button>
       <h2 class="modal-title">Tu Selección de Cotización</h2>
-      <p class="modal-subtitle">Revisa las piezas seleccionadas para coordinar visita o envío.</p>
+      <p class="modal-subtitle">Revisa las piezas seleccionadas para coordinar visita a la Casa Taller o envío.</p>
       <div id="cartItemsList" style="margin-bottom: 1.5rem;"></div>
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-top: 2px solid var(--bg-secondary); margin-bottom: 1.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-top: 2px solid var(--border-color); margin-bottom: 1.5rem;">
         <span style="font-weight: 600; font-size: 1.1rem;">Estimado Total:</span>
-        <span id="cartTotalAmount" style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--accent-rust); font-weight: 700;">$ 0</span>
+        <span id="cartTotalAmount" style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--siena-tostado); font-weight: 700;">$ 0</span>
       </div>
       <button class="btn-primary" style="width: 100%;" onclick="closeModal('cartModal'); showToast('Cotización enviada a Hermanos Jota', '✓');">
         Solicitar Presupuesto Formal
