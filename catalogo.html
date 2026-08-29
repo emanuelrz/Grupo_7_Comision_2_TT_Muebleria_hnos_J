@@ -1,32 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Nuestra Colección | Hermanos Jota</title>
   <style>
     @layer base {
-      html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
-      main > :first-child { margin-top: 0 !important; }
-      main > :last-child { margin-bottom: 0 !important; }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      main> :first-child {
+        margin-top: 0 !important;
+      }
+
+      main> :last-child {
+        margin-bottom: 0 !important;
+      }
     }
-    
+
     /* Scrollbar Oficial Hermanos Jota */
     ::-webkit-scrollbar {
       width: 10px;
       height: 10px;
     }
+
     ::-webkit-scrollbar-track {
       background: #F5E6D3;
     }
+
     ::-webkit-scrollbar-thumb {
       background: #A0522D;
       border-radius: 5px;
       border: 2px solid #F5E6D3;
     }
+
     ::-webkit-scrollbar-thumb:hover {
       background: #823B18;
     }
+
     * {
       scrollbar-width: thin;
       scrollbar-color: #A0522D #F5E6D3;
@@ -124,35 +141,49 @@
       }
     };
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
 </head>
+
 <body class="bg-surface font-body-md text-on-surface">
 
   <!-- HEADER -->
   <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_12px_rgba(74,50,40,0.06)]">
     <div class="h-20 max-w-[1280px] mx-auto px-margin-desktop flex items-center justify-between">
       <div class="flex items-center gap-4">
-        <img alt="Logo Circular hj" class="h-10 w-auto object-contain" src="assets/images/logo.svg"/>
+        <img alt="Logo Circular hj" class="h-10 w-auto object-contain" src="assets/images/logo.svg" />
         <span class="font-headline-md text-headline-md tracking-tight text-primary">Hermanos Jota</span>
       </div>
       <nav class="hidden md:flex items-center gap-8">
-        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase" href="index.html">Inicio</a>
-        <a aria-current="page" class="transition-colors tracking-widest uppercase text-primary font-semibold border-b-2 border-primary" href="catalogo.html">Catálogo</a>
-        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase" href="contacto.html">Contacto</a>
+        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase"
+          href="index.html">Inicio</a>
+        <a aria-current="page"
+          class="transition-colors tracking-widest uppercase text-primary font-semibold border-b-2 border-primary"
+          href="catalogo.html">Catálogo</a>
+        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase"
+          href="contacto.html">Contacto</a>
       </nav>
       <div class="flex items-center gap-6">
-        <button class="relative p-2 text-on-surface-variant hover:text-primary transition-colors" onclick="openCartModal()">
+        <button class="relative p-2 text-on-surface-variant hover:text-primary transition-colors"
+          onclick="openCartModal()">
           <span class="material-symbols-outlined">shopping_bag</span>
-          <span id="cartCount" class="absolute top-0 right-0 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+          <span id="cartCount"
+            class="absolute top-0 right-0 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
-        <div class="flex items-center gap-3 pl-6 border-l border-outline-variant cursor-pointer" onclick="openBespokeModal('Consulta General')">
+        <div class="flex items-center gap-3 pl-6 border-l border-outline-variant cursor-pointer"
+          onclick="openBespokeModal('Consulta General')">
           <div class="text-right hidden sm:block">
             <p class="font-label-sm text-label-sm text-on-surface-variant">Consultor</p>
             <p class="font-label-md text-label-md text-on-surface">En Línea</p>
           </div>
-          <img alt="Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHJubnYO2u0cZVbfvyc016i5t7jUM2kH8hnHizm_6U1Kx7mLNsCgGo2U-YhMJCtd52AKmIThY1x5qIFbuD2EQEGjEbdu1tr-yvcl6sdYylXj8gperE_L9OQKHXRO34YfzkO3WJwdxCLIjlF0cpQtE8vvbSkUf0v5w2LN1Tx7BN8j7oG427piyRtvgoPe34Ugvc9ruJSm6UglFklqhqYkC7ByehpgbJxhD7cLTZzMoH8Z4sdFidxcAs"/>
+          <img alt="Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-surface-container-high"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHJubnYO2u0cZVbfvyc016i5t7jUM2kH8hnHizm_6U1Kx7mLNsCgGo2U-YhMJCtd52AKmIThY1x5qIFbuD2EQEGjEbdu1tr-yvcl6sdYylXj8gperE_L9OQKHXRO34YfzkO3WJwdxCLIjlF0cpQtE8vvbSkUf0v5w2LN1Tx7BN8j7oG427piyRtvgoPe34Ugvc9ruJSm6UglFklqhqYkC7ByehpgbJxhD7cLTZzMoH8Z4sdFidxcAs" />
         </div>
       </div>
     </div>
@@ -162,29 +193,48 @@
   <main class="w-full pt-20 bg-surface">
     <div class="flex flex-col w-full">
       <!-- Header with Search -->
-      <div class="w-full bg-surface-container py-8 md:py-16 px-margin-mobile md:px-margin-desktop rounded-b-xl shadow-sm mb-16 relative overflow-hidden">
-        <div class="absolute -top-32 -right-32 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute top-1/2 -left-32 w-72 h-72 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
+      <div
+        class="w-full bg-surface-container py-8 md:py-16 px-margin-mobile md:px-margin-desktop rounded-b-xl shadow-sm mb-16 relative overflow-hidden">
+        <div
+          class="absolute -top-32 -right-32 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none">
+        </div>
+        <div
+          class="absolute top-1/2 -left-32 w-72 h-72 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none">
+        </div>
+        <div
+          class="max-w-[1280px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
           <div class="flex-1 max-w-2xl">
-            <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4">Nuestra Colección</h1>
-            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Piezas únicas, donde la honestidad del material y la precisión del diseño convergen.</p>
+            <h1
+              class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4">
+              Nuestra Colección</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Piezas únicas, donde la honestidad del
+              material y la precisión del diseño convergen.</p>
           </div>
           <div class="flex-1 w-full max-w-md">
             <div class="relative group">
-              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary transition-colors group-focus-within:text-primary">
+              <div
+                class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary transition-colors group-focus-within:text-primary">
                 <span class="material-symbols-outlined text-[20px]">search</span>
               </div>
-              <input id="searchInput" class="w-full pl-12 pr-4 py-4 bg-surface text-on-surface font-body-md text-body-md rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow placeholder:text-on-surface-variant/50" placeholder="Buscar por material, línea o tipo..." type="text"/>
-              <button id="searchBtn" class="absolute inset-y-2 right-2 px-4 bg-primary text-on-primary font-label-md text-label-md rounded shadow-sm hover:-translate-y-0.5 transition-transform">
+              <input id="searchInput"
+                class="w-full pl-12 pr-4 py-4 bg-surface text-on-surface font-body-md text-body-md rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow placeholder:text-on-surface-variant/50"
+                placeholder="Buscar por material, línea o tipo..." type="text" />
+              <button id="searchBtn"
+                class="absolute inset-y-2 right-2 px-4 bg-primary text-on-primary font-label-md text-label-md rounded shadow-sm hover:-translate-y-0.5 transition-transform">
                 Buscar
               </button>
             </div>
             <!-- Quick Filters / Tags -->
             <div class="mt-4 flex flex-wrap gap-2">
-              <span class="quick-tag font-label-sm text-label-sm px-3 py-1 bg-surface rounded-full text-on-surface-variant shadow-sm cursor-pointer hover:bg-primary hover:text-on-primary transition-colors" data-tag="madera-maciza">Madera Maciza</span>
-              <span class="quick-tag font-label-sm text-label-sm px-3 py-1 bg-surface rounded-full text-on-surface-variant shadow-sm cursor-pointer hover:bg-primary hover:text-on-primary transition-colors" data-tag="enchapados">Enchapados</span>
-              <span class="quick-tag font-label-sm text-label-sm px-3 py-1 bg-surface rounded-full text-on-surface-variant shadow-sm cursor-pointer hover:bg-primary hover:text-on-primary transition-colors" data-tag="edicion-limitada">Edición Limitada</span>
+              <span
+                class="quick-tag font-label-sm text-label-sm px-3 py-1 bg-surface rounded-full text-on-surface-variant shadow-sm cursor-pointer hover:bg-primary hover:text-on-primary transition-colors"
+                data-tag="madera-maciza">Madera Maciza</span>
+              <span
+                class="quick-tag font-label-sm text-label-sm px-3 py-1 bg-surface rounded-full text-on-surface-variant shadow-sm cursor-pointer hover:bg-primary hover:text-on-primary transition-colors"
+                data-tag="enchapados">Enchapados</span>
+              <span
+                class="quick-tag font-label-sm text-label-sm px-3 py-1 bg-surface rounded-full text-on-surface-variant shadow-sm cursor-pointer hover:bg-primary hover:text-on-primary transition-colors"
+                data-tag="edicion-limitada">Edición Limitada</span>
             </div>
           </div>
         </div>
@@ -193,57 +243,81 @@
       <!-- Main Content Area: Sidebar + Grid -->
       <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop w-full pb-32" id="catalogSection">
         <div class="flex flex-col lg:flex-row gap-gutter items-start">
-          
+
           <!-- Sidebar Filters -->
-          <aside class="w-full lg:w-64 shrink-0 space-y-8 sticky top-28 bg-surface p-6 rounded-xl shadow-sm z-10 lg:z-auto">
+          <aside
+            class="w-full lg:w-64 shrink-0 space-y-8 sticky top-28 bg-surface p-6 rounded-xl shadow-sm z-10 lg:z-auto">
             <div>
-              <h3 class="font-label-md text-label-md uppercase tracking-widest text-on-surface mb-6 flex items-center gap-2">
+              <h3
+                class="font-label-md text-label-md uppercase tracking-widest text-on-surface mb-6 flex items-center gap-2">
                 <span class="material-symbols-outlined text-[18px]">filter_list</span> Filtrar
               </h3>
-              
+
               <!-- Categorías -->
               <div class="mb-8">
                 <h4 class="font-headline-md text-headline-md text-on-surface mb-4">Categorías</h4>
                 <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
-                  <li><label class="flex items-center gap-3 cursor-pointer group"><input checked="" class="accent-primary w-4 h-4 filter-cat" data-category="asientos" type="checkbox"/><span class="group-hover:text-primary transition-colors">Asientos</span></label></li>
-                  <li><label class="flex items-center gap-3 cursor-pointer group"><input class="accent-primary w-4 h-4 filter-cat" data-category="mesas" type="checkbox"/><span class="group-hover:text-primary transition-colors">Mesas</span></label></li>
-                  <li><label class="flex items-center gap-3 cursor-pointer group"><input class="accent-primary w-4 h-4 filter-cat" data-category="almacenaje" type="checkbox"/><span class="group-hover:text-primary transition-colors">Almacenaje</span></label></li>
-                  <li><label class="flex items-center gap-3 cursor-pointer group"><input class="accent-primary w-4 h-4 filter-cat" data-category="accesorios" type="checkbox"/><span class="group-hover:text-primary transition-colors">Accesorios</span></label></li>
+                  <li><label class="flex items-center gap-3 cursor-pointer group"><input checked=""
+                        class="accent-primary w-4 h-4 filter-cat" data-category="asientos" type="checkbox" /><span
+                        class="group-hover:text-primary transition-colors">Asientos</span></label></li>
+                  <li><label class="flex items-center gap-3 cursor-pointer group"><input
+                        class="accent-primary w-4 h-4 filter-cat" data-category="mesas" type="checkbox" /><span
+                        class="group-hover:text-primary transition-colors">Mesas</span></label></li>
+                  <li><label class="flex items-center gap-3 cursor-pointer group"><input
+                        class="accent-primary w-4 h-4 filter-cat" data-category="almacenaje" type="checkbox" /><span
+                        class="group-hover:text-primary transition-colors">Almacenaje</span></label></li>
+                  <li><label class="flex items-center gap-3 cursor-pointer group"><input
+                        class="accent-primary w-4 h-4 filter-cat" data-category="accesorios" type="checkbox" /><span
+                        class="group-hover:text-primary transition-colors">Accesorios</span></label></li>
                 </ul>
               </div>
-              
+
               <!-- Materiales -->
               <div>
                 <h4 class="font-headline-md text-headline-md text-on-surface mb-4">Materiales</h4>
                 <div class="flex flex-col gap-3">
                   <label class="flex items-center gap-3 cursor-pointer group">
-                    <div class="w-5 h-5 rounded-sm bg-[#5c4033] shadow-inner flex items-center justify-center text-white/0 group-has-[:checked]:text-white"><span class="material-symbols-outlined text-[14px]">check</span></div>
-                    <input checked="" class="sr-only filter-mat" data-material="nogal" type="checkbox"/>
-                    <span class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Nogal</span>
+                    <div
+                      class="w-5 h-5 rounded-sm bg-[#5c4033] shadow-inner flex items-center justify-center text-white/0 group-has-[:checked]:text-white">
+                      <span class="material-symbols-outlined text-[14px]">check</span></div>
+                    <input checked="" class="sr-only filter-mat" data-material="nogal" type="checkbox" />
+                    <span
+                      class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Nogal</span>
                   </label>
                   <label class="flex items-center gap-3 cursor-pointer group">
-                    <div class="w-5 h-5 rounded-sm bg-[#d2b48c] shadow-inner flex items-center justify-center text-white/0 group-has-[:checked]:text-white"><span class="material-symbols-outlined text-[14px]">check</span></div>
-                    <input class="sr-only filter-mat" data-material="roble" type="checkbox"/>
-                    <span class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Roble Claro</span>
+                    <div
+                      class="w-5 h-5 rounded-sm bg-[#d2b48c] shadow-inner flex items-center justify-center text-white/0 group-has-[:checked]:text-white">
+                      <span class="material-symbols-outlined text-[14px]">check</span></div>
+                    <input class="sr-only filter-mat" data-material="roble" type="checkbox" />
+                    <span
+                      class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Roble
+                      Claro</span>
                   </label>
                   <label class="flex items-center gap-3 cursor-pointer group">
-                    <div class="w-5 h-5 rounded-sm bg-[#3a2f28] shadow-inner flex items-center justify-center text-white/0 group-has-[:checked]:text-white"><span class="material-symbols-outlined text-[14px]">check</span></div>
-                    <input class="sr-only filter-mat" data-material="ebano" type="checkbox"/>
-                    <span class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Ébano</span>
+                    <div
+                      class="w-5 h-5 rounded-sm bg-[#3a2f28] shadow-inner flex items-center justify-center text-white/0 group-has-[:checked]:text-white">
+                      <span class="material-symbols-outlined text-[14px]">check</span></div>
+                    <input class="sr-only filter-mat" data-material="ebano" type="checkbox" />
+                    <span
+                      class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Ébano</span>
                   </label>
                 </div>
               </div>
             </div>
 
             <!-- Servicio Bespoke -->
-            <div class="mt-12 bg-primary-container p-6 rounded-xl text-on-primary-container relative overflow-hidden group">
+            <div
+              class="mt-12 bg-primary-container p-6 rounded-xl text-on-primary-container relative overflow-hidden group">
               <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
               <div class="relative z-10">
                 <span class="material-symbols-outlined mb-2">auto_awesome</span>
                 <h5 class="font-headline-md text-headline-md mb-2">Servicio Bespoke</h5>
-                <p class="font-body-md text-body-md text-on-primary-container/80 mb-4">Personalice dimensiones y acabados.</p>
-                <a class="font-label-md text-label-md uppercase tracking-wider hover:underline flex items-center gap-1 cursor-pointer" onclick="openBespokeModal()">
-                  Consultar <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                <p class="font-body-md text-body-md text-on-primary-container/80 mb-4">Personalice dimensiones y
+                  acabados.</p>
+                <a class="font-label-md text-label-md uppercase tracking-wider hover:underline flex items-center gap-1 cursor-pointer"
+                  onclick="openBespokeModal()">
+                  Consultar <span
+                    class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </a>
               </div>
             </div>
@@ -253,11 +327,14 @@
           <div class="flex-1 w-full min-w-0">
             <!-- Toolbar -->
             <div class="flex justify-between items-center mb-8 pb-4 border-b border-surface-variant hidden md:flex">
-              <span class="font-body-md text-body-md text-on-surface-variant">Mostrando <strong id="shownCount" class="text-on-surface">6</strong> de <strong id="totalPiecesCount">11</strong> piezas</span>
+              <span class="font-body-md text-body-md text-on-surface-variant">Mostrando <strong id="shownCount"
+                  class="text-on-surface">6</strong> de <strong id="totalPiecesCount">11</strong> piezas</span>
               <div class="flex items-center gap-6">
                 <div class="flex items-center gap-2">
-                  <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Ordenar por:</span>
-                  <select id="sortSelect" class="bg-transparent font-body-md text-body-md text-on-surface focus:outline-none cursor-pointer">
+                  <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Ordenar
+                    por:</span>
+                  <select id="sortSelect"
+                    class="bg-transparent font-body-md text-body-md text-on-surface focus:outline-none cursor-pointer">
                     <option value="novedades">Novedades</option>
                     <option value="precio-asc">Precio: Menor a Mayor</option>
                     <option value="precio-desc">Precio: Mayor a Menor</option>
@@ -266,7 +343,8 @@
                 </div>
                 <div class="flex gap-2 text-on-surface-variant">
                   <button class="p-1 text-primary"><span class="material-symbols-outlined">grid_view</span></button>
-                  <button class="p-1 hover:text-primary transition-colors"><span class="material-symbols-outlined">view_list</span></button>
+                  <button class="p-1 hover:text-primary transition-colors"><span
+                      class="material-symbols-outlined">view_list</span></button>
                 </div>
               </div>
             </div>
@@ -292,7 +370,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-start">
         <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <img alt="Logo" class="h-8 opacity-80" src="assets/images/logo.svg"/>
+            <img alt="Logo" class="h-8 opacity-80" src="assets/images/logo.svg" />
             <div>
               <h4 class="font-headline-md text-headline-md text-on-surface">Hermanos Jota</h4>
               <p class="font-body-md text-body-md text-on-surface-variant">Estética de los 60, calidad eterna.</p>
@@ -302,46 +380,64 @@
         <div class="space-y-4">
           <div>
             <h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">Showroom</h5>
-            <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span class="material-symbols-outlined text-sm">location_on</span> Av. San Juan 2847, CABA</p>
-            <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span class="material-symbols-outlined text-sm">schedule</span> Lun - Vie 10:00 a 19:00</p>
+            <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">location_on</span> Av. San Juan 2847, CABA</p>
+            <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">schedule</span> Lun - Vie 10:00 a 19:00</p>
           </div>
         </div>
         <div class="space-y-4">
           <div>
             <h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">Conectemos</h5>
-            <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer"><span class="material-symbols-outlined text-sm">share</span> @hermanosjota_ba</p>
-            <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer"><span class="material-symbols-outlined text-sm">chat</span> +54 11 4567-8900</p>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
+              <span class="material-symbols-outlined text-sm">share</span> @hermanosjota_ba</p>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
+              <span class="material-symbols-outlined text-sm">chat</span> +54 11 4567-8900</p>
           </div>
         </div>
       </div>
       <div class="mt-16 pt-8 border-t border-outline-variant text-center">
-        <p class="font-label-sm text-label-sm text-on-surface-variant opacity-60 italic">© 2026 Hermanos Jota. Hecho a mano con herencia y modernidad.</p>
+        <p class="font-label-sm text-label-sm text-on-surface-variant opacity-60 italic">© 2026 Hermanos Jota. Hecho a
+          mano con herencia y modernidad.</p>
       </div>
     </div>
   </footer>
 
   <!-- PRODUCT MODAL -->
-  <div id="productModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+  <div id="productModal"
+    class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-surface rounded-xl p-8 max-w-2xl w-full shadow-xl relative max-h-[90vh] overflow-y-auto">
-      <button onclick="closeModal('productModal')" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">close</span></button>
+      <button onclick="closeModal('productModal')"
+        class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span
+          class="material-symbols-outlined">close</span></button>
       <div id="productModalContent"></div>
     </div>
   </div>
 
   <!-- BESPOKE MODAL -->
-  <div id="bespokeModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+  <div id="bespokeModal"
+    class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-surface rounded-xl p-8 max-w-lg w-full shadow-xl relative">
-      <button onclick="closeBespokeModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">close</span></button>
+      <button onclick="closeBespokeModal()"
+        class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span
+          class="material-symbols-outlined">close</span></button>
       <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Servicio Bespoke</h3>
-      <p class="font-body-md text-on-surface-variant mb-6">Personalice dimensiones, maderas nobles y acabados a medida.</p>
-      <form onsubmit="event.preventDefault(); showToast('Solicitud Bespoke recibida', '✨'); closeBespokeModal();" class="space-y-4">
+      <p class="font-body-md text-on-surface-variant mb-6">Personalice dimensiones, maderas nobles y acabados a medida.
+      </p>
+      <form onsubmit="event.preventDefault(); showToast('Solicitud Bespoke recibida', '✨'); closeBespokeModal();"
+        class="space-y-4">
         <div>
           <label class="block font-label-sm text-on-surface mb-1">Pieza o Tipología</label>
-          <input id="bespokePieceInput" class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Ej. Aparador Uspallata o Mesa Comedor Pampa" required />
+          <input id="bespokePieceInput"
+            class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary"
+            placeholder="Ej. Aparador Uspallata o Mesa Comedor Pampa" required />
         </div>
         <div>
           <label class="block font-label-sm text-on-surface mb-1">Madera / Acabado</label>
-          <select class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary">
+          <select
+            class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary">
             <option>Nogal Macizo FSC®</option>
             <option>Roble Claro al Aceite</option>
             <option>Guatambú Macizo</option>
@@ -351,24 +447,32 @@
         </div>
         <div>
           <label class="block font-label-sm text-on-surface mb-1">Contacto (Email o WhatsApp)</label>
-          <input class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary" placeholder="tu@email.com o +54..." required />
+          <input
+            class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary"
+            placeholder="tu@email.com o +54..." required />
         </div>
-        <button type="submit" class="w-full py-3 bg-primary text-on-primary font-label-md rounded shadow hover:bg-primary-container transition-colors">Enviar Solicitud</button>
+        <button type="submit"
+          class="w-full py-3 bg-primary text-on-primary font-label-md rounded shadow hover:bg-primary-container transition-colors">Enviar
+          Solicitud</button>
       </form>
     </div>
   </div>
 
   <!-- CART MODAL -->
-  <div id="cartModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+  <div id="cartModal"
+    class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-surface rounded-xl p-8 max-w-md w-full shadow-xl relative">
-      <button onclick="closeModal('cartModal')" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">close</span></button>
+      <button onclick="closeModal('cartModal')"
+        class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span
+          class="material-symbols-outlined">close</span></button>
       <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Tu Selección de Cotización</h3>
       <div id="cartItemsList" class="my-4 max-h-60 overflow-y-auto"></div>
       <div class="flex justify-between items-center py-3 border-t border-outline-variant">
         <span class="font-semibold">Total Estimado:</span>
         <span id="cartTotalAmount" class="font-bold text-primary font-headline-md text-lg">$ 0</span>
       </div>
-      <button onclick="closeModal('cartModal'); showToast('Cotización enviada a Hermanos Jota', '✓')" class="w-full py-3 bg-primary text-on-primary font-label-md rounded shadow hover:bg-primary-container transition-colors mt-4">
+      <button onclick="closeModal('cartModal'); showToast('Cotización enviada a Hermanos Jota', '✓')"
+        class="w-full py-3 bg-primary text-on-primary font-label-md rounded shadow hover:bg-primary-container transition-colors mt-4">
         Solicitar Presupuesto Formal
       </button>
     </div>
@@ -379,4 +483,5 @@
 
   <script src="app.js"></script>
 </body>
+
 </html>

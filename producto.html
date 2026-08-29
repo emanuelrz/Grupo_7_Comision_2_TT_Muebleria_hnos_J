@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Detalle de Producto | Hermanos Jota</title>
+  
+  <!-- Tailwind CSS CDN & Configuración de Marca Oficial -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#823b18",
+            "primary-container": "#a0522d",
+            "on-primary": "#ffffff",
+            "surface": "#fff8f3",
+            "surface-container": "#fbecd9",
+            "surface-container-high": "#f5e6d3",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#221a0f",
+            "on-surface-variant": "#54433c",
+            "secondary": "#486730",
+            "secondary-container": "#c9eea9",
+            "outline-variant": "#dac1b8"
+          },
+          fontFamily: {
+            "display": ["Playfair Display", "Georgia", "serif"],
+            "sans": ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Tipografías de Google e Iconografía Oficial -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  <!-- Estilos Globales de Marca Oficial -->
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col justify-between">
+
+  <!-- ==========================================
+       HEADER / NAVEGACIÓN PRINCIPAL
+       ========================================== -->
+  <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-surface-container-high shadow-[0_1px_12px_rgba(74,50,40,0.04)]">
+    <div class="h-20 max-w-[1280px] mx-auto px-4 sm:px-8 md:px-12 flex items-center justify-between">
+      
+      <!-- Logotipo de la Marca -->
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <img alt="Logo Hermanos Jota" class="h-9 w-auto object-contain transition-transform group-hover:scale-105" src="assets/images/logo.svg"/>
+        <span class="font-display font-semibold text-2xl tracking-tight text-primary">Hermanos Jota</span>
+      </a>
+
+      <!-- Menú de Enlaces Principales -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase font-medium" href="index.html">Inicio</a>
+        <a class="text-sm transition-colors tracking-widest uppercase text-primary font-semibold border-b-2 border-primary pb-0.5" href="catalogo.html">Catálogo</a>
+        <a class="text-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase font-medium" href="index.html#contacto">Contacto</a>
+      </nav>
+
+      <!-- Acciones: Carrito & Consultor -->
+      <div class="flex items-center gap-5">
+        <button id="cartBtn" class="relative p-2 text-on-surface hover:text-primary transition-colors cursor-pointer" onclick="openCartModal()" aria-label="Ver Carrito de Cotización">
+          <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+          <span id="cartCount" class="absolute top-0 right-0 bg-primary text-white text-[11px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+        </button>
+
+        <div class="flex items-center gap-3 pl-5 border-l border-outline-variant/60 cursor-pointer group" onclick="openBespokeModal('Consulta Especializada')">
+          <div class="text-right hidden sm:block leading-tight">
+            <p class="text-xs text-on-surface-variant font-medium">Consultor</p>
+            <p class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">En Línea</p>
+          </div>
+          <img alt="Consultor en Línea" class="w-9 h-9 rounded-full object-cover ring-2 ring-surface-container-high group-hover:ring-primary transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHJubnYO2u0cZVbfvyc016i5t7jUM2kH8hnHizm_6U1Kx7mLNsCgGo2U-YhMJCtd52AKmIThY1x5qIFbuD2EQEGjEbdu1tr-yvcl6sdYylXj8gperE_L9OQKHXRO34YfzkO3WJwdxCLIjlF0cpQtE8vvbSkUf0v5w2LN1Tx7BN8j7oG427piyRtvgoPe34Ugvc9ruJSm6UglFklqhqYkC7ByehpgbJxhD7cLTZzMoH8Z4sdFidxcAs"/>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       CONTENIDO PRINCIPAL: DETALLE DE PRODUCTO
+       ========================================== -->
+  <main class="w-full pt-28 pb-20 max-w-[1280px] mx-auto px-4 sm:px-8 md:px-12 flex-grow">
+    
+    <!-- Breadcrumbs / Migas de Pan -->
+    <nav class="flex items-center gap-2 text-xs uppercase tracking-widest text-on-surface-variant mb-8 overflow-x-auto whitespace-nowrap py-1">
+      <a href="catalogo.html" class="hover:text-primary transition-colors font-medium">Catálogo</a>
+      <span class="text-outline-variant">&rsaquo;</span>
+      <a href="catalogo.html" id="breadcrumbCategory" class="hover:text-primary transition-colors font-medium">Mesas</a>
+      <span class="text-outline-variant">&rsaquo;</span>
+      <span id="breadcrumbTitle" class="text-primary font-semibold">Mesa Raíz Algarrobo</span>
+    </nav>
+
+    <!-- Grilla de Detalle de Producto (2 Columnas) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-start">
+      
+      <!-- ==========================================
+           COLUMNA IZQUIERDA: IMAGEN ÚNICA DEL PRODUCTO
+           ========================================== -->
+      <section class="lg:col-span-6 xl:col-span-7 flex flex-col gap-4 sticky top-28">
+        
+        <!-- Imagen Principal Única con Botón de Favorito -->
+        <div class="relative w-full aspect-[4/3] sm:aspect-[5/4] md:aspect-[4/3] bg-[#f7efe6] rounded-2xl overflow-hidden shadow-sm product-hero-container flex items-center justify-center p-6 border border-[#ebdcd0]">
+          <img id="mainProductImage" src="assets/images/mesa-comedor-pampa.png" alt="Producto Hermanos Jota" class="w-full h-full object-contain product-hero-image" />
+          
+          <!-- Botón Flotante Favorito -->
+          <button id="favBtn" onclick="toggleProductFavorite()" class="btn-floating-fav" title="Guardar en favoritos" aria-label="Guardar en favoritos">
+            <span id="favIcon" class="material-symbols-outlined text-2xl">favorite_border</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           COLUMNA DERECHA: DETALLES, PRECIO Y ACCIONES
+           ========================================== -->
+      <section class="lg:col-span-6 xl:col-span-5 flex flex-col space-y-6">
+        
+        <!-- Badges / Etiquetas de Colección -->
+        <div class="flex flex-wrap items-center gap-2.5" id="badgesContainer">
+          <span class="badge-collection-green px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Nueva Colección</span>
+          <span class="badge-collection-tan px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Edición Limitada</span>
+        </div>
+
+        <!-- Título del Producto -->
+        <div>
+          <h1 id="productTitle" class="font-display text-4xl sm:text-5xl font-bold text-on-surface tracking-tight leading-tight">
+            Mesa Raíz Algarrobo
+          </h1>
+        </div>
+
+        <!-- Precio & Facilidades de Pago -->
+        <div class="pb-2 border-b border-[#ebdcd0]">
+          <div id="productPrice" class="font-display text-3xl sm:text-4xl font-bold text-primary tracking-tight">
+            $850.000 ARS
+          </div>
+          <p class="text-xs uppercase tracking-widest text-on-surface-variant font-medium mt-1">
+            3 y 6 cuotas sin interés
+          </p>
+        </div>
+
+        <!-- Descripción Poética y de Diseño -->
+        <div class="space-y-4 text-on-surface-variant text-[15px] leading-relaxed">
+          <p id="productDesc1">
+            Nacida de las profundidades de nuestros bosques, la Mesa Raíz celebra la imperfección perfecta de la naturaleza. Cada veta cuenta la historia de décadas bajo el sol, tallada por el tiempo y ensamblada a mano para convertirse en el corazón de tu hogar.
+          </p>
+          <p id="productDesc2">
+            Su diseño robusto pero visualmente liviano rinde homenaje al modernismo, manteniendo una conexión visceral con la tierra a través de su acabado orgánico.
+          </p>
+        </div>
+
+        <!-- Píldoras de Atributos de Sustentabilidad y Manufactura -->
+        <div class="flex flex-wrap gap-2 pt-1" id="featurePills">
+          <div class="feature-pill">
+            <span class="material-symbols-outlined text-[18px]">nature</span>
+            <span>Madera Certificada FSC</span>
+          </div>
+          <div class="feature-pill">
+            <span class="material-symbols-outlined text-[18px]">opacity</span>
+            <span>Acabado Aceites Naturales</span>
+          </div>
+          <div class="feature-pill">
+            <span class="material-symbols-outlined text-[18px]">handyman</span>
+            <span>Ensamble Artesanal</span>
+          </div>
+        </div>
+
+        <!-- Botón de Acción Principal (Añadir al Carrito) -->
+        <div class="pt-2">
+          <button id="btnAddToCart" onclick="handleAddToCartClick()" class="btn-add-cart w-full py-4 px-6 rounded-xl font-semibold text-sm uppercase tracking-wider flex items-center justify-center gap-3 cursor-pointer">
+            <span class="material-symbols-outlined text-xl">shopping_bag</span>
+            <span>Añadir al Carrito</span>
+          </button>
+        </div>
+
+        <!-- Tarjetas de Confianza & Beneficios -->
+        <div class="space-y-3 pt-2">
+          
+          <!-- Tarjeta 1: Garantía -->
+          <div class="benefit-card">
+            <div class="benefit-icon-wrapper">
+              <span class="material-symbols-outlined text-xl">verified</span>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-on-surface">Garantía de Por Vida</h3>
+              <p class="text-xs text-on-surface-variant mt-0.5 leading-normal">
+                Confiamos en nuestra calidad. Cubrimos cualquier defecto estructural de fabricación.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tarjeta 2: Envío -->
+          <div class="benefit-card">
+            <div class="benefit-icon-wrapper">
+              <span class="material-symbols-outlined text-xl">local_shipping</span>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-on-surface">Envío Especializado</h3>
+              <p class="text-xs text-on-surface-variant mt-0.5 leading-normal">
+                Entregado y ensamblado en tu hogar por nuestro equipo de expertos en CABA y GBA.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secciones Desplegables (Acordeones) -->
+        <div class="pt-2">
+          
+          <!-- Desplegable 1: Dimensiones y Peso -->
+          <div class="accordion-item open" id="accordionDimensions">
+            <button class="accordion-header" onclick="toggleAccordion('accordionDimensions')">
+              <span>Dimensiones y Peso</span>
+              <span class="material-symbols-outlined accordion-chevron">expand_more</span>
+            </button>
+            <div class="accordion-content">
+              <table class="specs-table" id="specsTable">
+                <tbody>
+                  <tr>
+                    <td>Largo</td>
+                    <td id="specLength">220 cm</td>
+                  </tr>
+                  <tr>
+                    <td>Ancho</td>
+                    <td id="specWidth">100 cm</td>
+                  </tr>
+                  <tr>
+                    <td>Alto</td>
+                    <td id="specHeight">76 cm</td>
+                  </tr>
+                  <tr>
+                    <td>Peso Aprox.</td>
+                    <td id="specWeight">85 kg</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Desplegable 2: Cuidados -->
+          <div class="accordion-item" id="accordionCare">
+            <button class="accordion-header" onclick="toggleAccordion('accordionCare')">
+              <span>Cuidados</span>
+              <span class="material-symbols-outlined accordion-chevron">expand_more</span>
+            </button>
+            <div class="accordion-content text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2">
+              <p>&bull; Limpiar regularmente con un paño de microfibra suave, seco o ligeramente húmedo con agua tibia.</p>
+              <p>&bull; Evitar la exposición directa y continua a la luz solar intensa o a fuentes de calor artificial.</p>
+              <p>&bull; Nutrir la madera noble con ceras o aceites minerales naturales cada 6 a 12 meses para proteger su brillo e hidratación.</p>
+              <p>&bull; Utilizar siempre posavasos o manteles individuales para evitar marcas térmicas directas.</p>
+            </div>
+          </div>
+
+          <!-- Desplegable 3: Detalles de Fabricación -->
+          <div class="accordion-item" id="accordionManufacturing">
+            <button class="accordion-header" onclick="toggleAccordion('accordionManufacturing')">
+              <span>Detalles de Fabricación &amp; Materiales</span>
+              <span class="material-symbols-outlined accordion-chevron">expand_more</span>
+            </button>
+            <div class="accordion-content text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2">
+              <p><strong class="text-on-surface">Material:</strong> <span id="manufMaterial">Madera maciza seleccionada con certificación de sostenibilidad FSC®.</span></p>
+              <p><strong class="text-on-surface">Estructura:</strong> <span id="manufStructure">Ensamble tradicional de carpintería mediante espigas ocultas reforzadas.</span></p>
+              <p><strong class="text-on-surface">Acabado:</strong> <span id="manufFinish">Triple capa de aceites vegetales ecológicos libres de tóxicos y COVs.</span></p>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- ==========================================
+       FOOTER / PIE DE PÁGINA OFICIAL
+       ========================================== -->
+  <footer class="w-full bg-surface-container-high mt-16 py-14" id="contacto">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-8 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+        
+        <!-- Bloque 1: Marca -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <img alt="Logo Hermanos Jota" class="h-8 opacity-85" src="assets/images/logo.svg"/>
+            <div>
+              <h3 class="font-display text-xl font-semibold text-on-surface">Hermanos Jota</h3>
+              <p class="text-sm text-on-surface-variant">Estética de los 60, calidad eterna.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloque 2: Showroom -->
+        <div class="space-y-3">
+          <h4 class="text-xs text-primary uppercase tracking-widest font-bold">Showroom</h4>
+          <p class="text-sm text-on-surface-variant flex items-center gap-2">
+            <span class="material-symbols-outlined text-base text-primary">location_on</span>
+            Av. San Juan 2847, CABA
+          </p>
+          <p class="text-sm text-on-surface-variant flex items-center gap-2">
+            <span class="material-symbols-outlined text-base text-primary">schedule</span>
+            Lun - Vie 10:00 a 19:00
+          </p>
+        </div>
+
+        <!-- Bloque 3: Conectemos -->
+        <div class="space-y-3">
+          <h4 class="text-xs text-primary uppercase tracking-widest font-bold">Conectemos</h4>
+          <p class="text-sm text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-base text-primary">share</span>
+            @hermanosjota_ba
+          </p>
+          <p class="text-sm text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-base text-primary">chat</span>
+            +54 11 4567-8900
+          </p>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="mt-12 pt-6 border-t border-outline-variant/50 text-center">
+        <p class="text-xs text-on-surface-variant opacity-70 italic font-serif">
+          © 2026 Hermanos Jota. Hecho a mano con herencia y modernidad.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       MODAL DE CARRITO DE COTIZACIÓN
+       ========================================== -->
+  <div id="cartModal" class="fixed inset-0 bg-on-surface/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-surface rounded-2xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-surface-container-high relative">
+      <button onclick="closeCartModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary cursor-pointer p-1" aria-label="Cerrar">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+      <h2 class="font-display text-2xl font-bold text-on-surface mb-2">Tu Selección de Cotización</h2>
+      <p class="text-xs text-on-surface-variant mb-4">Piezas seleccionadas para presupuesto formal y entrega.</p>
+      
+      <div id="cartItemsList" class="my-4 max-h-60 overflow-y-auto divide-y divide-surface-container pr-1"></div>
+      
+      <div class="flex justify-between items-center py-4 border-t border-outline-variant/60 mt-2">
+        <span class="font-medium text-sm text-on-surface">Total Estimado:</span>
+        <span id="cartTotalAmount" class="font-display font-bold text-primary text-xl">$ 0</span>
+      </div>
+
+      <button onclick="submitQuoteRequest()" class="btn-add-cart w-full py-3.5 px-4 rounded-xl font-semibold text-sm uppercase tracking-wider transition-all mt-3">
+        Solicitar Presupuesto Formal
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL DE SERVICIO BESPOKE / CONSULTORÍA
+       ========================================== -->
+  <div id="bespokeModal" class="fixed inset-0 bg-on-surface/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-surface rounded-2xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border border-surface-container-high relative">
+      <button onclick="closeBespokeModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary cursor-pointer p-1" aria-label="Cerrar">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+      <h2 class="font-display text-2xl font-bold text-on-surface mb-1.5">Servicio Bespoke &amp; Consultoría</h2>
+      <p class="text-xs text-on-surface-variant mb-5">Personalice medidas, especies de madera noble y acabados para su proyecto.</p>
+      
+      <form onsubmit="handleBespokeSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface mb-1.5">Pieza o Tipología</label>
+          <input id="bespokePieceInput" class="w-full p-3 bg-surface-container/60 rounded-xl border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary text-sm" value="Mesa Raíz Algarrobo" required />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface mb-1.5">Madera / Acabado Deseado</label>
+          <select class="w-full p-3 bg-surface-container/60 rounded-xl border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary text-sm">
+            <option>Algarrobo Macizo al Aceite Orgánico</option>
+            <option>Nogal Macizo FSC®</option>
+            <option>Roble Claro al Aceite Natural</option>
+            <option>Guatambú Macizo</option>
+            <option>Ébano / Fresno Teñido</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface mb-1.5">Contacto (Email o WhatsApp)</label>
+          <input type="text" class="w-full p-3 bg-surface-container/60 rounded-xl border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary text-sm" placeholder="tu@email.com o +54 9 11..." required />
+        </div>
+        <button type="submit" class="btn-add-cart w-full py-3.5 rounded-xl font-semibold text-sm uppercase tracking-wider transition-all mt-2">
+          Enviar Consulta al Taller
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Contenedor de Notificaciones Toast -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ==========================================
+       LÓGICA JAVASCRIPT DINÁMICA & PERSISTENTE
+       ========================================== -->
+  <script src="app.js"></script>
+  <script>
+    // Producto Por Defecto (Mesa Raíz Algarrobo - Ref. Visual)
+    const DEFAULT_PRODUCT = {
+      id: 12,
+      title: "Mesa Raíz Algarrobo",
+      category: "Mesas",
+      badge1: "NUEVA COLECCIÓN",
+      badge2: "EDICIÓN LIMITADA",
+      price: 850000,
+      priceFormatted: "$850.000 ARS",
+      desc1: "Nacida de las profundidades de nuestros bosques, la Mesa Raíz celebra la imperfección perfecta de la naturaleza. Cada veta cuenta la historia de décadas bajo el sol, tallada por el tiempo y ensamblada a mano para convertirse en el corazón de tu hogar.",
+      desc2: "Su diseño robusto pero visualmente liviano rinde homenaje al modernismo, manteniendo una conexión visceral con la tierra a través de su acabado orgánico.",
+      image: "assets/images/mesa-comedor-pampa.png",
+      specs: {
+        largo: "220 cm",
+        ancho: "100 cm",
+        alto: "76 cm",
+        peso: "85 kg"
+      },
+      manufacturing: {
+        material: "Algarrobo macizo FSC®, ensamble tradicional",
+        estructura: "Ensamble tradicional mediante espigas ocultas reforzadas.",
+        acabado: "Triple capa de aceites vegetales naturales libres de COVs."
+      }
+    };
+
+    let currentProduct = DEFAULT_PRODUCT;
+    let isCurrentFavorite = false;
+
+    // Inicializar página al cargar el DOM
+    document.addEventListener("DOMContentLoaded", () => {
+      loadSelectedProduct();
+      updateCartCounter();
+    });
+
+    // Cargar detalles dinámicamente según parámetro `?id=`
+    function loadSelectedProduct() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const paramId = urlParams.get("id");
+
+      if (paramId && typeof PRODUCTS_DATA !== "undefined") {
+        const found = PRODUCTS_DATA.find(p => p.id == paramId || p.title.toLowerCase().replace(/\s+/g, '-') === paramId.toLowerCase());
+        if (found) {
+          currentProduct = {
+            id: found.id,
+            title: found.title,
+            category: capitalize(found.category || "Colección"),
+            badge1: found.badge ? found.badge.text : "NUEVA COLECCIÓN",
+            badge2: found.tags && found.tags.includes("edicion-limitada") ? "EDICIÓN LIMITADA" : "ARTESANAL",
+            price: found.price,
+            priceFormatted: "$ " + found.price.toLocaleString("es-AR") + " ARS",
+            desc1: found.fullDesc || found.desc,
+            desc2: "Cada ensamble y superficie han sido meticulosamente calibrados a mano en nuestro taller de Buenos Aires, garantizando integridad estructural y una presencia armónica para toda la vida.",
+            image: found.image,
+            specs: {
+              largo: found.specs && found.specs.medidas ? found.specs.medidas.split("×")[0]?.trim() || "220 cm" : "220 cm",
+              ancho: found.specs && found.specs.medidas ? found.specs.medidas.split("×")[1]?.trim() || "100 cm" : "100 cm",
+              alto: found.specs && found.specs.medidas ? found.specs.medidas.split("×")[2]?.trim() || "76 cm" : "76 cm",
+              peso: found.specs && found.specs.peso ? found.specs.peso : "85 kg"
+            },
+            manufacturing: {
+              material: found.specs && found.specs.materiales ? found.specs.materiales : (found.specs && found.specs.estructura ? found.specs.estructura : "Madera noble certificada FSC®"),
+              estructura: "Estructura ensamblada a mano con herrajes y refuerzos internos de alta durabilidad.",
+              acabado: found.specs && found.specs.acabado ? found.specs.acabado : "Aceites y ceras naturales ecológicas."
+            }
+          };
+        }
+      }
+
+      renderProductView(currentProduct);
+    }
+
+    function capitalize(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function renderProductView(p) {
+      document.title = `${p.title} | Hermanos Jota`;
+      document.getElementById("breadcrumbCategory").textContent = p.category;
+      document.getElementById("breadcrumbTitle").textContent = p.title;
+      document.getElementById("productTitle").textContent = p.title;
+      document.getElementById("productPrice").textContent = p.priceFormatted || ("$ " + p.price.toLocaleString("es-AR") + " ARS");
+      document.getElementById("productDesc1").textContent = p.desc1;
+      if (p.desc2) document.getElementById("productDesc2").textContent = p.desc2;
+      
+      const mainImg = document.getElementById("mainProductImage");
+      mainImg.src = p.image;
+      mainImg.alt = p.title;
+
+      // Actualizar especificaciones
+      if (p.specs) {
+        document.getElementById("specLength").textContent = p.specs.largo || "220 cm";
+        document.getElementById("specWidth").textContent = p.specs.ancho || "100 cm";
+        document.getElementById("specHeight").textContent = p.specs.alto || "76 cm";
+        document.getElementById("specWeight").textContent = p.specs.peso || "85 kg";
+      }
+
+      // Actualizar detalles de fabricación
+      if (p.manufacturing) {
+        if (document.getElementById("manufMaterial")) document.getElementById("manufMaterial").textContent = p.manufacturing.material;
+        if (document.getElementById("manufStructure")) document.getElementById("manufStructure").textContent = p.manufacturing.estructura;
+        if (document.getElementById("manufFinish")) document.getElementById("manufFinish").textContent = p.manufacturing.acabado;
+      }
+
+      checkFavoriteStatus();
+    }
+
+    // Toggle de Favorito
+    function toggleProductFavorite() {
+      isCurrentFavorite = !isCurrentFavorite;
+      const favBtn = document.getElementById("favBtn");
+      const favIcon = document.getElementById("favIcon");
+      
+      if (isCurrentFavorite) {
+        favBtn.classList.add("active");
+        favIcon.textContent = "favorite";
+        showToast("Pieza guardada en tu lista de deseos", "♥");
+      } else {
+        favBtn.classList.remove("active");
+        favIcon.textContent = "favorite_border";
+        showToast("Eliminado de favoritos", "♡");
+      }
+
+      if (typeof state !== "undefined" && state.favorites) {
+        if (isCurrentFavorite) state.favorites.add(currentProduct.id);
+        else state.favorites.delete(currentProduct.id);
+      }
+    }
+
+    function checkFavoriteStatus() {
+      const favBtn = document.getElementById("favBtn");
+      const favIcon = document.getElementById("favIcon");
+      if (typeof state !== "undefined" && state.favorites && state.favorites.has(currentProduct.id)) {
+        isCurrentFavorite = true;
+        favBtn.classList.add("active");
+        favIcon.textContent = "favorite";
+      }
+    }
+
+    // Acordeones
+    function toggleAccordion(id) {
+      const item = document.getElementById(id);
+      if (!item) return;
+      item.classList.toggle("open");
+    }
+
+    // Añadir al Carrito
+    function handleAddToCartClick() {
+      if (typeof addToCart === "function") {
+        addToCart(currentProduct.title, currentProduct.price);
+      } else {
+        showToast(`"${currentProduct.title}" añadido a tu cotización`, "🛒");
+      }
+      updateCartCounter();
+    }
+
+    function updateCartCounter() {
+      const badge = document.getElementById("cartCount");
+      if (badge && typeof state !== "undefined" && state.cart) {
+        badge.textContent = state.cart.length;
+      }
+    }
+
+    // Modales de Carrito y Bespoke
+    function closeCartModal() {
+      const modal = document.getElementById("cartModal");
+      if (modal) modal.classList.add("hidden");
+    }
+
+    function openCartModal() {
+      const modal = document.getElementById("cartModal");
+      const listContainer = document.getElementById("cartItemsList");
+      const totalAmountEl = document.getElementById("cartTotalAmount");
+      if (!modal) return;
+
+      if (typeof state === "undefined" || !state.cart || state.cart.length === 0) {
+        listContainer.innerHTML = `<p class="text-center py-6 text-on-surface-variant text-sm">Tu lista de cotización está vacía.</p>`;
+        totalAmountEl.textContent = "$ 0";
+      } else {
+        const total = state.cart.reduce((acc, item) => acc + item.price, 0);
+        totalAmountEl.textContent = "$ " + total.toLocaleString("es-AR");
+        listContainer.innerHTML = state.cart.map((item, idx) => `
+          <div class="flex justify-between items-center py-3">
+            <div>
+              <p class="font-semibold text-sm text-on-surface">${item.title}</p>
+              <p class="text-xs text-primary font-bold">$ ${item.price.toLocaleString("es-AR")}</p>
+            </div>
+            <button onclick="removeItemFromCart(${idx})" class="text-on-surface-variant hover:text-primary text-lg p-1">&times;</button>
+          </div>
+        `).join('');
+      }
+
+      modal.classList.remove("hidden");
+    }
+
+    function removeItemFromCart(idx) {
+      if (typeof state !== "undefined" && state.cart) {
+        state.cart.splice(idx, 1);
+        updateCartCounter();
+        openCartModal();
+      }
+    }
+
+    function submitQuoteRequest() {
+      closeCartModal();
+      showToast("Cotización enviada a Hermanos Jota. Nos contactaremos a la brevedad.", "✓");
+    }
+
+    function openBespokeModal(title = "Mesa Raíz Algarrobo") {
+      const modal = document.getElementById("bespokeModal");
+      const input = document.getElementById("bespokePieceInput");
+      if (input && currentProduct) input.value = currentProduct.title || title;
+      if (modal) modal.classList.remove("hidden");
+    }
+
+    function closeBespokeModal() {
+      const modal = document.getElementById("bespokeModal");
+      if (modal) modal.classList.add("hidden");
+    }
+
+    function handleBespokeSubmit(e) {
+      e.preventDefault();
+      closeBespokeModal();
+      showToast("Solicitud de personalización enviada al taller.", "✨");
+    }
+
+    // Feedback Toast
+    function showToast(message, icon = "✓") {
+      const container = document.getElementById("toastContainer");
+      if (!container) return;
+      const toast = document.createElement("div");
+      toast.className = "toast";
+      toast.innerHTML = `<span class="text-lg">${icon}</span> <span>${message}</span>`;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(10px)";
+        toast.style.transition = "all 0.3s ease";
+        setTimeout(() => toast.remove(), 300);
+      }, 3400);
+    }
+  </script>
+</body>
+</html>
