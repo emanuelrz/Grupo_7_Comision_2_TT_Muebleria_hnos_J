@@ -618,5 +618,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Formulario de contacto (contacto.html)
+  const contactForm = document.getElementById("contact-form");
+  const successBanner = document.getElementById("success-banner");
+  const closeSuccessBtn = document.getElementById("close-success");
+  if (contactForm && successBanner) {
+    let autoHideTimer = null;
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      successBanner.classList.remove("-translate-y-full");
+      contactForm.reset();
+      if (autoHideTimer) clearTimeout(autoHideTimer);
+      autoHideTimer = setTimeout(() => {
+        successBanner.classList.add("-translate-y-full");
+      }, 5000);
+    });
+
+    if (closeSuccessBtn) {
+      closeSuccessBtn.addEventListener("click", () => {
+        if (autoHideTimer) clearTimeout(autoHideTimer);
+        successBanner.classList.add("-translate-y-full");
+      });
+    }
+  }
+
   renderCatalog();
 });
+
