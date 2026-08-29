@@ -337,16 +337,16 @@ function renderCatalog() {
 
   grid.innerHTML = pageItems.map(item => {
     const isFav = state.favorites.has(item.id);
-    const badgeHtml = item.badge 
-      ? `<div class="absolute top-4 left-4 ${item.badge.class === 'badge-nuevo' ? 'bg-secondary/90' : 'bg-secondary/90'} backdrop-blur text-on-secondary font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider">${item.badge.text}</div>` 
+    const badgeHtml = item.badge
+      ? `<div class="absolute top-4 left-4 ${item.badge.class === 'badge-nuevo' ? 'bg-secondary/90' : 'bg-secondary/90'} backdrop-blur text-on-secondary font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider">${item.badge.text}</div>`
       : '';
-    
-    const swatchesHtml = item.swatches ? item.swatches.map(color => 
+
+    const swatchesHtml = item.swatches ? item.swatches.map(color =>
       `<div class="w-4 h-4 rounded-full shadow-sm" style="background-color: ${color};" title="Muestra"></div>`
     ).join('') : '';
 
-    const stockHtml = item.stockLabel 
-      ? `<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-1 rounded">${item.stockLabel}</span>` 
+    const stockHtml = item.stockLabel
+      ? `<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-1 rounded">${item.stockLabel}</span>`
       : '';
 
     return `
@@ -355,14 +355,16 @@ function renderCatalog() {
           <img class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-105" alt="${item.title}" src="${item.image}"/>
           ${badgeHtml}
           <div class="absolute inset-0 bg-surface/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-            <button onclick="openProductModal(${item.id})" class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
+            <a href="producto.html?id=${item.id}" class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
               <span class="material-symbols-outlined text-[18px]">visibility</span> Ver Detalle
-            </button>
+            </a>
           </div>
         </div>
         <div class="p-6 flex flex-col flex-grow">
           <div class="flex items-start justify-between mb-2">
-            <h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1 cursor-pointer" onclick="openProductModal(${item.id})">${item.title}</h2>
+            <a href="producto.html?id=${item.id}" class="hover:text-primary transition-colors flex-1 mr-2">
+              <h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1">${item.title}</h2>
+            </a>
             <button onclick="toggleFavorite(${item.id})" class="${isFav ? 'text-primary' : 'text-on-surface-variant hover:text-primary'} transition-colors">
               <span class="material-symbols-outlined">${isFav ? 'favorite' : 'favorite_border'}</span>
             </button>
