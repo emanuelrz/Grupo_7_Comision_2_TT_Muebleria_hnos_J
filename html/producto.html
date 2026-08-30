@@ -42,7 +42,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 
   <!-- Estilos Globales de Marca Oficial -->
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="../css/styles.css"/>
 </head>
 <body class="bg-surface font-sans text-on-surface antialiased selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col justify-between">
 
@@ -53,16 +53,16 @@
     <div class="h-20 max-w-[1280px] mx-auto px-4 sm:px-8 md:px-12 flex items-center justify-between">
       
       <!-- Logotipo de la Marca -->
-      <a href="index.html" class="flex items-center gap-3.5 group">
-        <img alt="Logo Hermanos Jota" class="h-9 w-auto object-contain transition-transform group-hover:scale-105" src="assets/images/logo.svg"/>
+      <a href="../index.html" class="flex items-center gap-3.5 group">
+        <img alt="Logo Hermanos Jota" class="h-9 w-auto object-contain transition-transform group-hover:scale-105" src="../assets/images/logo.svg"/>
         <span class="font-display font-semibold text-2xl tracking-tight text-primary">Hermanos Jota</span>
       </a>
 
       <!-- Menú de Enlaces Principales -->
       <nav class="hidden md:flex items-center gap-8">
-        <a class="text-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase font-medium" href="index.html">Inicio</a>
+        <a class="text-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase font-medium" href="../index.html">Inicio</a>
         <a class="text-sm transition-colors tracking-widest uppercase text-primary font-semibold border-b-2 border-primary pb-0.5" href="catalogo.html">Catálogo</a>
-        <a class="text-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase font-medium" href="index.html#contacto">Contacto</a>
+        <a class="text-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase font-medium" href="../index.html#contacto">Contacto</a>
       </nav>
 
       <!-- Acciones: Carrito & Consultor -->
@@ -107,7 +107,7 @@
         
         <!-- Imagen Principal Única con Botón de Favorito -->
         <div class="relative w-full aspect-[4/3] sm:aspect-[5/4] md:aspect-[4/3] bg-[#f7efe6] rounded-2xl overflow-hidden shadow-sm product-hero-container flex items-center justify-center p-6 border border-[#ebdcd0]">
-          <img id="mainProductImage" src="assets/images/mesa-comedor-pampa.png" alt="Producto Hermanos Jota" class="w-full h-full object-contain product-hero-image" />
+          <img id="mainProductImage" src="../assets/images/mesa-comedor-pampa.png" alt="Producto Hermanos Jota" class="w-full h-full object-contain product-hero-image" />
           
           <!-- Botón Flotante Favorito -->
           <button id="favBtn" onclick="toggleProductFavorite()" class="btn-floating-fav" title="Guardar en favoritos" aria-label="Guardar en favoritos">
@@ -284,7 +284,7 @@
         <!-- Bloque 1: Marca -->
         <div class="space-y-3">
           <div class="flex items-center gap-3">
-            <img alt="Logo Hermanos Jota" class="h-8 opacity-85" src="assets/images/logo.svg"/>
+            <img alt="Logo Hermanos Jota" class="h-8 opacity-85" src="../assets/images/logo.svg"/>
             <div>
               <h3 class="font-display text-xl font-semibold text-on-surface">Hermanos Jota</h3>
               <p class="text-sm text-on-surface-variant">Estética de los 60, calidad eterna.</p>
@@ -395,7 +395,7 @@
   <!-- ==========================================
        LÓGICA JAVASCRIPT DINÁMICA & PERSISTENTE
        ========================================== -->
-  <script src="app.js"></script>
+  <script src="../js/app.js"></script>
   <script>
     // Producto Por Defecto (Mesa Raíz Algarrobo - Ref. Visual)
     const DEFAULT_PRODUCT = {
@@ -408,7 +408,7 @@
       priceFormatted: "$850.000 ARS",
       desc1: "Nacida de las profundidades de nuestros bosques, la Mesa Raíz celebra la imperfección perfecta de la naturaleza. Cada veta cuenta la historia de décadas bajo el sol, tallada por el tiempo y ensamblada a mano para convertirse en el corazón de tu hogar.",
       desc2: "Su diseño robusto pero visualmente liviano rinde homenaje al modernismo, manteniendo una conexión visceral con la tierra a través de su acabado orgánico.",
-      image: "assets/images/mesa-comedor-pampa.png",
+      image: "../assets/images/mesa-comedor-pampa.png",
       specs: {
         largo: "220 cm",
         ancho: "100 cm",
@@ -482,7 +482,7 @@
       if (p.desc2) document.getElementById("productDesc2").textContent = p.desc2;
       
       const mainImg = document.getElementById("mainProductImage");
-      mainImg.src = p.image;
+      mainImg.src = p.image.startsWith('../') ? p.image : '../' + p.image;
       mainImg.alt = p.title;
 
       // Actualizar especificaciones

@@ -262,6 +262,18 @@ const state = {
   favorites: new Set()
 };
 
+const getAssetPath = (path) => {
+  if (!path) return '';
+  const isHtmlFolder = window.location.pathname.includes('/html/') || window.location.pathname.includes('\\html\\') || window.location.pathname.endsWith('/html') || window.location.pathname.endsWith('\\html');
+  return isHtmlFolder ? '../' + path : path;
+};
+
+const getPagePath = (path) => {
+  if (!path) return '';
+  const isHtmlFolder = window.location.pathname.includes('/html/') || window.location.pathname.includes('\\html\\') || window.location.pathname.endsWith('/html') || window.location.pathname.endsWith('\\html');
+  return isHtmlFolder ? path : 'html/' + path;
+};
+
 function formatCurrency(num) {
   return "$ " + num.toLocaleString("es-AR");
 }
@@ -352,17 +364,17 @@ function renderCatalog() {
     return `
       <div class="group flex flex-col h-full bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
         <div class="relative aspect-[4/5] overflow-hidden bg-surface-container">
-          <img class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-105" alt="${item.title}" src="${item.image}"/>
+          <img class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-105" alt="${item.title}" src="${getAssetPath(item.image)}"/>
           ${badgeHtml}
           <div class="absolute inset-0 bg-surface/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-            <a href="producto.html?id=${item.id}" class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
+            <a href="${getPagePath('producto.html')}?id=${item.id}" class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
               <span class="material-symbols-outlined text-[18px]">visibility</span> Ver Detalle
             </a>
           </div>
         </div>
         <div class="p-6 flex flex-col flex-grow">
           <div class="flex items-start justify-between mb-2">
-            <a href="producto.html?id=${item.id}" class="hover:text-primary transition-colors flex-1 mr-2">
+            <a href="${getPagePath('producto.html')}?id=${item.id}" class="hover:text-primary transition-colors flex-1 mr-2">
               <h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1">${item.title}</h2>
             </a>
             <button onclick="toggleFavorite(${item.id})" class="${isFav ? 'text-primary' : 'text-on-surface-variant hover:text-primary'} transition-colors">
@@ -458,7 +470,7 @@ function openProductModal(productId) {
   modalContent.innerHTML = `
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
       <div class="bg-surface-container p-6 rounded-xl flex items-center justify-center">
-        <img src="${product.image}" alt="${product.title}" class="max-h-72 object-contain"/>
+        <img src="${getAssetPath(product.image)}" alt="${product.title}" class="max-h-72 object-contain"/>
       </div>
       <div>
         <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">${product.title}</h2>
