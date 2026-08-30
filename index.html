@@ -1,486 +1,516 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Nuestra Colección | Hermanos Jota</title>
-  <style>
-    @layer base {
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="description" content="Hermanos Jota - Muebles de autor con alma de los 60. Artesanía sostenible, maderas nobles y diseño atemporal para hogares contemporáneos." />
+  <title>Hermanos Jota | Muebles que alimentan el alma</title>
 
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        scroll-behavior: smooth;
-      }
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
 
-      main> :first-child {
-        margin-top: 0 !important;
-      }
-
-      main> :last-child {
-        margin-bottom: 0 !important;
-      }
-    }
-
-    /* Scrollbar Oficial Hermanos Jota */
-    ::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #F5E6D3;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #A0522D;
-      border-radius: 5px;
-      border: 2px solid #F5E6D3;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #823B18;
-    }
-
-    * {
-      scrollbar-width: thin;
-      scrollbar-color: #A0522D #F5E6D3;
-    }
-  </style>
+  <!-- Tailwind CSS CDN & Config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
       theme: {
         extend: {
-          "colors": {
-            "on-primary-fixed-variant": "#76320f",
-            "on-error-container": "#93000a",
-            "on-secondary-fixed-variant": "#314e1b",
-            "tertiary-fixed": "#ffdea1",
-            "surface-container-low": "#fff2e2",
-            "surface-bright": "#fff8f3",
-            "on-surface-variant": "#54433c",
-            "on-primary-container": "#ffe1d6",
-            "surface-dim": "#e6d8c5",
-            "primary-container": "#a0522d",
-            "secondary-fixed": "#c9eea9",
-            "secondary": "#486730",
-            "error": "#ba1a1a",
-            "error-container": "#ffdad6",
-            "inverse-surface": "#372f22",
-            "surface-container-high": "#f5e6d3",
-            "primary-fixed-dim": "#ffb596",
-            "on-tertiary": "#ffffff",
-            "surface-container": "#fbecd9",
-            "inverse-primary": "#ffb596",
-            "surface-container-highest": "#efe0cd",
-            "on-background": "#221a0f",
-            "outline-variant": "#dac1b8",
-            "on-secondary": "#ffffff",
-            "surface-container-lowest": "#ffffff",
-            "secondary-container": "#c9eea9",
-            "tertiary-fixed-dim": "#f2bf50",
-            "tertiary": "#674b00",
-            "outline": "#87736b",
-            "on-secondary-fixed": "#0b2000",
-            "on-tertiary-fixed-variant": "#5c4300",
-            "on-primary-fixed": "#360f00",
-            "primary-fixed": "#ffdbcd",
-            "on-primary": "#ffffff",
-            "surface": "#fff8f3",
-            "on-secondary-container": "#4e6d36",
-            "surface-tint": "#944925",
-            "on-error": "#ffffff",
-            "tertiary-container": "#856200",
-            "on-surface": "#221a0f",
-            "background": "#fff8f3",
-            "on-tertiary-fixed": "#261900",
-            "inverse-on-surface": "#feefdb",
-            "secondary-fixed-dim": "#aed18f",
-            "on-tertiary-container": "#ffe4b4",
+          colors: {
             "primary": "#823b18",
-            "surface-variant": "#efe0cd"
+            "primary-container": "#a0522d",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#ffe1d6",
+            "on-primary-fixed-variant": "#76320f",
+            "secondary": "#486730",
+            "secondary-container": "#c9eea9",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#4e6d36",
+            "secondary-fixed": "#c9eea9",
+            "tertiary": "#674b00",
+            "tertiary-container": "#856200",
+            "surface": "#fff8f3",
+            "surface-dim": "#e6d8c5",
+            "surface-bright": "#fff8f3",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#fff2e2",
+            "surface-container": "#fbecd9",
+            "surface-container-high": "#f5e6d3",
+            "surface-container-highest": "#efe0cd",
+            "on-surface": "#221a0f",
+            "on-surface-variant": "#54433c",
+            "outline": "#87736b",
+            "outline-variant": "#dac1b8",
+            "inverse-surface": "#372f22",
+            "inverse-on-surface": "#feefdb"
           },
-          "borderRadius": {
+          borderRadius: {
             "DEFAULT": "0.25rem",
             "lg": "0.5rem",
             "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
             "full": "9999px"
           },
-          "spacing": {
+          spacing: {
             "margin-mobile": "16px",
             "margin-desktop": "48px",
             "gutter": "24px",
             "container-max": "1280px",
             "base": "8px"
           },
-          "fontFamily": {
-            "label-sm": ["Inter"],
-            "display-lg-mobile": ["Playfair Display"],
-            "display-lg": ["Playfair Display"],
-            "headline-lg": ["Playfair Display"],
-            "label-md": ["Inter"],
-            "headline-md": ["Playfair Display"],
-            "body-lg": ["Inter"],
-            "body-md": ["Inter"]
+          fontFamily: {
+            "label-sm": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "headline-md": ["Playfair Display", "serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "display-lg-mobile": ["Playfair Display", "serif"],
+            "display-lg": ["Playfair Display", "serif"]
           },
-          "fontSize": {
+          fontSize: {
             "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
-            "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
             "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
-            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
             "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
-            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
           }
         }
       }
     };
   </script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
+
+  <style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 16px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+
+    /* Scrollbar Oficial Hermanos Jota */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F5E6D3;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #A0522D;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #823B18;
+    }
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #A0522D #F5E6D3;
+    }
+  </style>
 </head>
 
-<body class="bg-surface font-body-md text-on-surface">
+<body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary/20 selection:text-primary">
 
-  <!-- HEADER -->
-  <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_12px_rgba(74,50,40,0.06)]">
-    <div class="h-20 max-w-[1280px] mx-auto px-margin-desktop flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <img alt="Logo Circular hj" class="h-10 w-auto object-contain" src="assets/images/logo.svg" />
-        <span class="font-headline-md text-headline-md tracking-tight text-primary">Hermanos Jota</span>
-      </div>
-      <nav class="hidden md:flex items-center gap-8">
-        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase"
-          href="index.html">Inicio</a>
-        <a aria-current="page"
-          class="transition-colors tracking-widest uppercase text-primary font-semibold border-b-2 border-primary"
-          href="html/catalogo.html">Catálogo</a>
-        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase"
-          href="html/contacto.html">Contacto</a>
-      </nav>
-      <div class="flex items-center gap-6">
-        <button class="relative p-2 text-on-surface-variant hover:text-primary transition-colors"
-          onclick="openCartModal()">
-          <span class="material-symbols-outlined">shopping_bag</span>
-          <span id="cartCount"
-            class="absolute top-0 right-0 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+  <!-- ==========================================
+       HEADER & NAVEGACIÓN (RESPONSIVE)
+       ========================================== -->
+  <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_12px_rgba(74,50,40,0.06)] pt-safe">
+    <div class="h-16 md:h-20 max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between">
+      
+      <!-- Lado Izquierdo: Botón Menú Mobile + Logotipo -->
+      <div class="flex items-center gap-3 md:gap-4">
+        <!-- Botón Hamburguesa (Solo Mobile) -->
+        <button id="mobileMenuBtn" type="button" class="w-10 h-10 flex md:hidden items-center justify-center text-primary hover:bg-surface-container rounded-lg transition-colors" aria-label="Abrir menú de navegación">
+          <span class="material-symbols-outlined text-2xl">menu</span>
         </button>
-        <div class="flex items-center gap-3 pl-6 border-l border-outline-variant cursor-pointer"
-          onclick="openBespokeModal('Consulta General')">
+
+        <!-- Logotipo Hermanos Jota -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img alt="Logo Circular hj" class="h-8 md:h-10 w-auto object-contain transition-transform group-hover:scale-105" src="assets/images/logo.svg" />
+          <span class="font-headline-md text-xl md:text-headline-md tracking-tight text-primary font-bold">Hermanos Jota</span>
+        </a>
+      </div>
+
+      <!-- Navegación Principal (Desktop) -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Navegación principal">
+        <a aria-current="page" class="font-label-md text-label-md transition-colors tracking-widest uppercase text-primary font-semibold border-b-2 border-primary pb-0.5" href="index.html">Inicio</a>
+        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase" href="html/catalogo.html">Catálogo</a>
+        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase" href="html/contacto.html">Contacto</a>
+      </nav>
+
+      <!-- Lado Derecho: Carrito & Consultor -->
+      <div class="flex items-center gap-3 md:gap-6">
+        <!-- Botón de Carrito / Cotización -->
+        <button type="button" class="relative p-2 text-primary hover:text-primary-container transition-colors cursor-pointer" onclick="openCartModal()" aria-label="Ver carrito de cotización">
+          <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+          <span id="cartCount" class="absolute top-1 right-1 bg-secondary text-on-secondary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+        </button>
+
+        <!-- Consultor En Línea (Desktop: Completo / Mobile: Avatar compacto) -->
+        <div class="flex items-center gap-3 pl-3 md:pl-6 border-l border-outline-variant cursor-pointer group" onclick="openBespokeModal('Consulta General')">
           <div class="text-right hidden sm:block">
             <p class="font-label-sm text-label-sm text-on-surface-variant">Consultor</p>
-            <p class="font-label-md text-label-md text-on-surface">En Línea</p>
+            <p class="font-label-md text-label-md text-on-surface font-semibold group-hover:text-primary transition-colors">En Línea</p>
           </div>
-          <img alt="Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-surface-container-high"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHJubnYO2u0cZVbfvyc016i5t7jUM2kH8hnHizm_6U1Kx7mLNsCgGo2U-YhMJCtd52AKmIThY1x5qIFbuD2EQEGjEbdu1tr-yvcl6sdYylXj8gperE_L9OQKHXRO34YfzkO3WJwdxCLIjlF0cpQtE8vvbSkUf0v5w2LN1Tx7BN8j7oG427piyRtvgoPe34Ugvc9ruJSm6UglFklqhqYkC7ByehpgbJxhD7cLTZzMoH8Z4sdFidxcAs" />
+          <img alt="Consultor en Línea" class="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover ring-2 ring-surface-container-high group-hover:ring-primary transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHJubnYO2u0cZVbfvyc016i5t7jUM2kH8hnHizm_6U1Kx7mLNsCgGo2U-YhMJCtd52AKmIThY1x5qIFbuD2EQEGjEbdu1tr-yvcl6sdYylXj8gperE_L9OQKHXRO34YfzkO3WJwdxCLIjlF0cpQtE8vvbSkUf0v5w2LN1Tx7BN8j7oG427piyRtvgoPe34Ugvc9ruJSm6UglFklqhqYkC7ByehpgbJxhD7cLTZzMoH8Z4sdFidxcAs" />
         </div>
       </div>
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="w-full pt-20 bg-surface">
-    <div class="flex flex-col w-full">
-      <!-- Header with Search -->
-      <div
-        class="w-full bg-surface-container py-8 md:py-16 px-margin-mobile md:px-margin-desktop rounded-b-xl shadow-sm mb-16 relative overflow-hidden">
-        <div
-          class="absolute -top-32 -right-32 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none">
+  <!-- ==========================================
+       DRAWER MENÚ LATERAL (MOBILE)
+       ========================================== -->
+  <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <aside id="mobileMenuDrawer" class="fixed top-0 left-0 w-4/5 max-w-sm h-full bg-surface z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between p-6">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-outline-variant/40">
+        <div class="flex items-center gap-3">
+          <img alt="Logo" class="h-8 w-auto" src="assets/images/logo.svg" />
+          <span class="font-headline-md text-xl text-primary font-bold">Hermanos Jota</span>
         </div>
-        <div
-          class="absolute top-1/2 -left-32 w-72 h-72 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none">
-        </div>
-        <div
-          class="max-w-[1280px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
-          <div class="flex-1 max-w-2xl">
-            <h1
-              class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4">
-              Nuestra Colección</h1>
-            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Piezas únicas, donde la honestidad del
-              material y la precisión del diseño convergen.</p>
-          </div>
-          <div class="flex-1 w-full max-w-md">
-            <div class="relative group">
-              <div
-                class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary transition-colors group-focus-within:text-primary">
-                <span class="material-symbols-outlined text-[20px]">search</span>
-              </div>
-              <input id="searchInput"
-                class="w-full pl-12 pr-4 py-4 bg-surface text-on-surface font-body-md text-body-md rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow placeholder:text-on-surface-variant/50"
-                placeholder="Buscar por material, línea o tipo..." type="text" />
-              <button id="searchBtn"
-                class="absolute inset-y-2 right-2 px-4 bg-primary text-on-primary font-label-md text-label-md rounded shadow-sm hover:-translate-y-0.5 transition-transform">
-                Buscar
-              </button>
-            </div>
-            <!-- Quick Filters / Tags -->
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span
-                class="quick-tag font-label-sm text-label-sm px-3 py-1 bg-surface rounded-full text-on-surface-variant shadow-sm cursor-pointer hover:bg-primary hover:text-on-primary transition-colors"
-                data-tag="madera-maciza">Madera Maciza</span>
-              <span
-                class="quick-tag font-label-sm text-label-sm px-3 py-1 bg-surface rounded-full text-on-surface-variant shadow-sm cursor-pointer hover:bg-primary hover:text-on-primary transition-colors"
-                data-tag="enchapados">Enchapados</span>
-              <span
-                class="quick-tag font-label-sm text-label-sm px-3 py-1 bg-surface rounded-full text-on-surface-variant shadow-sm cursor-pointer hover:bg-primary hover:text-on-primary transition-colors"
-                data-tag="edicion-limitada">Edición Limitada</span>
-            </div>
-          </div>
-        </div>
+        <button id="closeMobileMenuBtn" type="button" class="p-2 text-on-surface-variant hover:text-primary" aria-label="Cerrar menú">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
       </div>
 
-      <!-- Main Content Area: Sidebar + Grid -->
-      <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop w-full pb-32" id="catalogSection">
-        <div class="flex flex-col lg:flex-row gap-gutter items-start">
+      <nav class="flex flex-col gap-4 mt-8" aria-label="Navegación móvil">
+        <a class="flex items-center gap-4 px-4 py-3 bg-surface-container rounded-xl text-primary font-bold tracking-wider uppercase text-sm" href="index.html">
+          <span class="material-symbols-outlined">home</span> Inicio
+        </a>
+        <a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-wider uppercase text-sm transition-colors" href="html/catalogo.html">
+          <span class="material-symbols-outlined">chair</span> Catálogo
+        </a>
+        <a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-wider uppercase text-sm transition-colors" href="html/contacto.html">
+          <span class="material-symbols-outlined">mail</span> Contacto
+        </a>
+      </nav>
+    </div>
 
-          <!-- Sidebar Filters -->
-          <aside
-            class="w-full lg:w-64 shrink-0 space-y-8 sticky top-28 bg-surface p-6 rounded-xl shadow-sm z-10 lg:z-auto">
-            <div>
-              <h3
-                class="font-label-md text-label-md uppercase tracking-widest text-on-surface mb-6 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[18px]">filter_list</span> Filtrar
-              </h3>
+    <div class="pt-6 border-t border-outline-variant/40 space-y-3">
+      <p class="font-label-sm text-xs text-on-surface-variant uppercase tracking-widest">Showroom Buenos Aires</p>
+      <p class="font-body-sm text-sm text-on-surface flex items-center gap-2">
+        <span class="material-symbols-outlined text-base text-primary">location_on</span> Av. San Juan 2847, CABA
+      </p>
+      <p class="font-body-sm text-sm text-on-surface-variant flex items-center gap-2">
+        <span class="material-symbols-outlined text-base text-primary">schedule</span> Lun - Vie 10:00 a 19:00
+        <span class="material-symbols-outlined text-base text-primary">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00 a 14:00
+      </p>
+    </div>
+  </aside>
 
-              <!-- Categorías -->
-              <div class="mb-8">
-                <h4 class="font-headline-md text-headline-md text-on-surface mb-4">Categorías</h4>
-                <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
-                  <li><label class="flex items-center gap-3 cursor-pointer group"><input checked=""
-                        class="accent-primary w-4 h-4 filter-cat" data-category="asientos" type="checkbox" /><span
-                        class="group-hover:text-primary transition-colors">Asientos</span></label></li>
-                  <li><label class="flex items-center gap-3 cursor-pointer group"><input
-                        class="accent-primary w-4 h-4 filter-cat" data-category="mesas" type="checkbox" /><span
-                        class="group-hover:text-primary transition-colors">Mesas</span></label></li>
-                  <li><label class="flex items-center gap-3 cursor-pointer group"><input
-                        class="accent-primary w-4 h-4 filter-cat" data-category="almacenaje" type="checkbox" /><span
-                        class="group-hover:text-primary transition-colors">Almacenaje</span></label></li>
-                  <li><label class="flex items-center gap-3 cursor-pointer group"><input
-                        class="accent-primary w-4 h-4 filter-cat" data-category="accesorios" type="checkbox" /><span
-                        class="group-hover:text-primary transition-colors">Accesorios</span></label></li>
+  <!-- ==========================================
+       CONTENIDO PRINCIPAL
+       ========================================== -->
+  <main class="w-full pt-16 md:pt-20 bg-surface flex-grow">
+    <div class="flex flex-col w-full">
+
+      <!-- ==========================================
+           1. HERO BANNER PRINCIPAL
+           ========================================== -->
+      <section class="relative w-full min-h-[580px] md:min-h-[640px] flex items-center bg-cover bg-center overflow-hidden" 
+               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCK8cQ2J5_TvvU5-lwPfc2Q7uQHCiUwn_Dzs_UpDOfuOQl_8khYfBYQADHmJ_AZaRO9FOCaLE_V5frwUBIXNYLiMIrhZ2fscsgUquazpVZhpLBsPeujdij6Zger4BrExwXf1GfoPdbpIIHW6i2z1UvYj6BRN3dejtKa3OQoRca9gAJvv4lzlGlONx3zhWRa5CGJ6-wPk01wLWu8g6Yfqa2bmh2-ivBLQkeS8Nau2qyZQYaD0UzbzIKg');"
+               data-alt="Living room mid-century moderno cálido con muebles en madera noble y luz dorada natural">
+        
+        <!-- Degradado de superposición para máxima legibilidad -->
+        <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-surface/95 via-surface/75 to-transparent"></div>
+
+        <div class="relative z-10 w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24">
+          <div class="max-w-2xl flex flex-col items-start gap-6 md:gap-8">
+            
+            <!-- Etiqueta de Colección -->
+            <div class="flex items-center gap-3">
+              <span class="w-8 md:w-12 h-[2px] bg-primary"></span>
+              <span class="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold">Colección 2026</span>
+            </div>
+
+            <!-- Título Principal con tipografía serif editorial -->
+            <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface leading-tight font-bold">
+              Muebles que <br/>
+              <span class="italic font-light text-primary">alimentan el alma.</span>
+            </h1>
+
+            <!-- Descripción -->
+            <p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+              Diseño moderno con alma de los 60. Piezas únicas hechas a mano con maderas nativas sustentables, pensadas para durar generaciones.
+            </p>
+
+            <!-- Call to Action -->
+            <a href="html/catalogo.html" class="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 rounded-full font-label-md text-label-md uppercase tracking-wider hover:bg-on-primary-fixed-variant transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 active:scale-95">
+              Explorar Catálogo
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           2. SECCIÓN: PIEZAS DESTACADAS (DINÁMICA)
+           ========================================== -->
+      <section class="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-4">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2 font-bold">Piezas Destacadas</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+              Nuestra selección curada de diseño atemporal. Cada pieza cuenta una historia de artesanía y dedicación.
+            </p>
+          </div>
+          <a class="font-label-md text-label-md text-primary hover:text-on-primary-fixed-variant transition-colors flex items-center gap-2 group font-semibold uppercase tracking-wider" href="html/catalogo.html">
+            Ver todas las piezas
+            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Contenedor dinámico (Mobile: Carousel scrolleable / Desktop: Grilla de 4 columnas) -->
+        <div id="featuredProductsContainer" class="flex overflow-x-auto snap-x snap-mandatory px-1 md:px-0 pb-6 md:pb-0 gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-gutter md:overflow-visible [&::-webkit-scrollbar]:hidden" style="scrollbar-width: none;">
+          <!-- Renderizado dinámicamente vía DOM por loadFeaturedProducts() en js/app.js -->
+        </div>
+      </section>
+
+      <!-- ==========================================
+           3. SECCIÓN: SOSTENIBILIDAD / NUESTRO COMPROMISO
+           ========================================== -->
+      <section class="w-full bg-surface-container py-16 md:py-24 my-6 md:my-12 relative overflow-hidden">
+        <!-- Efectos decorativos de fondo -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+
+        <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+            
+            <!-- Columna Izquierda: Imagen de Taller y Artesanía -->
+            <div class="order-2 md:order-1 relative">
+              <div class="w-full aspect-[4/3] rounded-2xl md:rounded-3xl bg-cover bg-center shadow-md overflow-hidden" 
+                   style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBiQpfKIxhFet4iRi3GqNx6E08P91-KuJpltKa6eDyVH7q5N-4kblOe-67HtP262ODUrgzOloUWeZ--sk2xqU0diaIUEj2eb_XFXMOFmDLFnThZJgHsZuEGLEUq1v3qKjXeP4_SjfIxVZE6m_LjvQf4AB-ilBv5eltdqqyBAzqznTpHg-EUOSo-CiIMMjLqE67q5qkfSHS7KLk11OKgduaNnwtAHwFyIHZ8bQN6DXXjPW1QY-bhxPzZ');"
+                   data-alt="Manos de artesano aplicando acabado natural a la madera en taller">
+              </div>
+              <div class="hidden sm:block absolute -bottom-5 -left-5 w-3/4 h-full bg-secondary-container rounded-3xl -z-10"></div>
+            </div>
+
+            <!-- Columna Derecha: Información y Valores -->
+            <div class="order-1 md:order-2 flex flex-col gap-6 md:gap-8">
+              <div class="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-secondary/15 text-secondary shadow-sm">
+                <span class="material-symbols-outlined text-[28px] md:text-[32px]">eco</span>
+              </div>
+
+              <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Compromiso con el Origen</h2>
+
+              <div class="space-y-6">
+                <p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant leading-relaxed">
+                  Creemos que un buen diseño no solo debe ser hermoso, sino también responsable. Nuestra filosofía se basa en el respeto por los materiales nobles y su entorno natural.
+                </p>
+
+                <ul class="space-y-4">
+                  <li class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center shrink-0 text-on-secondary-container mt-1">
+                      <span class="material-symbols-outlined text-[20px]">forest</span>
+                    </div>
+                    <div>
+                      <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">Maderas Nativas FSC®</h3>
+                      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Solo trabajamos con maderas provenientes de bosques gestionados de manera sostenible, garantizando la regeneración.</p>
+                    </div>
+                  </li>
+
+                  <li class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center shrink-0 text-on-secondary-container mt-1">
+                      <span class="material-symbols-outlined text-[20px]">water_drop</span>
+                    </div>
+                    <div>
+                      <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">Acabados Naturales</h3>
+                      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Utilizamos ceras de abejas locales y aceites vegetales libres de tóxicos, protegiendo tanto el mueble como tu hogar.</p>
+                    </div>
+                  </li>
                 </ul>
               </div>
 
-              <!-- Materiales -->
-              <div>
-                <h4 class="font-headline-md text-headline-md text-on-surface mb-4">Materiales</h4>
-                <div class="flex flex-col gap-3">
-                  <label class="flex items-center gap-3 cursor-pointer group">
-                    <div
-                      class="w-5 h-5 rounded-sm bg-[#5c4033] shadow-inner flex items-center justify-center text-white/0 group-has-[:checked]:text-white">
-                      <span class="material-symbols-outlined text-[14px]">check</span></div>
-                    <input checked="" class="sr-only filter-mat" data-material="nogal" type="checkbox" />
-                    <span
-                      class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Nogal</span>
-                  </label>
-                  <label class="flex items-center gap-3 cursor-pointer group">
-                    <div
-                      class="w-5 h-5 rounded-sm bg-[#d2b48c] shadow-inner flex items-center justify-center text-white/0 group-has-[:checked]:text-white">
-                      <span class="material-symbols-outlined text-[14px]">check</span></div>
-                    <input class="sr-only filter-mat" data-material="roble" type="checkbox" />
-                    <span
-                      class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Roble
-                      Claro</span>
-                  </label>
-                  <label class="flex items-center gap-3 cursor-pointer group">
-                    <div
-                      class="w-5 h-5 rounded-sm bg-[#3a2f28] shadow-inner flex items-center justify-center text-white/0 group-has-[:checked]:text-white">
-                      <span class="material-symbols-outlined text-[14px]">check</span></div>
-                    <input class="sr-only filter-mat" data-material="ebano" type="checkbox" />
-                    <span
-                      class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Ébano</span>
-                  </label>
-                </div>
+              <div class="pt-2">
+                <button type="button" onclick="openBespokeModal('Consulta sobre Sostenibilidad')" class="border-2 border-primary text-primary px-7 py-3.5 rounded-full font-label-md text-label-md uppercase tracking-wider hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-sm active:scale-95">
+                  Nuestra Filosofía
+                </button>
               </div>
             </div>
 
-            <!-- Servicio Bespoke -->
-            <div
-              class="mt-12 bg-primary-container p-6 rounded-xl text-on-primary-container relative overflow-hidden group">
-              <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
-              <div class="relative z-10">
-                <span class="material-symbols-outlined mb-2">auto_awesome</span>
-                <h5 class="font-headline-md text-headline-md mb-2">Servicio Bespoke</h5>
-                <p class="font-body-md text-body-md text-on-primary-container/80 mb-4">Personalice dimensiones y
-                  acabados.</p>
-                <a class="font-label-md text-label-md uppercase tracking-wider hover:underline flex items-center gap-1 cursor-pointer"
-                  onclick="openBespokeModal()">
-                  Consultar <span
-                    class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                </a>
-              </div>
-            </div>
-          </aside>
-
-          <!-- Product Grid Area -->
-          <div class="flex-1 w-full min-w-0">
-            <!-- Toolbar -->
-            <div class="flex justify-between items-center mb-8 pb-4 border-b border-surface-variant hidden md:flex">
-              <span class="font-body-md text-body-md text-on-surface-variant">Mostrando <strong id="shownCount"
-                  class="text-on-surface">6</strong> de <strong id="totalPiecesCount">11</strong> piezas</span>
-              <div class="flex items-center gap-6">
-                <div class="flex items-center gap-2">
-                  <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Ordenar
-                    por:</span>
-                  <select id="sortSelect"
-                    class="bg-transparent font-body-md text-body-md text-on-surface focus:outline-none cursor-pointer">
-                    <option value="novedades">Novedades</option>
-                    <option value="precio-asc">Precio: Menor a Mayor</option>
-                    <option value="precio-desc">Precio: Mayor a Menor</option>
-                    <option value="alfabetico">Nombre A-Z</option>
-                  </select>
-                </div>
-                <div class="flex gap-2 text-on-surface-variant">
-                  <button class="p-1 text-primary"><span class="material-symbols-outlined">grid_view</span></button>
-                  <button class="p-1 hover:text-primary transition-colors"><span
-                      class="material-symbols-outlined">view_list</span></button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Dynamic Products Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-12" id="productsGrid">
-              <!-- Populated by app.js -->
-            </div>
-
-            <!-- Pagination -->
-            <div class="mt-16 flex justify-center items-center gap-2" id="paginationContainer">
-              <!-- Populated by app.js -->
-            </div>
           </div>
         </div>
-      </div>
+      </section>
+
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="w-full bg-surface-container-high mt-20 py-16" id="contacto">
-    <div class="max-w-[1280px] mx-auto px-margin-desktop">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-start">
+  <!-- ==========================================
+       FOOTER / PIE DE PÁGINA OFICIAL
+       ========================================== -->
+  <footer class="w-full bg-surface-container-high py-12 md:py-16 pb-24 md:pb-16 border-t border-outline-variant/20">
+    <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-gutter items-start">
+        
+        <!-- Bloque Marca -->
         <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <img alt="Logo" class="h-8 opacity-80" src="assets/images/logo.svg" />
+            <img alt="Logo Hermanos Jota" class="h-8 w-auto opacity-90" src="assets/images/logo.svg" />
             <div>
-              <h4 class="font-headline-md text-headline-md text-on-surface">Hermanos Jota</h4>
-              <p class="font-body-md text-body-md text-on-surface-variant">Estética de los 60, calidad eterna.</p>
+              <h3 class="font-headline-md text-headline-md text-on-surface font-bold">Hermanos Jota</h3>
+              <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Estética de los 60, calidad eterna.</p>
             </div>
           </div>
         </div>
-        <div class="space-y-4">
-          <div>
-            <h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">Showroom</h5>
-            <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span
-                class="material-symbols-outlined text-sm">location_on</span> Av. San Juan 2847, CABA</p>
-            <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span
-                class="material-symbols-outlined text-sm">schedule</span> Lun - Vie 10:00 a 19:00</p>
+
+        <!-- Bloque Showroom -->
+        <div class="space-y-3">
+          <h4 class="font-label-md text-label-md text-primary uppercase tracking-widest font-bold">Showroom</h4>
+          <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm text-primary">location_on</span> Av. San Juan 2847, CABA
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm text-primary">schedule</span> Lun - Vie 10:00 a 19:00
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 pl-6">
+            Sábados: 10:00 - 14:00
+          </p>
+        </div>
+
+        <!-- Bloque Conexión / Redes -->
+        <div class="space-y-3">
+          <h4 class="font-label-md text-label-md text-primary uppercase tracking-widest font-bold">Conectemos</h4>
+          <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-sm text-primary">share</span> @hermanosjota_ba
+          </p>
+          <div class="flex gap-4 pt-2">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors" aria-label="Instagram">
+              <span class="material-symbols-outlined text-[18px]">camera</span>
+            </a>
+            <a href="mailto:info@hermanosjota.com.ar" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors" aria-label="Email">
+              <span class="material-symbols-outlined text-[18px]">mail</span>
+            </a>
           </div>
         </div>
-        <div class="space-y-4">
-          <div>
-            <h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">Conectemos</h5>
-            <p
-              class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
-              <span class="material-symbols-outlined text-sm">share</span> @hermanosjota_ba</p>
-            <p
-              class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
-              <span class="material-symbols-outlined text-sm">chat</span> +54 11 4567-8900</p>
-          </div>
-        </div>
+
       </div>
-      <div class="mt-16 pt-8 border-t border-outline-variant text-center">
-        <p class="font-label-sm text-label-sm text-on-surface-variant opacity-60 italic">© 2026 Hermanos Jota. Hecho a
-          mano con herencia y modernidad.</p>
+
+      <!-- Copyright -->
+      <div class="mt-12 pt-8 border-t border-outline-variant/30 text-center">
+        <p class="font-label-sm text-label-sm text-on-surface-variant opacity-70 italic">
+          © 2026 Hermanos Jota. Hecho a mano con herencia y modernidad.
+        </p>
       </div>
     </div>
   </footer>
 
-  <!-- PRODUCT MODAL -->
-  <div id="productModal"
-    class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-surface rounded-xl p-8 max-w-2xl w-full shadow-xl relative max-h-[90vh] overflow-y-auto">
-      <button onclick="closeModal('productModal')"
-        class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span
-          class="material-symbols-outlined">close</span></button>
+  <!-- ==========================================
+       BOTTOM NAVIGATION BAR (SOLO MOBILE)
+       ========================================== -->
+  <nav class="fixed bottom-0 w-full z-40 md:hidden pb-safe bg-surface/95 backdrop-blur-xl border-t border-outline-variant/20 shadow-lg" aria-label="Navegación rápida inferior">
+    <div class="flex justify-around items-center h-16">
+      <a aria-current="page" class="flex flex-col items-center gap-1 text-primary font-bold text-xs" href="index.html">
+        <span class="material-symbols-outlined text-[22px]">home</span>
+        <span class="font-label-sm text-[11px]">Inicio</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" href="html/catalogo.html">
+        <span class="material-symbols-outlined text-[22px]">chair</span>
+        <span class="font-label-sm text-[11px]">Catálogo</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" href="html/contacto.html">
+        <span class="material-symbols-outlined text-[22px]">mail</span>
+        <span class="font-label-sm text-[11px]">Contacto</span>
+      </a>
+      <button type="button" class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" onclick="openCartModal()">
+        <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+        <span class="font-label-sm text-[11px]">Cotización</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       MODALES & COMPONENTES DINÁMICOS
+       ========================================== -->
+
+  <!-- PRODUCT QUICK VIEW MODAL -->
+  <div id="productModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-surface rounded-2xl p-6 md:p-8 max-w-2xl w-full shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('productModal')" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1" aria-label="Cerrar modal">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
       <div id="productModalContent"></div>
     </div>
   </div>
 
-  <!-- BESPOKE MODAL -->
-  <div id="bespokeModal"
-    class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-surface rounded-xl p-8 max-w-lg w-full shadow-xl relative">
-      <button onclick="closeBespokeModal()"
-        class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span
-          class="material-symbols-outlined">close</span></button>
-      <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Servicio Bespoke</h3>
-      <p class="font-body-md text-on-surface-variant mb-6">Personalice dimensiones, maderas nobles y acabados a medida.
+  <!-- BESPOKE / CONSULTOR MODAL -->
+  <div id="bespokeModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-surface rounded-2xl p-6 md:p-8 max-w-lg w-full shadow-2xl relative">
+      <button onclick="closeBespokeModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1" aria-label="Cerrar modal">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-2 font-bold">Servicio Bespoke &amp; Asesoría</h3>
+      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant mb-6">
+        Personalice dimensiones, maderas nobles sustentables y acabados con nuestro equipo de maestros ebanistas.
       </p>
-      <form onsubmit="event.preventDefault(); showToast('Solicitud Bespoke recibida', '✨'); closeBespokeModal();"
-        class="space-y-4">
+      <form onsubmit="event.preventDefault(); showToast('Solicitud recibida. Te contactaremos a la brevedad.', '✨'); closeBespokeModal();" class="space-y-4">
         <div>
-          <label class="block font-label-sm text-on-surface mb-1">Pieza o Tipología</label>
-          <input id="bespokePieceInput"
-            class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary"
-            placeholder="Ej. Aparador Uspallata o Mesa Comedor Pampa" required />
+          <label class="block font-label-sm text-on-surface mb-1 font-semibold">Pieza o Tipología de Interés</label>
+          <input id="bespokePieceInput" class="w-full p-3 bg-surface-container rounded-lg border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary text-on-surface font-body-md" placeholder="Ej. Silla Otoño o Aparador Uspallata" required />
         </div>
         <div>
-          <label class="block font-label-sm text-on-surface mb-1">Madera / Acabado</label>
-          <select
-            class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary">
-            <option>Nogal Macizo FSC®</option>
-            <option>Roble Claro al Aceite</option>
+          <label class="block font-label-sm text-on-surface mb-1 font-semibold">Madera / Acabado Preferido</label>
+          <select class="w-full p-3 bg-surface-container rounded-lg border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary text-on-surface font-body-md">
+            <option>Roble Macizo FSC®</option>
+            <option>Nogal Sostenible al Aceite</option>
+            <option>Fresno Nativo</option>
+            <option>Cerezo Sólido</option>
             <option>Guatambú Macizo</option>
-            <option>Ébano / Fresno Teñido</option>
-            <option>Bambú Laminado</option>
           </select>
         </div>
         <div>
-          <label class="block font-label-sm text-on-surface mb-1">Contacto (Email o WhatsApp)</label>
-          <input
-            class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary"
-            placeholder="tu@email.com o +54..." required />
+          <label class="block font-label-sm text-on-surface mb-1 font-semibold">Contacto (Email o WhatsApp)</label>
+          <input type="text" class="w-full p-3 bg-surface-container rounded-lg border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary text-on-surface font-body-md" placeholder="tu@email.com o +54 9 11..." required />
         </div>
-        <button type="submit"
-          class="w-full py-3 bg-primary text-on-primary font-label-md rounded shadow hover:bg-primary-container transition-colors">Enviar
-          Solicitud</button>
+        <button type="submit" class="w-full py-3.5 bg-primary text-on-primary font-label-md rounded-lg shadow-md hover:bg-on-primary-fixed-variant transition-colors uppercase tracking-wider font-semibold">
+          Enviar Consulta
+        </button>
       </form>
     </div>
   </div>
 
-  <!-- CART MODAL -->
-  <div id="cartModal"
-    class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-surface rounded-xl p-8 max-w-md w-full shadow-xl relative">
-      <button onclick="closeModal('cartModal')"
-        class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span
-          class="material-symbols-outlined">close</span></button>
-      <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Tu Selección de Cotización</h3>
-      <div id="cartItemsList" class="my-4 max-h-60 overflow-y-auto"></div>
+  <!-- CART / PRESUPUESTO MODAL -->
+  <div id="cartModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-surface rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl relative">
+      <button onclick="closeModal('cartModal')" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1" aria-label="Cerrar carrito">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-2 font-bold">Tu Selección de Cotización</h3>
+      <div id="cartItemsList" class="my-4 max-h-60 overflow-y-auto space-y-2"></div>
       <div class="flex justify-between items-center py-3 border-t border-outline-variant">
-        <span class="font-semibold">Total Estimado:</span>
-        <span id="cartTotalAmount" class="font-bold text-primary font-headline-md text-lg">$ 0</span>
+        <span class="font-semibold text-on-surface">Total Estimado:</span>
+        <span id="cartTotalAmount" class="font-bold text-primary font-headline-md text-xl">$ 0</span>
       </div>
-      <button onclick="closeModal('cartModal'); showToast('Cotización enviada a Hermanos Jota', '✓')"
-        class="w-full py-3 bg-primary text-on-primary font-label-md rounded shadow hover:bg-primary-container transition-colors mt-4">
+      <button onclick="closeModal('cartModal'); showToast('Cotización enviada a Hermanos Jota', '✓')" class="w-full py-3.5 bg-primary text-on-primary font-label-md rounded-lg shadow-md hover:bg-on-primary-fixed-variant transition-colors uppercase tracking-wider font-semibold mt-4">
         Solicitar Presupuesto Formal
       </button>
     </div>
   </div>
 
   <!-- TOAST NOTIFICATIONS -->
-  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2"></div>
+  <div id="toastContainer" class="fixed bottom-20 md:bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
+  <!-- Script Global Oficial -->
   <script src="js/app.js"></script>
 </body>
 

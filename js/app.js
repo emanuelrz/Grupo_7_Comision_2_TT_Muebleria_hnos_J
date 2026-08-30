@@ -274,6 +274,132 @@ const getPagePath = (path) => {
   return isHtmlFolder ? path : 'html/' + path;
 };
 
+// ==========================================
+// PIEZAS DESTACADAS (PÁGINA DE INICIO)
+// ==========================================
+const FEATURED_PRODUCTS = [
+  {
+    id: 101,
+    catalogId: 9, // Sillas Córdoba
+    title: 'Silla "Otoño"',
+    materialBadge: "Roble Macizo",
+    price: 450000,
+    priceFormatted: "$450.000",
+    finish: "Acabado en cera de abejas",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCABaF6bgYwg48RyLq2b_2sAUizYvZD5T_yPurNRn5A0F_rxtalkYv6ckj8Yi08QPCIkeiiVLBJVetXNuXi47RxnbspsaB2j7ouht-6YSKeLQwAjM6a8JCrsEsa5r0IKd4TAdJi9Xey0yePudtFJq5LwyKKNdkaK0OeIWlwgLw0Cl6Ln2eC4KT7Fhxrs_fFP1gjioNljt94JSoHM0MYXi-KkWEkg3cSQH5U90viL16UBXmwBdCKx5rg",
+    isOffsetDesktop: false
+  },
+  {
+    id: 102,
+    catalogId: 5, // Mesa de Centro Araucaria
+    title: 'Mesa Lateral "Eco"',
+    materialBadge: "Nogal & Ratán",
+    price: 280000,
+    priceFormatted: "$280.000",
+    finish: "Aceite de Tung natural",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBqFIUQBx8tWll-sGLEFpOT_9HHHb6rtydegXDd3R8cuMaW6wLAGQrWcMc7PtfBjdqwyVWmWeyp_7BSTI97xr0r-HnTrF37ZSI9ZoIjww_iNVY_zkFfIgYtBrYEgP2aVOtvmYGt2r3gQSOHYhbXJWeSqmi-NONZ4rRojDewdow95yrwk6XzGP3xmBm9sfF4b1k21FTbSaiazxtclDpxDj8FW4YBIFHoPcNVsWVZOno73oSWzuEaUe9C",
+    isOffsetDesktop: false
+  },
+  {
+    id: 103,
+    catalogId: 3, // Butaca Mendoza
+    title: 'Sillón "Luz"',
+    materialBadge: "Fresno Nativo",
+    price: 890000,
+    priceFormatted: "$890.000",
+    finish: "Laca al agua mate",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCdrxanOI82RTSGHVmp78Brr0sQuVl5eEZWAadvw1lOA8sugzHmX9h-c8Mp0XMcon4XD_N3nGKzGZjHtkVBzmcIijxVUTnEx4iQ_ZZSKF2SLD1PalAx2AyvE6hnfcAbV2q9gKQTKVv0miFXeiqv2QITiw2sj9f2AqhzcEFqG70uW7CMEVODnlbBrFhXDZ-R3xZMQRRZHDqwIw6rrC1dphIQ6bahErY0DQWDvCYuHAZ1RMxZQ8ExxNrM",
+    isOffsetDesktop: true
+  },
+  {
+    id: 104,
+    catalogId: 10, // Escritorio Costa
+    title: 'Escritorio "Trazo"',
+    materialBadge: "Cerezo Sólido",
+    price: 1150000,
+    priceFormatted: "$1.150.000",
+    finish: "Aceite de lino",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAemkwymiTenFdRmTK4jTCxcYKcHrEWrqlkg9ew7m5eSnVl2v4zm75P8GF5h39QtQEUfxs5HL05TTSjw--SqEnBQgIerM6AJFmnL3vCiINRIssAtG7aMA9osA4lhqZQQ7VkQyjwSlFxtL6n-yYw8yrzqEmRjoHZLA7T_ZDpGFBy6LjP57TnLk4JKC6bmcaDfVUy25V5nyFO0v3n6CxJp40MxikIT_6F9C4aO7tRtUNDkAbI6VKHSMFI",
+    isOffsetDesktop: true
+  }
+];
+
+/**
+ * Carga asíncrona y renderizado dinámico vía DOM de productos destacados
+ */
+async function loadFeaturedProducts() {
+  const container = document.getElementById("featuredProductsContainer");
+  if (!container) return;
+
+  // 1. Mostrar estado de carga asíncrono (Skeleton loader)
+  container.innerHTML = Array(4).fill(0).map(() => `
+    <div class="snap-start shrink-0 w-[78vw] sm:w-[260px] md:w-auto flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-sm animate-pulse">
+      <div class="aspect-[4/5] bg-surface-dim/60"></div>
+      <div class="p-6 flex flex-col gap-3">
+        <div class="h-6 bg-surface-dim/70 rounded w-3/4"></div>
+        <div class="h-4 bg-surface-dim/50 rounded w-1/2"></div>
+      </div>
+    </div>
+  `).join('');
+
+  // 2. Carga asíncrona simulada con setTimeout / async-await
+  await new Promise(resolve => setTimeout(resolve, 350));
+
+  // 3. Renderizado dinámico vía DOM con interactividad
+  container.innerHTML = "";
+
+  FEATURED_PRODUCTS.forEach((prod) => {
+    const isFav = state.favorites.has(prod.id);
+    const card = document.createElement("article");
+    card.className = `group flex flex-col bg-surface-container-low rounded-2xl md:rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 snap-start shrink-0 w-[78vw] sm:w-[260px] md:w-auto cursor-pointer ${prod.isOffsetDesktop ? 'lg:mt-8' : ''}`;
+
+    card.innerHTML = `
+      <div class="relative aspect-[4/5] overflow-hidden bg-surface-dim">
+        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="${prod.image}" alt="${prod.title}" loading="lazy"/>
+        <div class="absolute top-4 right-4 bg-secondary/15 text-secondary px-3 py-1 rounded-full font-label-sm text-label-sm backdrop-blur-sm shadow-sm font-medium">
+          ${prod.materialBadge}
+        </div>
+        <button type="button" class="btn-feat-fav absolute top-4 left-4 w-9 h-9 rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-primary shadow-sm transition-transform active:scale-90 hover:bg-surface" aria-label="Guardar en favoritos">
+          <span class="material-symbols-outlined text-[19px]">${isFav ? 'favorite' : 'favorite_border'}</span>
+        </button>
+      </div>
+      <div class="p-5 md:p-6 flex flex-col gap-3 flex-grow">
+        <div class="flex justify-between items-start gap-2">
+          <h3 class="font-headline-md text-headline-md text-on-surface leading-tight text-lg md:text-xl font-semibold">${prod.title}</h3>
+          <span class="font-label-md text-label-md text-primary font-bold whitespace-nowrap">${prod.priceFormatted}</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 text-sm mt-auto">
+          <span class="material-symbols-outlined text-[16px] text-outline">format_paint</span>
+          ${prod.finish}
+        </p>
+      </div>
+    `;
+
+    // 4. Interactividad con addEventListener (Favoritos)
+    const favBtn = card.querySelector(".btn-feat-fav");
+    favBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const icon = favBtn.querySelector("span");
+      if (state.favorites.has(prod.id)) {
+        state.favorites.delete(prod.id);
+        icon.textContent = "favorite_border";
+        showToast(`Removido de favoritos: ${prod.title}`, "♡");
+      } else {
+        state.favorites.add(prod.id);
+        icon.textContent = "favorite";
+        showToast(`Añadido a favoritos: ${prod.title}`, "♥");
+      }
+    });
+
+    // Interactividad con addEventListener (Navegación al detalle del catálogo)
+    card.addEventListener("click", () => {
+      window.location.href = `${getPagePath('producto.html')}?id=${prod.catalogId}`;
+    });
+
+    container.appendChild(card);
+  });
+}
+
 function formatCurrency(num) {
   return "$ " + num.toLocaleString("es-AR");
 }
@@ -654,6 +780,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Mobile Menu Drawer Interactivity
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const closeMobileMenuBtn = document.getElementById("closeMobileMenuBtn");
+  const mobileMenuDrawer = document.getElementById("mobileMenuDrawer");
+  const mobileMenuBackdrop = document.getElementById("mobileMenuBackdrop");
+
+  if (mobileMenuBtn && mobileMenuDrawer) {
+    const openMenu = () => {
+      mobileMenuDrawer.classList.remove("-translate-x-full");
+      if (mobileMenuBackdrop) mobileMenuBackdrop.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden");
+    };
+    const closeMenu = () => {
+      mobileMenuDrawer.classList.add("-translate-x-full");
+      if (mobileMenuBackdrop) mobileMenuBackdrop.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
+    };
+
+    mobileMenuBtn.addEventListener("click", openMenu);
+    if (closeMobileMenuBtn) closeMobileMenuBtn.addEventListener("click", closeMenu);
+    if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener("click", closeMenu);
+
+    // Close menu when clicking drawer links
+    mobileMenuDrawer.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+  }
+
+  // Inicializar productos destacados (Inicio) y catálogo
+  loadFeaturedProducts();
   renderCatalog();
 });
 
