@@ -152,14 +152,9 @@
            ========================================== -->
       <section class="lg:col-span-6 xl:col-span-7 flex flex-col gap-4 lg:sticky lg:top-28">
         
-        <!-- Imagen Principal Única con Botón de Favorito -->
+        <!-- Imagen Principal Única -->
         <div class="relative w-full aspect-[4/3] sm:aspect-[5/4] md:aspect-[4/3] bg-[#f7efe6] rounded-2xl overflow-hidden shadow-sm product-hero-container flex items-center justify-center p-6 border border-[#ebdcd0]">
           <img id="mainProductImage" src="../assets/images/mesa-comedor-pampa.png" alt="Producto Hermanos Jota" class="w-full h-full object-contain product-hero-image" />
-          
-          <!-- Botón Flotante Favorito -->
-          <button id="favBtn" onclick="toggleProductFavorite()" class="btn-floating-fav" title="Guardar en favoritos" aria-label="Guardar en favoritos">
-            <span id="favIcon" class="material-symbols-outlined text-2xl">favorite_border</span>
-          </button>
         </div>
       </section>
 
@@ -471,7 +466,6 @@
     };
 
     let currentProduct = DEFAULT_PRODUCT;
-    let isCurrentFavorite = false;
 
     // Inicializar página al cargar el DOM
     document.addEventListener("DOMContentLoaded", () => {
@@ -546,40 +540,6 @@
         if (document.getElementById("manufMaterial")) document.getElementById("manufMaterial").textContent = p.manufacturing.material;
         if (document.getElementById("manufStructure")) document.getElementById("manufStructure").textContent = p.manufacturing.estructura;
         if (document.getElementById("manufFinish")) document.getElementById("manufFinish").textContent = p.manufacturing.acabado;
-      }
-
-      checkFavoriteStatus();
-    }
-
-    // Toggle de Favorito
-    function toggleProductFavorite() {
-      isCurrentFavorite = !isCurrentFavorite;
-      const favBtn = document.getElementById("favBtn");
-      const favIcon = document.getElementById("favIcon");
-      
-      if (isCurrentFavorite) {
-        favBtn.classList.add("active");
-        favIcon.textContent = "favorite";
-        showToast("Pieza guardada en tu lista de deseos", "♥");
-      } else {
-        favBtn.classList.remove("active");
-        favIcon.textContent = "favorite_border";
-        showToast("Eliminado de favoritos", "♡");
-      }
-
-      if (typeof state !== "undefined" && state.favorites) {
-        if (isCurrentFavorite) state.favorites.add(currentProduct.id);
-        else state.favorites.delete(currentProduct.id);
-      }
-    }
-
-    function checkFavoriteStatus() {
-      const favBtn = document.getElementById("favBtn");
-      const favIcon = document.getElementById("favIcon");
-      if (typeof state !== "undefined" && state.favorites && state.favorites.has(currentProduct.id)) {
-        isCurrentFavorite = true;
-        favBtn.classList.add("active");
-        favIcon.textContent = "favorite";
       }
     }
 

@@ -380,7 +380,6 @@ async function loadFeaturedProducts() {
   container.innerHTML = "";
 
   FEATURED_PRODUCTS.forEach((prod) => {
-    const isFav = state.favorites.has(prod.id);
     const card = document.createElement("article");
     card.className = `group flex flex-col bg-surface-container-low rounded-2xl md:rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 snap-start shrink-0 w-[78vw] sm:w-[260px] md:w-auto cursor-pointer ${prod.isOffsetDesktop ? 'lg:mt-8' : ''}`;
 
@@ -390,9 +389,6 @@ async function loadFeaturedProducts() {
         <div class="absolute top-4 right-4 bg-secondary/15 text-secondary px-3 py-1 rounded-full font-label-sm text-label-sm backdrop-blur-sm shadow-sm font-medium">
           ${prod.materialBadge}
         </div>
-        <button type="button" class="btn-feat-fav absolute top-4 left-4 w-9 h-9 rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-primary shadow-sm transition-transform active:scale-90 hover:bg-surface" aria-label="Guardar en favoritos">
-          <span class="material-symbols-outlined text-[19px]">${isFav ? 'favorite' : 'favorite_border'}</span>
-        </button>
       </div>
       <div class="p-5 md:p-6 flex flex-col gap-3 flex-grow">
         <div class="flex justify-between items-start gap-2">
@@ -405,22 +401,6 @@ async function loadFeaturedProducts() {
         </p>
       </div>
     `;
-
-    // 4. Interactividad con addEventListener (Favoritos)
-    const favBtn = card.querySelector(".btn-feat-fav");
-    favBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const icon = favBtn.querySelector("span");
-      if (state.favorites.has(prod.id)) {
-        state.favorites.delete(prod.id);
-        icon.textContent = "favorite_border";
-        showToast(`Removido de favoritos: ${prod.title}`, "♡");
-      } else {
-        state.favorites.add(prod.id);
-        icon.textContent = "favorite";
-        showToast(`Añadido a favoritos: ${prod.title}`, "♥");
-      }
-    });
 
     // Interactividad con addEventListener (Navegación al detalle del catálogo)
     card.addEventListener("click", () => {
@@ -505,7 +485,6 @@ function renderCatalog() {
   const pageItems = filtered.slice(startIndex, startIndex + state.itemsPerPage);
 
   grid.innerHTML = pageItems.map(item => {
-    const isFav = state.favorites.has(item.id);
     const badgeHtml = item.badge
       ? `<div class="absolute top-4 left-4 ${item.badge.class === 'badge-nuevo' ? 'bg-secondary/90' : 'bg-secondary/90'} backdrop-blur text-on-secondary font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider">${item.badge.text}</div>`
       : '';
@@ -531,12 +510,9 @@ function renderCatalog() {
         </div>
         <div class="p-6 flex flex-col flex-grow">
           <div class="flex items-start justify-between mb-2">
-            <a href="${getPagePath('producto.html')}?id=${item.id}" class="hover:text-primary transition-colors flex-1 mr-2">
+            <a href="${getPagePath('producto.html')}?id=${item.id}" class="hover:text-primary transition-colors flex-1">
               <h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1">${item.title}</h2>
             </a>
-            <button onclick="toggleFavorite(${item.id})" class="${isFav ? 'text-primary' : 'text-on-surface-variant hover:text-primary'} transition-colors">
-              <span class="material-symbols-outlined">${isFav ? 'favorite' : 'favorite_border'}</span>
-            </button>
           </div>
           <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">${item.desc}</p>
           <div class="flex items-center justify-between mt-auto">
