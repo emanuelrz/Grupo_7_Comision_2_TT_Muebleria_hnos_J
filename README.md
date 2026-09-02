@@ -1,122 +1,117 @@
-# Muebleria Hnos Jota - Sitio Web Oficial
+# Mueblería Hermanos Jota - Sitio Web Oficial
 
-Bienvenido al E-commerce de **Muebleria Hnos Jota**. Este repositorio contiene el código fuente del sitio web oficial, desarrollado con HTML, Tailwind CSS y JavaScript Vanilla.
+Sitio web e-commerce y catálogo digital para **Mueblería Hermanos Jota**, marca de muebles de autor con inspiración en el diseño de los años 60, artesanía sostenible y maderas nobles.
+
+Este proyecto está desarrollado íntegramente como una aplicación web front-end nativa (Vanilla), sin dependencias complejas ni procesos de compilación (build steps), lista para ejecutarse directamente en cualquier navegador o servidor estático.
+
+---
 
 ## 📂 Estructura del Proyecto
 
-El sitio sigue una arquitectura modular y escalable. La estructura de directorios es la siguiente:
+La organización real de directorios y archivos es la siguiente:
 
-```
+```text
 muebleria-hnosj/
 ├── assets/
-│   ├── css/       # Estilos globales y de marca
-│   │   └── styles.css
-│   ├── images/    # Recursos visuales (imágenes, logos, iconos)
-│   │   ├── brand/
-│   │   ├── products/
-│   │   └── ui/
-│   └── js/        # Lógica de la aplicación
-│       └── app.js
+│   └── images/               # Fotografías de productos y logotipo vectorial (SVG)
+├── css/
+│   └── styles.css            # Estilos globales, variables CSS y ajustes personalizados
 ├── html/
-│   ├── _modules/  # Componentes reutilizables (header, footer, etc.)
-│   ├── _sections/ # Secciones dinámicas del sitio
-│   ├── catalogo.html
-│   ├── checkout.html
-│   ├── contacto.html
-│   ├── index.html     # Home
-│   └── producto.html  # Detalle del producto
+│   ├── catalogo.html         # Catálogo completo con buscador, filtros y paginación
+│   ├── contacto.html         # Formulario de contacto, ubicación y canales de atención
+│   └── producto.html         # Vista de detalle de producto dinámico (vía query param ?id=X)
+├── js/
+│   └── app.js                # Lógica principal, datos de productos, carrito y persistencia
 ├── .gitignore
+├── index.html                # Página principal (Home con productos destacados)
 └── README.md
 ```
 
-## 🛠 Tecnología Utilizada
+---
 
-El proyecto está construido utilizando tecnologías modernas de desarrollo web front-end:
+## 🛠 Tecnologías Utilizadas
 
-*   **HTML5**: Estructura semántica del sitio.
-*   **Tailwind CSS**:
-    *   Framework CSS utilitario para estilos rápidos y responsivos.
-    *   Configuración de marca personalizada (`tailwind.config`).
-*   **JavaScript Vanilla**:
-    *   Lógica de navegación y estado de la aplicación.
-    *   Gestión de carrito de cotización.
-    *   Validación de formularios.
-    *   Integración con APIs (WhatsApp, Google Sheets).
-*   **Google Fonts**: Tipografías `Inter` y `Playfair Display` para una identidad visual premium.
+* **HTML5 Semántico**: Estructura accesible y optimizada para SEO en todas las páginas.
+* **Tailwind CSS (vía CDN)**: Framework utilitario cargado de forma dinámica con paleta de colores corporativa y tipografías extendidas en el encabezado (`tailwind.config`).
+* **Vanilla JavaScript (ES6+)**:
+  * Renderizado reactivo del catálogo y detalle de productos vía DOM.
+  * Simulación de carga asíncrona mediante *skeleton loaders*.
+  * Gestión de estado del carrito de cotización.
+  * Persistencia en el navegador mediante `localStorage`.
+  * Control del menú desplegable (*drawer*) y barra de navegación móvil.
+* **Google Fonts**:
+  * `Playfair Display`: Tipografía serif clásica para encabezados y acentos editoriales.
+  * `Inter`: Tipografía sans-serif de alta legibilidad para interfaces y descripciones.
+* **Material Symbols Outlined**: Conjunto de iconografía oficial de Google para navegación y botones de acción.
 
-## 🚀 Características Principales
+---
 
-*   **Catálogo de Productos**: Visualización de muebles con detalles técnicos.
-*   **Carrito de Cotización** (Checkout): Gestión de productos seleccionados para cotización.
-*   **Consultor en Línea**: Interacción con IA y generación de mensajes a WhatsApp.
-*   **Persistencia de Estado**:
-    *   Uso de `localStorage` para guardar carrito y favoritos.
-    *   Sincronización con Google Sheets (API).
+## 🚀 Funcionalidades Implementadas
 
-## 📂 Directorios Clave
+### 1. Página Principal (`index.html`)
+* **Hero Editorial**: Propuesta de valor de la marca.
+* **Productos Destacados**: Carga asíncrona simulada con *skeleton loader* y renderizado dinámico desde JavaScript con navegación directa al detalle.
+* **Secciones de Marca**: Filosofía de diseño, maderas seleccionadas y garantía artesanal.
+* **Navegación Móvil Adaptada**: Drawer lateral deslizable y barra de acceso rápido inferior (*bottom navigation*).
 
-### `assets/`
-Contiene todos los recursos estáticos y dinámicos del proyecto.
+### 2. Catálogo Interactivo (`html/catalogo.html`)
+* **Buscador en tiempo real**: Filtrado por texto (título, descripción o material).
+* **Filtros combinables**:
+  * Por categoría (*almacenaje, asientos, mesas*).
+  * Por tipo de madera (*nogal, roble, etc.*).
+  * Etiquetas rápidas (*edición limitada, madera maciza*).
+* **Ordenamiento**: Por menor precio, mayor precio, novedades o alfabético.
+* **Paginación dinámica**: Control de páginas con conteo de piezas encontradas y botón para reiniciar filtros cuando no hay coincidencias.
 
-*   **`css/styles.css`**:
-    *   Definición de la paleta de colores corporativa.
-    *   Variables CSS y estilos base.
-    *   Clases utilitarias para componentes (botones, inputs, modales).
-*   **`images/`**:
-    *   `brand/`: Logo y elementos de identidad visual.
-    *   `products/`: Imágenes de alta calidad de los muebles.
-    *   `ui/`: Iconos y gráficos auxiliares.
-*   **`js/app.js`**:
-    *   Controlador principal de la aplicación.
-    *   Manejo de rutas y renderizado de secciones.
-    *   Gestión del estado global.
+### 3. Ficha de Detalle de Producto (`html/producto.html`)
+* **Carga dinámica por URL**: Lee el parámetro `?id=` para obtener y mostrar la información técnica, fotos y precios de la pieza seleccionada.
+* **Especificaciones técnicas**: Medidas, materiales certificados, acabados y capacidades.
+* **Selector de cantidades y agregado al carrito**: Permite agregar múltiples unidades al carrito de cotización.
 
-### `html/`
-Estructura del sitio web.
+### 4. Carrito de Cotización Flotante (`#cartModal`)
+* **Gestor de presupuesto**: Accesible desde el encabezado en cualquier página.
+* **Control de unidades**: Sumar (+), restar (-) o eliminar ítems individuales.
+* **Cálculo de subtotales y totales**: Formato de moneda local (`es-AR`).
+* **Persistencia local**: Guarda los productos en `localStorage` (`muebleria_cart`) para mantener la cotización activa entre recargas y navegación.
+* **Notificaciones Toast**: Alertas emergentes no bloqueantes al agregar, modificar o enviar cotizaciones.
 
-*   **`index.html`**: Página de inicio con productos destacados y propuesta de valor.
-*   **`catalogo.html`**: Listado completo de productos con filtros y paginación.
-*   **`producto.html`**: Detalle de un producto específico con especificaciones técnicas.
-*   **`checkout.html`**: Proceso de cotización con formulario y validación.
-*   **`contacto.html`**: Formulario de contacto con integración a Google Sheets.
-*   **`_modules/`**:
-    *   `header.html`: Cabecera con navegación responsiva.
-    *   `footer.html`: Pie de página con enlaces y redes sociales.
-    *   `consultor-modal.html`: Componente de chat con IA.
-    *   `carrito-modal.html`: Carrito de cotización flotante.
-*   **`_sections/`**:
-    *   `hero.html`: Sección principal de la home.
-    *   `destacados.html`: Productos destacados del catálogo.
-    *   `servicios.html`: Beneficios y propuesta de valor.
-    *   `acerca-de.html`: Información sobre la empresa.
-    *   `contacto-form.html`: Formulario de contacto.
+### 5. Asesoramiento a Medida y Contacto
+* **Modal de Servicio Bespoke / Consultoría**: Formulario para solicitar presupuestos de piezas personalizadas o asesoramiento directo de diseño.
+* **Página de Contacto (`html/contacto.html`)**: Horarios de taller, dirección del showroom y enlaces directos a canales de atención y WhatsApp.
 
-## ⚙️ Configuración y Uso
+---
 
-1.  **Clonar el repositorio**:
-    ```bash
-    git clone <url-del-repositorio>
-    cd muebleria-hnosj
-    ```
+## 🎨 Identidad Visual y Paleta de Colores
 
-2.  **Ejecutar el proyecto**:
-    Puedes abrir cualquiera de los archivos HTML directamente en tu navegador. Para una mejor experiencia de desarrollo, se recomienda usar una extensión como "Live Server" en VS Code.
+El sistema de diseño utiliza tonos cálidos y orgánicos que evocan la madera, la tierra y el trabajo artesanal:
 
-## 🔌 Integraciones
+| Nombre Token | Color Hex | Uso Principal |
+| :--- | :--- | :--- |
+| **`primary`** | `#823b18` | Acentos principales, botones primarios y precios destacados |
+| **`primary-container`** | `#a0522d` | Estados hover y fondos complementarios |
+| **`secondary`** | `#486730` | Verde oliva para badges, etiquetas y estados secundarios |
+| **`surface`** | `#fff8f3` | Fondo base cálido con textura crema |
+| **`on-surface`** | `#221a0f` | Títulos y tipografía de alto contraste |
+| **`on-surface-variant`**| `#54433c` | Textos secundarios y descripciones |
 
-*   **Google Sheets API**: Utilizada para enviar datos de formularios de contacto y cotizaciones a una hoja de cálculo compartida.
-*   **Gemini API**: Integración con modelos de IA para respuestas inteligentes del consultor en línea.
-*   **WhatsApp API**: Generación de mensajes pre-llenados para contacto directo con la empresa.
+---
 
-## 🎨 Paleta de Colores y Tipografía
+## ⚙️ Configuración y Ejecución Local
 
-El sitio utiliza una paleta de colores cálida y elegante, inspirada en la madera y la artesanía:
+No se requiere instalación de Node.js ni gestores de paquetes (`npm` / `yarn`).
 
-*   **Primary**: `#823b18` (Marrón-Naranja cálido)
-*   **Secondary**: `#486730` (Verde Olivo)
-*   **Surface**: `#fff8f3` (Blanco Crema)
-*   **Typography**: `Inter` (Sans-serif para UI) y `Playfair Display` (Serif para títulos).
+1. **Clonar el repositorio**:
+   ```bash
+   git clone https://github.com/emanuelrz/muebleria-hnosj.git
+   cd muebleria-hnosj
+   ```
+
+2. **Abrir en el navegador**:
+   * Puedes abrir directamente el archivo `index.html` en tu navegador de preferencia.
+   * **Recomendado para desarrollo**: Utilizar una extensión de servidor estático local (como **Live Server** en Visual Studio Code) para garantizar la correcta navegación entre rutas relativas (`index.html` en la raíz y subpáginas en `/html/`).
+
+---
 
 ## 📄 Licencia
 
-Este proyecto es propiedad de Muebleria Hnos Jota y su uso está sujeto a los términos y condiciones establecidos por la empresa.
+Este proyecto es propiedad de **Mueblería Hermanos Jota**. Desarrollado con fines comerciales y de exhibición digital.
