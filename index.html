@@ -182,38 +182,42 @@
        DRAWER MENÚ LATERAL (MOBILE)
        ========================================== -->
   <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden transition-opacity"></div>
-  <aside id="mobileMenuDrawer" class="fixed top-0 left-0 w-4/5 max-w-sm h-full bg-surface z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between p-6">
+  <aside id="mobileMenuDrawer" class="fixed top-0 left-0 w-64 max-w-[78vw] h-full bg-surface z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between p-5">
     <div>
-      <div class="flex items-center justify-between pb-6 border-b border-outline-variant/40">
-        <div class="flex items-center gap-3">
-          <img alt="Logo" class="h-8 w-auto" src="assets/images/logo.svg" />
-          <span class="font-headline-md text-xl text-primary font-bold">Hermanos Jota</span>
+      <div class="flex items-center justify-between pb-5 border-b border-outline-variant/40">
+        <div class="flex items-center gap-2.5">
+          <img alt="Logo" class="h-7 w-auto" src="assets/images/logo.svg" />
+          <span class="font-headline-md text-lg text-primary font-bold">Hermanos Jota</span>
         </div>
-        <button id="closeMobileMenuBtn" type="button" class="p-2 text-on-surface-variant hover:text-primary" aria-label="Cerrar menú">
+        <button id="closeMobileMenuBtn" type="button" class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg cursor-pointer" aria-label="Cerrar menú">
           <span class="material-symbols-outlined text-2xl">close</span>
         </button>
       </div>
 
-      <nav class="flex flex-col gap-4 mt-8" aria-label="Navegación móvil">
-        <a class="flex items-center gap-4 px-4 py-3 bg-surface-container rounded-xl text-primary font-bold tracking-wider uppercase text-sm" href="index.html">
-          <span class="material-symbols-outlined">home</span> Inicio
+      <nav class="flex flex-col gap-2.5 mt-6" aria-label="Navegación móvil">
+        <a class="flex items-center gap-3 px-3.5 py-2.5 bg-surface-container rounded-xl text-primary font-bold tracking-wider uppercase text-xs" href="index.html">
+          <span class="material-symbols-outlined text-xl">home</span> Inicio
         </a>
-        <a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-wider uppercase text-sm transition-colors" href="html/catalogo.html">
-          <span class="material-symbols-outlined">chair</span> Catálogo
+        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-wider uppercase text-xs transition-colors" href="html/catalogo.html">
+          <span class="material-symbols-outlined text-xl">chair</span> Catálogo
         </a>
-        <a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-wider uppercase text-sm transition-colors" href="html/contacto.html">
-          <span class="material-symbols-outlined">mail</span> Contacto
+        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-wider uppercase text-xs transition-colors" href="html/contacto.html">
+          <span class="material-symbols-outlined text-xl">mail</span> Contacto
         </a>
+        <button type="button" onclick="openCartModal()" class="flex items-center justify-between px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-wider uppercase text-xs transition-colors text-left cursor-pointer">
+          <span class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">shopping_bag</span> Cotización</span>
+          <span class="cart-count-badge bg-primary text-on-primary text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+        </button>
       </nav>
     </div>
 
-    <div class="pt-6 border-t border-outline-variant/40 space-y-3">
-      <p class="font-label-sm text-xs text-on-surface-variant uppercase tracking-widest">Showroom Buenos Aires</p>
-      <p class="font-body-sm text-sm text-on-surface flex items-center gap-2">
-        <span class="material-symbols-outlined text-base text-primary">location_on</span> Av. San Juan 2847, CABA
+    <div class="pt-5 border-t border-outline-variant/40 space-y-2 text-xs">
+      <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Showroom</p>
+      <p class="font-body-sm text-on-surface flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm text-primary">location_on</span> Av. San Juan 2847, CABA
       </p>
-      <p class="font-body-sm text-sm text-on-surface-variant flex items-center gap-2">
-        <span class="material-symbols-outlined text-base text-primary">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00 a 14:00
+      <p class="font-body-sm text-on-surface-variant flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm text-primary">schedule</span> Lun - Vie 10:00 a 19:00
       </p>
     </div>
   </aside>
@@ -415,30 +419,6 @@
     </div>
   </footer>
 
-  <!-- ==========================================
-       BOTTOM NAVIGATION BAR (SOLO MOBILE)
-       ========================================== -->
-  <nav class="fixed bottom-0 w-full z-40 md:hidden pb-safe bg-surface/95 backdrop-blur-xl border-t border-outline-variant/20 shadow-lg" aria-label="Navegación rápida inferior">
-    <div class="flex justify-around items-center h-16">
-      <a aria-current="page" class="flex flex-col items-center gap-1 text-primary font-bold text-xs" href="index.html">
-        <span class="material-symbols-outlined text-[22px]">home</span>
-        <span class="font-label-sm text-[11px]">Inicio</span>
-      </a>
-      <a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" href="html/catalogo.html">
-        <span class="material-symbols-outlined text-[22px]">chair</span>
-        <span class="font-label-sm text-[11px]">Catálogo</span>
-      </a>
-      <a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" href="html/contacto.html">
-        <span class="material-symbols-outlined text-[22px]">mail</span>
-        <span class="font-label-sm text-[11px]">Contacto</span>
-      </a>
-      <button type="button" class="relative flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" onclick="openCartModal()">
-        <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
-        <span class="cart-count-badge absolute top-0 right-3 bg-secondary text-on-secondary text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
-        <span class="font-label-sm text-[11px]">Cotización</span>
-      </button>
-    </div>
-  </nav>
 
   <!-- ==========================================
        MODALES & COMPONENTES DINÁMICOS
