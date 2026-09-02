@@ -156,10 +156,10 @@
   <!-- HEADER -->
   <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_12px_rgba(74,50,40,0.06)]">
     <div class="h-20 max-w-[1280px] mx-auto px-margin-desktop flex items-center justify-between">
-      <div class="flex items-center gap-4">
+      <a href="../index.html" class="flex items-center gap-4">
         <img alt="Logo Circular hj" class="h-10 w-auto object-contain" src="../assets/images/logo.svg" />
         <span class="font-headline-md text-headline-md tracking-tight text-primary">Hermanos Jota</span>
-      </div>
+      </a>
       <nav class="hidden md:flex items-center gap-8">
         <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase"
           href="../index.html">Inicio</a>
@@ -246,7 +246,7 @@
 
           <!-- Sidebar Filters -->
           <aside
-            class="w-full lg:w-64 shrink-0 space-y-8 sticky top-28 bg-surface p-6 rounded-xl shadow-sm z-10 lg:z-auto">
+            class="w-full lg:w-64 shrink-0 space-y-8 lg:sticky lg:top-28 bg-surface p-6 rounded-xl shadow-sm z-10 lg:z-auto">
             <div>
               <h3
                 class="font-label-md text-label-md uppercase tracking-widest text-on-surface mb-6 flex items-center gap-2">
@@ -457,6 +457,29 @@
       </form>
     </div>
   </div>
+
+  <!-- BOTTOM NAVIGATION BAR (SOLO MOBILE) -->
+  <nav class="fixed bottom-0 w-full z-40 md:hidden pb-safe bg-surface/95 backdrop-blur-xl border-t border-outline-variant/20 shadow-lg" aria-label="Navegación rápida inferior">
+    <div class="flex justify-around items-center h-16">
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" href="../index.html">
+        <span class="material-symbols-outlined text-[22px]">home</span>
+        <span class="font-label-sm text-[11px]">Inicio</span>
+      </a>
+      <a aria-current="page" class="flex flex-col items-center gap-1 text-primary font-bold text-xs" href="catalogo.html">
+        <span class="material-symbols-outlined text-[22px]">chair</span>
+        <span class="font-label-sm text-[11px]">Catálogo</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" href="contacto.html">
+        <span class="material-symbols-outlined text-[22px]">mail</span>
+        <span class="font-label-sm text-[11px]">Contacto</span>
+      </a>
+      <button type="button" class="relative flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" onclick="openCartModal()">
+        <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+        <span class="cart-count-badge absolute top-0 right-3 bg-secondary text-on-secondary text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+        <span class="font-label-sm text-[11px]">Cotización</span>
+      </button>
+    </div>
+  </nav>
 
   <!-- CART MODAL -->
   <div id="cartModal"

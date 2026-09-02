@@ -350,6 +350,29 @@
     </div>
   </footer>
 
+  <!-- BOTTOM NAVIGATION BAR (SOLO MOBILE) -->
+  <nav class="fixed bottom-0 w-full z-40 md:hidden pb-safe bg-surface/95 backdrop-blur-xl border-t border-outline-variant/20 shadow-lg" aria-label="Navegación rápida inferior">
+    <div class="flex justify-around items-center h-16">
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" href="../index.html">
+        <span class="material-symbols-outlined text-[22px]">home</span>
+        <span class="font-label-sm text-[11px]">Inicio</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" href="catalogo.html">
+        <span class="material-symbols-outlined text-[22px]">chair</span>
+        <span class="font-label-sm text-[11px]">Catálogo</span>
+      </a>
+      <a aria-current="page" class="flex flex-col items-center gap-1 text-primary font-bold text-xs" href="contacto.html">
+        <span class="material-symbols-outlined text-[22px]">mail</span>
+        <span class="font-label-sm text-[11px]">Contacto</span>
+      </a>
+      <button type="button" class="relative flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" onclick="openCartModal()">
+        <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+        <span class="cart-count-badge absolute top-0 right-3 bg-secondary text-on-secondary text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+        <span class="font-label-sm text-[11px]">Cotización</span>
+      </button>
+    </div>
+  </nav>
+
   <!-- CART / PRESUPUESTO MODAL -->
   <div id="cartModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-surface rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl relative">

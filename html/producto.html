@@ -58,11 +58,10 @@
         <span class="font-display font-semibold text-2xl tracking-tight text-primary">Hermanos Jota</span>
       </a>
 
-      <!-- Menú de Enlaces Principales -->
       <nav class="hidden md:flex items-center gap-8">
         <a class="text-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase font-medium" href="../index.html">Inicio</a>
         <a class="text-sm transition-colors tracking-widest uppercase text-primary font-semibold border-b-2 border-primary pb-0.5" href="catalogo.html">Catálogo</a>
-        <a class="text-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase font-medium" href="../index.html#contacto">Contacto</a>
+        <a class="text-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase font-medium" href="contacto.html">Contacto</a>
       </nav>
 
       <!-- Acciones: Carrito & Consultor -->
@@ -103,7 +102,7 @@
       <!-- ==========================================
            COLUMNA IZQUIERDA: IMAGEN ÚNICA DEL PRODUCTO
            ========================================== -->
-      <section class="lg:col-span-6 xl:col-span-7 flex flex-col gap-4 sticky top-28">
+      <section class="lg:col-span-6 xl:col-span-7 flex flex-col gap-4 lg:sticky lg:top-28">
         
         <!-- Imagen Principal Única con Botón de Favorito -->
         <div class="relative w-full aspect-[4/3] sm:aspect-[5/4] md:aspect-[4/3] bg-[#f7efe6] rounded-2xl overflow-hidden shadow-sm product-hero-container flex items-center justify-center p-6 border border-[#ebdcd0]">
@@ -327,6 +326,31 @@
       </div>
     </div>
   </footer>
+
+  <!-- ==========================================
+       BOTTOM NAVIGATION BAR (SOLO MOBILE)
+       ========================================== -->
+  <nav class="fixed bottom-0 w-full z-40 md:hidden pb-safe bg-surface/95 backdrop-blur-xl border-t border-outline-variant/20 shadow-lg" aria-label="Navegación rápida inferior">
+    <div class="flex justify-around items-center h-16">
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" href="../index.html">
+        <span class="material-symbols-outlined text-[22px]">home</span>
+        <span class="font-label-sm text-[11px]">Inicio</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" href="catalogo.html">
+        <span class="material-symbols-outlined text-[22px]">chair</span>
+        <span class="font-label-sm text-[11px]">Catálogo</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" href="contacto.html">
+        <span class="material-symbols-outlined text-[22px]">mail</span>
+        <span class="font-label-sm text-[11px]">Contacto</span>
+      </a>
+      <button type="button" class="relative flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-xs" onclick="openCartModal()">
+        <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+        <span class="cart-count-badge absolute top-0 right-3 bg-secondary text-on-secondary text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+        <span class="font-label-sm text-[11px]">Cotización</span>
+      </button>
+    </div>
+  </nav>
 
   <!-- ==========================================
        MODAL DE CARRITO DE COTIZACIÓN
