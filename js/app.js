@@ -248,6 +248,37 @@ const PRODUCTS_DATA = [
   }
 ];
 
+// LocalStorage para Carrito
+const CART_STORAGE_KEY = "hnosj_cart";
+
+function loadCartFromStorage() {
+  try {
+    const saved = localStorage.getItem(CART_STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed)) {
+        return parsed.map(item => ({
+          title: item.title || "",
+          price: Number(item.price) || 0,
+          quantity: Math.max(1, parseInt(item.quantity, 10) || 1),
+          image: item.image || ""
+        }));
+      }
+    }
+  } catch (e) {
+    console.error("Error al cargar carrito desde localStorage:", e);
+  }
+  return [];
+}
+
+function saveCartToStorage() {
+  try {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(state.cart));
+  } catch (e) {
+    console.error("Error al guardar carrito en localStorage:", e);
+  }
+}
+
 // App State
 const state = {
   activeCategories: new Set(["asientos"]),
@@ -258,7 +289,7 @@ const state = {
   viewMode: "grid",
   currentPage: 1,
   itemsPerPage: 6,
-  cart: [],
+  cart: loadCartFromStorage(),
   favorites: new Set()
 };
 
@@ -618,42 +649,128 @@ function openProductModal(productId) {
   modal.classList.remove("hidden");
 }
 
-function addToCart(title, price) {
-  state.cart.push({ title, price });
-  document.getElementById("cartCount").textContent = state.cart.length;
-  showToast(`"${title}" agregado a tu cotización`, "🛒");
+function updateCartCounter() {
+  const totalCount = (state.cart || []).reduce((acc, item) => acc + (item.quantity || 1), 0);
+  const badges = document.querySelectorAll("#cartCount, .cart-count-badge");
+  badges.forEach(badge => {
+    badge.textContent = totalCount;
+  });
+}
+
+function addToCart(title, price, quantity = 1, image = "") {
+  if (!state.cart) state.cart = [];
+  const cleanTitle = (title || "").trim();
+  const qty = Math.max(1, parseInt(quantity, 10) || 1);
+  const numPrice = Number(price) || 0;
+
+  const existingItem = state.cart.find(
+    item => item.title && item.title.trim().toLowerCase() === cleanTitle.toLowerCase()
+  );
+
+  if (existingItem) {
+    existingItem.quantity = (existingItem.quantity || 1) + qty;
+    if (!existingItem.image && image) existingItem.image = image;
+  } else {
+    state.cart.push({
+      title: cleanTitle,
+      price: numPrice,
+      quantity: qty,
+      image: image || ""
+    });
+  }
+
+  saveCartToStorage();
+  updateCartCounter();
+  showToast(`"${cleanTitle}" agregado a tu cotización`, "🛒");
+}
+
+function updateCartItemQuantity(index, delta) {
+  if (!state.cart || !state.cart[index]) return;
+  const newQty = (state.cart[index].quantity || 1) + delta;
+  if (newQty <= 0) {
+    removeFromCart(index);
+  } else {
+    state.cart[index].quantity = newQty;
+    saveCartToStorage();
+    updateCartCounter();
+    openCartModal();
+  }
+}
+
+function removeFromCart(index) {
+  if (!state.cart || !state.cart[index]) return;
+  const item = state.cart[index];
+  state.cart.splice(index, 1);
+  saveCartToStorage();
+  updateCartCounter();
+  openCartModal();
+  showToast(`"${item.title}" eliminado de la cotización`, "🗑️");
+}
+
+function removeItemFromCart(index) {
+  removeFromCart(index);
 }
 
 function openCartModal() {
   const modal = document.getElementById("cartModal");
   const listContainer = document.getElementById("cartItemsList");
   const totalAmountEl = document.getElementById("cartTotalAmount");
-  if (!modal) return;
+  if (!modal || !listContainer) return;
 
-  if (state.cart.length === 0) {
-    listContainer.innerHTML = `<p class="text-center py-6 text-on-surface-variant">Tu lista de cotización está vacía.</p>`;
-    totalAmountEl.textContent = "$ 0";
+  if (!state.cart || state.cart.length === 0) {
+    listContainer.innerHTML = `<p class="text-center py-6 text-on-surface-variant text-sm">Tu lista de cotización está vacía.</p>`;
+    if (totalAmountEl) totalAmountEl.textContent = "$ 0";
   } else {
-    const total = state.cart.reduce((acc, item) => acc + item.price, 0);
-    totalAmountEl.textContent = formatCurrency(total);
-    listContainer.innerHTML = state.cart.map((item, idx) => `
-      <div class="flex justify-between items-center py-2.5 border-b border-surface-variant">
-        <div>
-          <p class="font-semibold text-on-surface">${item.title}</p>
-          <p class="text-sm text-primary font-medium">${formatCurrency(item.price)}</p>
+    const total = state.cart.reduce((acc, item) => acc + ((item.price || 0) * (item.quantity || 1)), 0);
+    if (totalAmountEl) totalAmountEl.textContent = formatCurrency(total);
+
+    listContainer.innerHTML = state.cart.map((item, idx) => {
+      const qty = item.quantity || 1;
+      const subtotal = (item.price || 0) * qty;
+      return `
+        <div class="flex items-center justify-between py-3 border-b border-surface-variant/60 gap-3">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <p class="font-semibold text-on-surface text-sm leading-tight">${item.title}</p>
+              <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-bold bg-primary/10 text-primary">
+                x${qty}
+              </span>
+            </div>
+            <div class="flex items-center gap-2 mt-1">
+              <p class="text-xs text-primary font-bold">${formatCurrency(subtotal)}</p>
+              ${qty > 1 ? `<span class="text-[11px] text-on-surface-variant font-normal">(${formatCurrency(item.price)} c/u)</span>` : ''}
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <div class="flex items-center border border-outline-variant rounded-md overflow-hidden bg-surface-container">
+              <button type="button" onclick="updateCartItemQuantity(${idx}, -1)" class="w-7 h-7 flex items-center justify-center text-sm font-bold text-on-surface hover:bg-surface-variant transition-colors" title="Disminuir" aria-label="Disminuir cantidad">-</button>
+              <span class="w-7 text-center text-xs font-semibold select-none">${qty}</span>
+              <button type="button" onclick="updateCartItemQuantity(${idx}, 1)" class="w-7 h-7 flex items-center justify-center text-sm font-bold text-on-surface hover:bg-surface-variant transition-colors" title="Aumentar" aria-label="Aumentar cantidad">+</button>
+            </div>
+            <button type="button" onclick="removeFromCart(${idx})" class="text-on-surface-variant hover:text-primary text-xl p-1 transition-colors leading-none" title="Eliminar" aria-label="Eliminar producto">&times;</button>
+          </div>
         </div>
-        <button onclick="removeFromCart(${idx})" class="text-on-surface-variant hover:text-primary">&times;</button>
-      </div>
-    `).join('');
+      `;
+    }).join('');
   }
 
   modal.classList.remove("hidden");
 }
 
-function removeFromCart(index) {
-  state.cart.splice(index, 1);
-  document.getElementById("cartCount").textContent = state.cart.length;
-  openCartModal();
+function closeCartModal() {
+  closeModal('cartModal');
+}
+
+function submitQuoteRequest() {
+  if (!state.cart || state.cart.length === 0) {
+    showToast("Tu lista de cotización está vacía", "⚠️");
+    return;
+  }
+  closeModal('cartModal');
+  showToast("Cotización enviada a Hermanos Jota. Nos contactaremos a la brevedad.", "✓");
+  state.cart = [];
+  saveCartToStorage();
+  updateCartCounter();
 }
 
 function openBespokeModal(initialPiece = "") {
@@ -811,5 +928,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Inicializar productos destacados (Inicio) y catálogo
   loadFeaturedProducts();
   renderCatalog();
+  updateCartCounter();
 });
 
