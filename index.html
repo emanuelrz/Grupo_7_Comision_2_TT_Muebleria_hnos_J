@@ -3,16 +3,22 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-  <meta name="description" content="Hermanos Jota - Muebles de autor con alma de los 60. Artesanía sostenible, maderas nobles y diseño atemporal para hogares contemporáneos." />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    name="viewport" />
+  <meta name="description"
+    content="Hermanos Jota - Muebles de autor con alma de los 60. Artesanía sostenible, maderas nobles y diseño atemporal para hogares contemporáneos." />
   <title>Hermanos Jota | Muebles que alimentan el alma</title>
 
   <!-- Google Fonts & Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
-  <link rel="icon" href="../assets/images/logo.svg" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml" />
 
   <!-- Tailwind CSS CDN & Config -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -21,50 +27,70 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary/20 selection:text-primary">
+<body
+  class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary/20 selection:text-primary">
 
   <!-- ==========================================
        HEADER & NAVEGACIÓN (RESPONSIVE)
        ========================================== -->
-  <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_12px_rgba(74,50,40,0.06)] pt-safe">
-    <div class="h-16 md:h-20 max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between">
-      
+  <header
+    class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_12px_rgba(74,50,40,0.06)] pt-safe">
+    <div
+      class="h-16 md:h-20 max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between">
+
       <!-- Lado Izquierdo: Botón Menú Mobile + Logotipo -->
       <div class="flex items-center gap-3 md:gap-4">
         <!-- Botón Hamburguesa (Solo Mobile) -->
-        <button id="mobileMenuBtn" type="button" class="w-10 h-10 flex md:hidden items-center justify-center text-primary hover:bg-surface-container rounded-lg transition-colors" aria-label="Abrir menú de navegación">
+        <button id="mobileMenuBtn" type="button"
+          class="w-10 h-10 flex md:hidden items-center justify-center text-primary hover:bg-surface-container rounded-lg transition-colors"
+          aria-label="Abrir menú de navegación">
           <span class="material-symbols-outlined text-2xl">menu</span>
         </button>
 
         <!-- Logotipo Hermanos Jota -->
         <a href="index.html" class="flex items-center gap-3 group">
-          <img alt="Logo Circular hj" class="h-9 md:h-11 w-auto object-contain transition-transform group-hover:scale-105" src="assets/images/logo.svg" />
-          <span class="font-headline-md text-lg md:text-xl tracking-[0.08em] text-primary font-bold uppercase">Hermanos Jota</span>
+          <img alt="Logo Circular hj"
+            class="h-9 md:h-11 w-auto object-contain transition-transform group-hover:scale-105"
+            src="assets/images/logo.svg" />
+          <span class="font-headline-md text-lg md:text-xl tracking-[0.08em] text-primary font-bold uppercase">Hermanos
+            Jota</span>
         </a>
       </div>
 
       <!-- Navegación Principal (Desktop) -->
       <nav class="hidden md:flex items-center gap-8" aria-label="Navegación principal">
-        <a aria-current="page" class="font-label-md text-label-md transition-colors tracking-brand-cta uppercase text-primary font-semibold border-b-2 border-primary pb-0.5" href="index.html">Inicio</a>
-        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-brand-cta uppercase font-medium" href="html/catalogo.html">Catálogo</a>
-        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-brand-cta uppercase font-medium" href="html/contacto.html">Contacto</a>
+        <a aria-current="page"
+          class="font-label-md text-label-md transition-colors tracking-brand-cta uppercase text-primary font-semibold border-b-2 border-primary pb-0.5"
+          href="index.html">Inicio</a>
+        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-brand-cta uppercase font-medium"
+          href="html/catalogo.html">Catálogo</a>
+        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-brand-cta uppercase font-medium"
+          href="html/contacto.html">Contacto</a>
       </nav>
 
       <!-- Lado Derecho: Carrito & Consultor -->
       <div class="flex items-center gap-3 md:gap-6">
         <!-- Botón de Carrito / Cotización -->
-        <button type="button" class="relative p-2 text-primary hover:text-primary-hover transition-colors cursor-pointer" onclick="openCartModal()" aria-label="Ver carrito de cotización">
+        <button type="button"
+          class="relative p-2 text-primary hover:text-primary-hover transition-colors cursor-pointer"
+          onclick="openCartModal()" aria-label="Ver carrito de cotización">
           <span class="material-symbols-outlined text-2xl">shopping_bag</span>
-          <span id="cartCount" class="absolute top-1 right-1 bg-secondary text-on-secondary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+          <span id="cartCount"
+            class="absolute top-1 right-1 bg-secondary text-on-secondary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
 
         <!-- Consultor En Línea (Desktop: Completo / Mobile: Avatar compacto) -->
-        <div class="flex items-center gap-3 pl-3 md:pl-6 border-l border-outline-variant cursor-pointer group" onclick="openBespokeModal('Consulta General')">
+        <div class="flex items-center gap-3 pl-3 md:pl-6 border-l border-outline-variant cursor-pointer group"
+          onclick="openBespokeModal('Consulta General')">
           <div class="text-right hidden sm:block">
             <p class="font-label-sm text-label-sm text-on-surface-variant">Consultor</p>
-            <p class="font-label-md text-label-md text-on-surface font-semibold group-hover:text-primary transition-colors">En Línea</p>
+            <p
+              class="font-label-md text-label-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+              En Línea</p>
           </div>
-          <img alt="Consultor en Línea" class="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover ring-2 ring-surface-container-high group-hover:ring-primary transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHJubnYO2u0cZVbfvyc016i5t7jUM2kH8hnHizm_6U1Kx7mLNsCgGo2U-YhMJCtd52AKmIThY1x5qIFbuD2EQEGjEbdu1tr-yvcl6sdYylXj8gperE_L9OQKHXRO34YfzkO3WJwdxCLIjlF0cpQtE8vvbSkUf0v5w2LN1Tx7BN8j7oG427piyRtvgoPe34Ugvc9ruJSm6UglFklqhqYkC7ByehpgbJxhD7cLTZzMoH8Z4sdFidxcAs" />
+          <img alt="Consultor en Línea"
+            class="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover ring-2 ring-surface-container-high group-hover:ring-primary transition-all"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHJubnYO2u0cZVbfvyc016i5t7jUM2kH8hnHizm_6U1Kx7mLNsCgGo2U-YhMJCtd52AKmIThY1x5qIFbuD2EQEGjEbdu1tr-yvcl6sdYylXj8gperE_L9OQKHXRO34YfzkO3WJwdxCLIjlF0cpQtE8vvbSkUf0v5w2LN1Tx7BN8j7oG427piyRtvgoPe34Ugvc9ruJSm6UglFklqhqYkC7ByehpgbJxhD7cLTZzMoH8Z4sdFidxcAs" />
         </div>
       </div>
     </div>
@@ -74,42 +100,52 @@
        DRAWER MENÚ LATERAL (MOBILE)
        ========================================== -->
   <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden transition-opacity"></div>
-  <aside id="mobileMenuDrawer" class="fixed top-0 left-0 w-64 max-w-[78vw] h-full bg-surface z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between p-5">
+  <aside id="mobileMenuDrawer"
+    class="fixed top-0 left-0 w-64 max-w-[78vw] h-full bg-surface z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between p-5">
     <div>
       <div class="flex items-center justify-between pb-5 border-b border-outline-variant/40">
         <div class="flex items-center gap-2.5">
           <img alt="Logo" class="h-7 w-auto" src="assets/images/logo.svg" />
           <span class="font-headline-md text-lg text-primary font-bold uppercase tracking-wider">Hermanos Jota</span>
         </div>
-        <button id="closeMobileMenuBtn" type="button" class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg cursor-pointer" aria-label="Cerrar menú">
+        <button id="closeMobileMenuBtn" type="button"
+          class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg cursor-pointer" aria-label="Cerrar menú">
           <span class="material-symbols-outlined text-2xl">close</span>
         </button>
       </div>
 
       <nav class="flex flex-col gap-2.5 mt-6" aria-label="Navegación móvil">
-        <a class="flex items-center gap-3 px-3.5 py-2.5 bg-surface-container rounded-xl text-primary font-bold tracking-brand-cta uppercase text-xs" href="index.html">
+        <a class="flex items-center gap-3 px-3.5 py-2.5 bg-surface-container rounded-xl text-primary font-bold tracking-brand-cta uppercase text-xs"
+          href="index.html">
           <span class="material-symbols-outlined text-xl">home</span> Inicio
         </a>
-        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors" href="html/catalogo.html">
+        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors"
+          href="html/catalogo.html">
           <span class="material-symbols-outlined text-xl">chair</span> Catálogo
         </a>
-        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors" href="html/contacto.html">
+        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors"
+          href="html/contacto.html">
           <span class="material-symbols-outlined text-xl">mail</span> Contacto
         </a>
-        <button type="button" onclick="openCartModal()" class="flex items-center justify-between px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors text-left cursor-pointer">
-          <span class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">shopping_bag</span> Cotización</span>
-          <span class="cart-count-badge bg-primary text-on-primary text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+        <button type="button" onclick="openCartModal()"
+          class="flex items-center justify-between px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors text-left cursor-pointer">
+          <span class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">shopping_bag</span>
+            Cotización</span>
+          <span
+            class="cart-count-badge bg-primary text-on-primary text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
       </nav>
     </div>
 
     <div class="pt-5 border-t border-outline-variant/40 space-y-2 text-xs">
-      <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Casa Taller</p>
+      <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Casa Taller
+      </p>
       <p class="font-body-sm text-on-surface flex items-center gap-2">
         <span class="material-symbols-outlined text-sm text-primary">location_on</span> Av. San Juan 2847, CABA
       </p>
       <p class="font-body-sm text-on-surface-variant flex items-center gap-2">
-        <span class="material-symbols-outlined text-sm text-primary">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00 a 14:00
+        <span class="material-symbols-outlined text-sm text-primary">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00
+        a 14:00
       </p>
     </div>
   </aside>
@@ -123,34 +159,41 @@
       <!-- ==========================================
            1. HERO BANNER PRINCIPAL
            ========================================== -->
-      <section class="relative w-full min-h-[580px] md:min-h-[640px] flex items-center bg-cover bg-center overflow-hidden hero-home-bg" 
-               data-alt="Living room mid-century moderno cálido con muebles en madera noble y luz dorada natural">
-        
+      <section
+        class="relative w-full min-h-[580px] md:min-h-[640px] flex items-center bg-cover bg-center overflow-hidden hero-home-bg"
+        data-alt="Living room mid-century moderno cálido con muebles en madera noble y luz dorada natural">
+
         <!-- Degradado de superposición para máxima legibilidad -->
-        <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-surface/95 via-surface/75 to-transparent"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-surface/95 via-surface/75 to-transparent">
+        </div>
 
         <div class="relative z-10 w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24">
           <div class="max-w-2xl flex flex-col items-start gap-6 md:gap-8">
-            
+
             <!-- Etiqueta de Colección -->
             <div class="flex items-center gap-3">
               <span class="w-8 md:w-12 h-[2px] bg-primary"></span>
-              <span class="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold">Colección 2026 · Buenos Aires</span>
+              <span class="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold">Colección
+                2026 · Buenos Aires</span>
             </div>
 
             <!-- Título Principal con tipografía serif editorial (Manual de Marca) -->
-            <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface leading-tight font-bold uppercase tracking-brand-title">
-              Muebles que <br/>
+            <h1
+              class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface leading-tight font-bold uppercase tracking-brand-title">
+              Muebles que <br />
               <span class="italic font-light text-primary">alimentan el alma.</span>
             </h1>
 
             <!-- Descripción -->
             <p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
-              El redescubrimiento de un arte olvidado: la calidez y el optimismo de los años 60 se encuentran con la sustentabilidad de 2026. Maderas nativas certificadas y diseño atemporal.
+              El redescubrimiento de un arte olvidado: la calidez y el optimismo de los años 60 se encuentran con la
+              sustentabilidad de 2026. Maderas nativas certificadas y diseño atemporal.
             </p>
 
             <!-- Call to Action -->
-            <a href="html/catalogo.html" class="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 rounded-full font-label-md text-label-md uppercase tracking-brand-cta hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 active:scale-95">
+            <a href="html/catalogo.html"
+              class="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 rounded-full font-label-md text-label-md uppercase tracking-brand-cta hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 active:scale-95">
               Explorar Catálogo
               <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
             </a>
@@ -164,19 +207,22 @@
       <section class="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-4">
           <div>
-            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2 font-bold uppercase tracking-brand-title">Piezas Destacadas</h2>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2 font-bold uppercase tracking-brand-title">
+              Piezas Destacadas</h2>
             <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
               Cada pieza cuenta la historia de manos expertas y materiales nobles de origen responsable.
             </p>
           </div>
-          <a class="font-label-md text-label-md text-primary hover:text-primary-hover transition-colors flex items-center gap-2 group font-medium uppercase tracking-brand-cta" href="html/catalogo.html">
+          <a class="font-label-md text-label-md text-primary hover:text-primary-hover transition-colors flex items-center gap-2 group font-medium uppercase tracking-brand-cta"
+            href="html/catalogo.html">
             Ver todas las piezas
             <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </a>
         </div>
 
         <!-- Contenedor dinámico (Mobile: Carousel scrolleable / Desktop: Grilla de 4 columnas) -->
-        <div id="featuredProductsContainer" class="flex overflow-x-auto snap-x snap-mandatory px-1 md:px-0 pb-6 md:pb-0 gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-gutter md:overflow-visible [&::-webkit-scrollbar]:hidden no-scrollbar">
+        <div id="featuredProductsContainer"
+          class="flex overflow-x-auto snap-x snap-mandatory px-1 md:px-0 pb-6 md:pb-0 gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-gutter md:overflow-visible [&::-webkit-scrollbar]:hidden no-scrollbar">
           <!-- Renderizado dinámicamente vía DOM por loadFeaturedProducts() en js/app.js -->
         </div>
       </section>
@@ -186,68 +232,90 @@
            ========================================== -->
       <section class="w-full bg-surface-container py-16 md:py-24 my-6 md:my-12 relative overflow-hidden">
         <!-- Efectos decorativos de fondo -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+        <div
+          class="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none">
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none">
+        </div>
 
         <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-            
+
             <!-- Columna Izquierda: Imagen de Taller y Artesanía -->
             <div class="order-2 md:order-1 relative">
-              <div class="w-full aspect-[4/3] rounded-2xl md:rounded-3xl bg-cover bg-center shadow-md overflow-hidden sostenibilidad-artesano-bg" 
-                   data-alt="Manos de artesano aplicando acabado natural a la madera en taller">
+              <div
+                class="w-full aspect-[4/3] rounded-2xl md:rounded-3xl bg-cover bg-center shadow-md overflow-hidden sostenibilidad-artesano-bg"
+                data-alt="Manos de artesano aplicando acabado natural a la madera en taller">
               </div>
-              <div class="hidden sm:block absolute -bottom-5 -left-5 w-3/4 h-full bg-secondary-container rounded-3xl -z-10"></div>
+              <div
+                class="hidden sm:block absolute -bottom-5 -left-5 w-3/4 h-full bg-secondary-container rounded-3xl -z-10">
+              </div>
             </div>
 
             <!-- Columna Derecha: Información y Valores del Manual -->
             <div class="order-1 md:order-2 flex flex-col gap-6 md:gap-8">
-              <div class="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-secondary/15 text-secondary shadow-sm">
+              <div
+                class="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-secondary/15 text-secondary shadow-sm">
                 <span class="material-symbols-outlined text-[28px] md:text-[32px]">eco</span>
               </div>
 
-              <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold uppercase tracking-brand-title">Programa "Herencia Viva"</h2>
+              <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold uppercase tracking-brand-title">
+                Programa "Herencia Viva"</h2>
 
               <div class="space-y-6">
                 <p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant leading-relaxed">
-                  Creemos que un buen diseño no solo debe ser hermoso, sino un legado sustentable. Cada pieza cuenta con garantía extendida y trazabilidad de origen.
+                  Creemos que un buen diseño no solo debe ser hermoso, sino un legado sustentable. Cada pieza cuenta con
+                  garantía extendida y trazabilidad de origen.
                 </p>
 
                 <ul class="space-y-4">
                   <li class="flex items-start gap-4">
-                    <div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center shrink-0 text-on-secondary-container mt-1">
+                    <div
+                      class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center shrink-0 text-on-secondary-container mt-1">
                       <span class="material-symbols-outlined text-[20px]">forest</span>
                     </div>
                     <div>
-                      <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">Maderas Nativas FSC®</h3>
-                      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Prioridad a maderas de bosques responsables argentinos (algarrobo, quebracho, caldén, nogal) con certificado de origen.</p>
+                      <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">
+                        Maderas Nativas FSC®</h3>
+                      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Prioridad a maderas
+                        de bosques responsables argentinos (algarrobo, quebracho, caldén, nogal) con certificado de
+                        origen.</p>
                     </div>
                   </li>
 
                   <li class="flex items-start gap-4">
-                    <div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center shrink-0 text-on-secondary-container mt-1">
+                    <div
+                      class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center shrink-0 text-on-secondary-container mt-1">
                       <span class="material-symbols-outlined text-[20px]">water_drop</span>
                     </div>
                     <div>
-                      <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">Acabados 100% Naturales</h3>
-                      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Aceite de lino prensado en frío, ceras de abejas de origen local y tintes vegetales base agua libres de COV.</p>
+                      <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">
+                        Acabados 100% Naturales</h3>
+                      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Aceite de lino
+                        prensado en frío, ceras de abejas de origen local y tintes vegetales base agua libres de COV.
+                      </p>
                     </div>
                   </li>
 
                   <li class="flex items-start gap-4">
-                    <div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center shrink-0 text-on-secondary-container mt-1">
+                    <div
+                      class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center shrink-0 text-on-secondary-container mt-1">
                       <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
                     </div>
                     <div>
-                      <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">10 Años de Garantía</h3>
-                      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Servicio de restauración permanente, taller de cuidados gratuito y recompra garantizada de hasta el 40%.</p>
+                      <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">10
+                        Años de Garantía</h3>
+                      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Servicio de
+                        restauración permanente, taller de cuidados gratuito y recompra garantizada de hasta el 40%.</p>
                     </div>
                   </li>
                 </ul>
               </div>
 
               <div class="pt-2">
-                <button type="button" onclick="openBespokeModal('Consulta sobre Programa Herencia Viva')" class="border-2 border-primary text-primary px-7 py-3.5 rounded-full font-label-md text-label-md uppercase tracking-brand-cta hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-sm active:scale-95">
+                <button type="button" onclick="openBespokeModal('Consulta sobre Programa Herencia Viva')"
+                  class="border-2 border-primary text-primary px-7 py-3.5 rounded-full font-label-md text-label-md uppercase tracking-brand-cta hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-sm active:scale-95">
                   Conocer Herencia Viva
                 </button>
               </div>
@@ -266,14 +334,15 @@
   <footer class="w-full bg-surface-container-high py-12 md:py-16 pb-24 md:pb-16 border-t border-outline-variant/20">
     <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-gutter items-start">
-        
+
         <!-- Bloque Marca -->
         <div class="space-y-4">
           <div class="flex items-center gap-3">
             <img alt="Logo Hermanos Jota" class="h-8 w-auto opacity-90" src="assets/images/logo.svg" />
             <div>
               <h3 class="font-headline-md text-headline-md text-on-surface font-bold">Hermanos Jota</h3>
-              <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Estética de los 60, calidad eterna.</p>
+              <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Estética de los 60, calidad
+                eterna.</p>
             </div>
           </div>
         </div>
@@ -295,14 +364,19 @@
         <!-- Bloque Conexión / Redes -->
         <div class="space-y-3">
           <h4 class="font-label-md text-label-md text-primary uppercase tracking-widest font-bold">Conectemos</h4>
-          <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
+          <p
+            class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
             <span class="material-symbols-outlined text-sm text-primary">share</span> @hermanosjota_ba
           </p>
           <div class="flex gap-4 pt-2">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors" aria-label="Instagram">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+              class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
+              aria-label="Instagram">
               <span class="material-symbols-outlined text-[18px]">camera</span>
             </a>
-            <a href="mailto:info@hermanosjota.com.ar" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors" aria-label="Email">
+            <a href="mailto:info@hermanosjota.com.ar"
+              class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
+              aria-label="Email">
               <span class="material-symbols-outlined text-[18px]">mail</span>
             </a>
           </div>
@@ -325,9 +399,11 @@
        ========================================== -->
 
   <!-- PRODUCT QUICK VIEW MODAL -->
-  <div id="productModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+  <div id="productModal"
+    class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-surface rounded-2xl p-6 md:p-8 max-w-2xl w-full shadow-2xl relative max-h-[90vh] overflow-y-auto">
-      <button onclick="closeModal('productModal')" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1" aria-label="Cerrar modal">
+      <button onclick="closeModal('productModal')"
+        class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1" aria-label="Cerrar modal">
         <span class="material-symbols-outlined text-2xl">close</span>
       </button>
       <div id="productModalContent"></div>
@@ -335,23 +411,30 @@
   </div>
 
   <!-- BESPOKE / CONSULTOR MODAL -->
-  <div id="bespokeModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+  <div id="bespokeModal"
+    class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-surface rounded-2xl p-6 md:p-8 max-w-lg w-full shadow-2xl relative">
-      <button onclick="closeBespokeModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1" aria-label="Cerrar modal">
+      <button onclick="closeBespokeModal()"
+        class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1" aria-label="Cerrar modal">
         <span class="material-symbols-outlined text-2xl">close</span>
       </button>
       <h3 class="font-headline-md text-headline-md text-on-surface mb-2 font-bold">Servicio Bespoke &amp; Asesoría</h3>
       <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant mb-6">
         Personalice dimensiones, maderas nobles sustentables y acabados con nuestro equipo de maestros ebanistas.
       </p>
-      <form onsubmit="event.preventDefault(); showToast('Solicitud recibida. Te contactaremos a la brevedad.', '✨'); closeBespokeModal();" class="space-y-4">
+      <form
+        onsubmit="event.preventDefault(); showToast('Solicitud recibida. Te contactaremos a la brevedad.', '✨'); closeBespokeModal();"
+        class="space-y-4">
         <div>
           <label class="block font-label-sm text-on-surface mb-1 font-semibold">Pieza o Tipología de Interés</label>
-          <input id="bespokePieceInput" class="w-full p-3 bg-surface-container rounded-lg border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary text-on-surface font-body-md" placeholder="Ej. Silla Otoño o Aparador Uspallata" required />
+          <input id="bespokePieceInput"
+            class="w-full p-3 bg-surface-container rounded-lg border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary text-on-surface font-body-md"
+            placeholder="Ej. Silla Otoño o Aparador Uspallata" required />
         </div>
         <div>
           <label class="block font-label-sm text-on-surface mb-1 font-semibold">Madera / Acabado Preferido</label>
-          <select class="w-full p-3 bg-surface-container rounded-lg border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary text-on-surface font-body-md">
+          <select
+            class="w-full p-3 bg-surface-container rounded-lg border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary text-on-surface font-body-md">
             <option>Roble Macizo FSC®</option>
             <option>Nogal Sostenible al Aceite</option>
             <option>Fresno Nativo</option>
@@ -361,9 +444,12 @@
         </div>
         <div>
           <label class="block font-label-sm text-on-surface mb-1 font-semibold">Contacto (Email o WhatsApp)</label>
-          <input type="text" class="w-full p-3 bg-surface-container rounded-lg border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary text-on-surface font-body-md" placeholder="tu@email.com o +54 9 11..." required />
+          <input type="text"
+            class="w-full p-3 bg-surface-container rounded-lg border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary text-on-surface font-body-md"
+            placeholder="tu@email.com o +54 9 11..." required />
         </div>
-        <button type="submit" class="w-full py-3.5 bg-primary text-on-primary font-label-md rounded-lg shadow-md hover:bg-on-primary-fixed-variant transition-colors uppercase tracking-wider font-semibold">
+        <button type="submit"
+          class="w-full py-3.5 bg-primary text-on-primary font-label-md rounded-lg shadow-md hover:bg-on-primary-fixed-variant transition-colors uppercase tracking-wider font-semibold">
           Enviar Consulta
         </button>
       </form>
@@ -371,9 +457,11 @@
   </div>
 
   <!-- CART / PRESUPUESTO MODAL -->
-  <div id="cartModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+  <div id="cartModal"
+    class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-surface rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl relative">
-      <button onclick="closeModal('cartModal')" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1" aria-label="Cerrar carrito">
+      <button onclick="closeModal('cartModal')"
+        class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1" aria-label="Cerrar carrito">
         <span class="material-symbols-outlined text-2xl">close</span>
       </button>
       <h3 class="font-headline-md text-headline-md text-on-surface mb-2 font-bold">Tu Selección de Cotización</h3>
@@ -382,14 +470,16 @@
         <span class="font-semibold text-on-surface">Total Estimado:</span>
         <span id="cartTotalAmount" class="font-bold text-primary font-headline-md text-xl">$ 0</span>
       </div>
-      <button onclick="submitQuoteRequest()" class="w-full py-3.5 bg-primary text-on-primary font-label-md rounded-lg shadow-md hover:bg-on-primary-fixed-variant transition-colors uppercase tracking-wider font-semibold mt-4">
+      <button onclick="submitQuoteRequest()"
+        class="w-full py-3.5 bg-primary text-on-primary font-label-md rounded-lg shadow-md hover:bg-on-primary-fixed-variant transition-colors uppercase tracking-wider font-semibold mt-4">
         Solicitar Presupuesto Formal
       </button>
     </div>
   </div>
 
   <!-- TOAST NOTIFICATIONS -->
-  <div id="toastContainer" class="fixed bottom-20 md:bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+  <div id="toastContainer" class="fixed bottom-20 md:bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none">
+  </div>
 
   <!-- Script Global Oficial -->
   <script src="js/app.js"></script>
