@@ -64,6 +64,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -90,6 +91,81 @@ button, input, select, textarea {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Base Spacing & Safe Area */
+main > :first-child {
+  margin-top: 0 !important;
+}
+
+main > :last-child {
+  margin-bottom: 0 !important;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* ==========================================================================
+   SCROLLBAR OFICIAL HERMANOS JOTA
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5E6D3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #A0522D;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #823B18;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #A0522D #F5E6D3;
+}
+
+/* Utility to hide scrollbars */
+.no-scrollbar,
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Material Symbols Icon Fill Utility */
+.icon-filled {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* ==========================================================================
+   FONDOS DE IMAGEN DE SECCIONES (EXTRAÍDOS DE HTML)
+   ========================================================================== */
+.hero-home-bg {
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCK8cQ2J5_TvvU5-lwPfc2Q7uQHCiUwn_Dzs_UpDOfuOQl_8khYfBYQADHmJ_AZaRO9FOCaLE_V5frwUBIXNYLiMIrhZ2fscsgUquazpVZhpLBsPeujdij6Zger4BrExwXf1GfoPdbpIIHW6i2z1UvYj6BRN3dejtKa3OQoRca9gAJvv4lzlGlONx3zhWRa5CGJ6-wPk01wLWu8g6Yfqa2bmh2-ivBLQkeS8Nau2qyZQYaD0UzbzIKg');
+}
+
+.sostenibilidad-artesano-bg {
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBiQpfKIxhFet4iRi3GqNx6E08P91-KuJpltKa6eDyVH7q5N-4kblOe-67HtP262ODUrgzOloUWeZ--sk2xqU0diaIUEj2eb_XFXMOFmDLFnThZJgHsZuEGLEUq1v3qKjXeP4_SjfIxVZE6m_LjvQf4AB-ilBv5eltdqqyBAzqznTpHg-EUOSo-CiIMMjLqE67q5qkfSHS7KLk11OKgduaNnwtAHwFyIHZ8bQN6DXXjPW1QY-bhxPzZ');
+}
+
+.contacto-showroom-bg {
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB1cxkilHSh5Setg_5h--agQQNILIrCanziX5fCmHvtoTAs0LJxTmYtftgFVkE58AJmZK9xAe9-24cEAHdjw8ognPguyHN1cAbH6Wcu2tdbsWjkf54bWj0ICePoASWflAV_pOhS5ZD6zgdPZj22TGem06STI2rZNBcDUndR2G-QSDY2pZkPcOvlKkb-oq5Mp77MDhBvLciL1j1LCkKpNM7bYeNpMKoHsCDYqRGh9mkYLQW5Ps4w68ar');
 }
 
 /* ==========================================================================

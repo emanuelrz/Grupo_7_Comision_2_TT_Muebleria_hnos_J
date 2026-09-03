@@ -16,117 +16,9 @@
 
   <!-- Tailwind CSS CDN & Config -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#823b18",
-            "primary-container": "#a0522d",
-            "on-primary": "#ffffff",
-            "on-primary-container": "#ffe1d6",
-            "on-primary-fixed-variant": "#76320f",
-            "secondary": "#486730",
-            "secondary-container": "#c9eea9",
-            "on-secondary": "#ffffff",
-            "on-secondary-container": "#4e6d36",
-            "secondary-fixed": "#c9eea9",
-            "tertiary": "#674b00",
-            "tertiary-container": "#856200",
-            "surface": "#fff8f3",
-            "surface-dim": "#e6d8c5",
-            "surface-bright": "#fff8f3",
-            "surface-container-lowest": "#ffffff",
-            "surface-container-low": "#fff2e2",
-            "surface-container": "#fbecd9",
-            "surface-container-high": "#f5e6d3",
-            "surface-container-highest": "#efe0cd",
-            "on-surface": "#221a0f",
-            "on-surface-variant": "#54433c",
-            "outline": "#87736b",
-            "outline-variant": "#dac1b8",
-            "inverse-surface": "#372f22",
-            "inverse-on-surface": "#feefdb"
-          },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "2xl": "1rem",
-            "3xl": "1.5rem",
-            "full": "9999px"
-          },
-          spacing: {
-            "margin-mobile": "16px",
-            "margin-desktop": "48px",
-            "gutter": "24px",
-            "container-max": "1280px",
-            "base": "8px"
-          },
-          fontFamily: {
-            "label-sm": ["Inter", "sans-serif"],
-            "label-md": ["Inter", "sans-serif"],
-            "body-sm": ["Inter", "sans-serif"],
-            "body-md": ["Inter", "sans-serif"],
-            "body-lg": ["Inter", "sans-serif"],
-            "headline-md": ["Playfair Display", "serif"],
-            "headline-lg": ["Playfair Display", "serif"],
-            "display-lg-mobile": ["Playfair Display", "serif"],
-            "display-lg": ["Playfair Display", "serif"]
-          },
-          fontSize: {
-            "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
-            "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
-            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
-            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
-            "display-lg-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
-          }
-        }
-      }
-    };
-  </script>
+  <script src="js/tailwind-config.js"></script>
 
-  <style>
-    @layer base {
-      html, body {
-        margin: 0;
-        padding: 0;
-        scroll-behavior: smooth;
-        -webkit-tap-highlight-color: transparent;
-      }
-      .pb-safe {
-        padding-bottom: env(safe-area-inset-bottom, 16px);
-      }
-      .pt-safe {
-        padding-top: env(safe-area-inset-top, 0px);
-      }
-    }
-
-    /* Scrollbar Oficial Hermanos Jota */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #F5E6D3;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #A0522D;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #823B18;
-    }
-    * {
-      scrollbar-width: thin;
-      scrollbar-color: #A0522D #F5E6D3;
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary/20 selection:text-primary">
@@ -231,8 +123,7 @@
       <!-- ==========================================
            1. HERO BANNER PRINCIPAL
            ========================================== -->
-      <section class="relative w-full min-h-[580px] md:min-h-[640px] flex items-center bg-cover bg-center overflow-hidden" 
-               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCK8cQ2J5_TvvU5-lwPfc2Q7uQHCiUwn_Dzs_UpDOfuOQl_8khYfBYQADHmJ_AZaRO9FOCaLE_V5frwUBIXNYLiMIrhZ2fscsgUquazpVZhpLBsPeujdij6Zger4BrExwXf1GfoPdbpIIHW6i2z1UvYj6BRN3dejtKa3OQoRca9gAJvv4lzlGlONx3zhWRa5CGJ6-wPk01wLWu8g6Yfqa2bmh2-ivBLQkeS8Nau2qyZQYaD0UzbzIKg');"
+      <section class="relative w-full min-h-[580px] md:min-h-[640px] flex items-center bg-cover bg-center overflow-hidden hero-home-bg" 
                data-alt="Living room mid-century moderno cálido con muebles en madera noble y luz dorada natural">
         
         <!-- Degradado de superposición para máxima legibilidad -->
@@ -285,7 +176,7 @@
         </div>
 
         <!-- Contenedor dinámico (Mobile: Carousel scrolleable / Desktop: Grilla de 4 columnas) -->
-        <div id="featuredProductsContainer" class="flex overflow-x-auto snap-x snap-mandatory px-1 md:px-0 pb-6 md:pb-0 gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-gutter md:overflow-visible [&::-webkit-scrollbar]:hidden" style="scrollbar-width: none;">
+        <div id="featuredProductsContainer" class="flex overflow-x-auto snap-x snap-mandatory px-1 md:px-0 pb-6 md:pb-0 gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-gutter md:overflow-visible [&::-webkit-scrollbar]:hidden no-scrollbar">
           <!-- Renderizado dinámicamente vía DOM por loadFeaturedProducts() en js/app.js -->
         </div>
       </section>
@@ -303,8 +194,7 @@
             
             <!-- Columna Izquierda: Imagen de Taller y Artesanía -->
             <div class="order-2 md:order-1 relative">
-              <div class="w-full aspect-[4/3] rounded-2xl md:rounded-3xl bg-cover bg-center shadow-md overflow-hidden" 
-                   style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBiQpfKIxhFet4iRi3GqNx6E08P91-KuJpltKa6eDyVH7q5N-4kblOe-67HtP262ODUrgzOloUWeZ--sk2xqU0diaIUEj2eb_XFXMOFmDLFnThZJgHsZuEGLEUq1v3qKjXeP4_SjfIxVZE6m_LjvQf4AB-ilBv5eltdqqyBAzqznTpHg-EUOSo-CiIMMjLqE67q5qkfSHS7KLk11OKgduaNnwtAHwFyIHZ8bQN6DXXjPW1QY-bhxPzZ');"
+              <div class="w-full aspect-[4/3] rounded-2xl md:rounded-3xl bg-cover bg-center shadow-md overflow-hidden sostenibilidad-artesano-bg" 
                    data-alt="Manos de artesano aplicando acabado natural a la madera en taller">
               </div>
               <div class="hidden sm:block absolute -bottom-5 -left-5 w-3/4 h-full bg-secondary-container rounded-3xl -z-10"></div>
