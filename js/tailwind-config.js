@@ -1,6 +1,6 @@
 /**
  * Hermanos Jota - Configuración Oficial de Tailwind CSS
- * Compartida para todo el sitio web (Home, Catálogo, Detalle de Producto, Contacto)
+ * Basado en el Manual de Marca Oficial (Buenos Aires · 2026)
  */
 
 tailwind.config = {
@@ -8,59 +8,68 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "primary": "#823b18",
-        "primary-container": "#a0522d",
+        // Paleta Oficial del Manual de Marca (Página 05)
+        "siena-tostado": "#A0522D",
+        "siena-tostado-hover": "#863F1E",
+        "siena-tostado-light": "#F7EFE9",
+
+        "verde-salvia": "#87A96B",
+        "verde-salvia-bg": "#EFF5EC",
+        "verde-salvia-dark": "#628248",
+
+        "alabastro-calido": "#F5E6D3",
+        "alabastro-light": "#FAF4EC",
+        "alabastro-tint": "#FCFAF7",
+
+        "vara-de-oro": "#D4A437",
+        "vara-de-oro-light": "#FBF6EC",
+
+        "rosa-polvoriento": "#C47A6D",
+        "rosa-polvoriento-light": "#F9EFEB",
+
+        // Mapeo semántico del sistema
+        "primary": "#A0522D",
+        "primary-hover": "#863F1E",
+        "primary-container": "#863F1E",
         "on-primary": "#ffffff",
         "on-primary-container": "#ffe1d6",
-        "on-primary-fixed": "#360f00",
         "on-primary-fixed-variant": "#76320f",
-        "primary-fixed": "#ffdbcd",
-        "primary-fixed-dim": "#ffb596",
-        "inverse-primary": "#ffb596",
 
-        "secondary": "#486730",
-        "secondary-container": "#c9eea9",
+        "secondary": "#87A96B",
+        "secondary-hover": "#628248",
+        "secondary-container": "#EFF5EC",
         "on-secondary": "#ffffff",
-        "on-secondary-container": "#4e6d36",
-        "secondary-fixed": "#c9eea9",
-        "secondary-fixed-dim": "#aed18f",
-        "on-secondary-fixed": "#0b2000",
-        "on-secondary-fixed-variant": "#314e1b",
+        "on-secondary-container": "#314e1b",
 
-        "tertiary": "#674b00",
-        "tertiary-container": "#856200",
+        "tertiary": "#D4A437",
+        "tertiary-container": "#FBF6EC",
         "on-tertiary": "#ffffff",
-        "on-tertiary-container": "#ffe4b4",
-        "tertiary-fixed": "#ffdea1",
-        "tertiary-fixed-dim": "#f2bf50",
-        "on-tertiary-fixed": "#261900",
-        "on-tertiary-fixed-variant": "#5c4300",
+        "on-tertiary-container": "#5c4300",
 
-        "surface": "#fff8f3",
-        "surface-dim": "#e6d8c5",
-        "surface-bright": "#fff8f3",
-        "surface-variant": "#efe0cd",
-        "surface-tint": "#944925",
+        "surface": "#FCFAF7",
+        "surface-dim": "#F5E6D3",
+        "surface-bright": "#FCFAF7",
+        "surface-variant": "#FAF4EC",
         "surface-container-lowest": "#ffffff",
-        "surface-container-low": "#fff2e2",
-        "surface-container": "#fbecd9",
-        "surface-container-high": "#f5e6d3",
-        "surface-container-highest": "#efe0cd",
-        "on-surface": "#221a0f",
-        "on-surface-variant": "#54433c",
-        "inverse-surface": "#372f22",
-        "inverse-on-surface": "#feefdb",
+        "surface-container-low": "#FAF4EC",
+        "surface-container": "#F5E6D3",
+        "surface-container-high": "#EFE0CD",
+        "surface-container-highest": "#E8D9C8",
 
-        "background": "#fff8f3",
-        "on-background": "#221a0f",
-
-        "outline": "#87736b",
-        "outline-variant": "#dac1b8",
+        "on-surface": "#26201B",
+        "on-surface-variant": "#5E534B",
+        "outline": "#8E8278",
+        "outline-variant": "#E8D9C8",
 
         "error": "#ba1a1a",
         "error-container": "#ffdad6",
         "on-error": "#ffffff",
         "on-error-container": "#93000a"
+      },
+      letterSpacing: {
+        "brand-title": "0.1em",
+        "brand-cta": "0.08em",
+        "brand-caption": "0.02em"
       },
       borderRadius: {
         "DEFAULT": "0.25rem",
@@ -91,15 +100,15 @@ tailwind.config = {
         "display-lg": ["Playfair Display", "serif"]
       },
       fontSize: {
-        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
-        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.08em", "fontWeight": "500" }],
         "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
         "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
         "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
         "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
-        "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+        "display-lg": ["52px", { "lineHeight": "60px", "letterSpacing": "0.1em", "fontWeight": "700" }]
       }
     }
   }
