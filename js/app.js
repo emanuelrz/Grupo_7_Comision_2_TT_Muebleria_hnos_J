@@ -281,8 +281,8 @@ function saveCartToStorage() {
 
 // App State
 const state = {
-  activeCategories: new Set(["asientos"]),
-  activeMaterials: new Set(["nogal"]),
+  activeCategories: new Set(),
+  activeMaterials: new Set(),
   activeTag: null,
   searchQuery: "",
   sortBy: "novedades",
