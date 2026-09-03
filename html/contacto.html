@@ -3,8 +3,12 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Contacto | Hermanos Jota</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    name="viewport" />
+  <meta name="description"
+    content="Hermanos Jota - Muebles de autor con alma de los 60. Artesanía sostenible, maderas nobles y diseño atemporal para hogares contemporáneos." />
+  <title>Hermanos Jota | Muebles que alimentan el alma</title>
+  <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../js/tailwind-config.js"></script>
@@ -25,13 +29,18 @@
   <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_12px_rgba(74,50,40,0.06)]">
     <div class="h-20 max-w-[1280px] mx-auto px-margin-desktop flex items-center justify-between">
       <div class="flex items-center gap-3 md:gap-4">
-        <button id="mobileMenuBtn" type="button" class="w-10 h-10 flex md:hidden items-center justify-center text-primary hover:bg-surface-container rounded-lg transition-colors cursor-pointer" aria-label="Abrir menú de navegación">
+        <button id="mobileMenuBtn" type="button"
+          class="w-10 h-10 flex md:hidden items-center justify-center text-primary hover:bg-surface-container rounded-lg transition-colors cursor-pointer"
+          aria-label="Abrir menú de navegación">
           <span class="material-symbols-outlined text-2xl">menu</span>
         </button>
         <a href="../index.html" class="flex items-center gap-3 group">
-          <img alt="Logo Circular hj" class="h-9 md:h-11 w-auto object-contain transition-transform group-hover:scale-105" src="../assets/images/logo.svg"
+          <img alt="Logo Circular hj"
+            class="h-9 md:h-11 w-auto object-contain transition-transform group-hover:scale-105"
+            src="../assets/images/logo.svg"
             onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuBTEmyJiGyCshEMgKKZ01lzHcskNnmIOn2bcw0kVWsAESqYilmukEiHaVjH7Jb9k4295PaE5hTMaeM1mD6wiDvtlLI8pi2hfsq3nNc8FfXZleboaxF7m7YuMZAFDpRBKJ6VYa4-FiKnHhZu2MITxVHEi6PsfMToooPQtcPIe03Mq6oFmNPxkm9P1s3obMXJsaqwHqGCNvFiyFL5FL2rMfPvWFyjYHxMdbPt-TesvQB6j4pFGp2aZ10U'" />
-          <span class="font-headline-md text-lg md:text-xl tracking-[0.08em] text-primary font-bold uppercase">Hermanos Jota</span>
+          <span class="font-headline-md text-lg md:text-xl tracking-[0.08em] text-primary font-bold uppercase">Hermanos
+            Jota</span>
         </a>
       </div>
       <nav class="hidden md:flex items-center gap-8"
@@ -67,42 +76,53 @@
        DRAWER MENÚ LATERAL (MOBILE)
        ========================================== -->
   <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden transition-opacity"></div>
-  <aside id="mobileMenuDrawer" class="fixed top-0 left-0 w-64 max-w-[78vw] h-full bg-surface z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between p-5">
+  <aside id="mobileMenuDrawer"
+    class="fixed top-0 left-0 w-64 max-w-[78vw] h-full bg-surface z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between p-5">
     <div>
       <div class="flex items-center justify-between pb-5 border-b border-outline-variant/40">
         <div class="flex items-center gap-2.5">
           <img alt="Logo" class="h-7 w-auto" src="../assets/images/logo.svg" />
           <span class="font-headline-md text-lg text-primary font-bold uppercase tracking-wider">Hermanos Jota</span>
         </div>
-        <button id="closeMobileMenuBtn" type="button" class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg cursor-pointer" aria-label="Cerrar menú">
+        <button id="closeMobileMenuBtn" type="button"
+          class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg cursor-pointer" aria-label="Cerrar menú">
           <span class="material-symbols-outlined text-2xl">close</span>
         </button>
       </div>
 
       <nav class="flex flex-col gap-2.5 mt-6" aria-label="Navegación móvil">
-        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors" href="../index.html">
+        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors"
+          href="../index.html">
           <span class="material-symbols-outlined text-xl">home</span> Inicio
         </a>
-        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors" href="catalogo.html">
+        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors"
+          href="catalogo.html">
           <span class="material-symbols-outlined text-xl">chair</span> Catálogo
         </a>
-        <a aria-current="page" class="flex items-center gap-3 px-3.5 py-2.5 bg-surface-container rounded-xl text-primary font-bold tracking-brand-cta uppercase text-xs" href="contacto.html">
+        <a aria-current="page"
+          class="flex items-center gap-3 px-3.5 py-2.5 bg-surface-container rounded-xl text-primary font-bold tracking-brand-cta uppercase text-xs"
+          href="contacto.html">
           <span class="material-symbols-outlined text-xl">mail</span> Contacto
         </a>
-        <button type="button" onclick="openCartModal()" class="flex items-center justify-between px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors text-left cursor-pointer">
-          <span class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">shopping_bag</span> Cotización</span>
-          <span class="cart-count-badge bg-primary text-on-primary text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+        <button type="button" onclick="openCartModal()"
+          class="flex items-center justify-between px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors text-left cursor-pointer">
+          <span class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">shopping_bag</span>
+            Cotización</span>
+          <span
+            class="cart-count-badge bg-primary text-on-primary text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
       </nav>
     </div>
 
     <div class="pt-5 border-t border-outline-variant/40 space-y-2 text-xs">
-      <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Casa Taller</p>
+      <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Casa Taller
+      </p>
       <p class="font-body-sm text-on-surface flex items-center gap-2">
         <span class="material-symbols-outlined text-sm text-primary">location_on</span> Av. San Juan 2847, CABA
       </p>
       <p class="font-body-sm text-on-surface-variant flex items-center gap-2">
-        <span class="material-symbols-outlined text-sm text-primary">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00 a 14:00
+        <span class="material-symbols-outlined text-sm text-primary">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00
+        a 14:00
       </p>
     </div>
   </aside>
@@ -115,13 +135,17 @@
           <!-- Left Column: Info & Map -->
           <div class="flex flex-col space-y-12">
             <div class="space-y-6">
-              <h1 class="font-display-lg text-display-lg text-on-surface font-bold uppercase tracking-brand-title">Estamos aquí.</h1>
-              <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">Visítenos en nuestra Casa Taller para
-                experimentar la calidez de nuestras maderas y acabados en persona, o escríbanos para proyectos especiales a medida.</p>
+              <h1 class="font-display-lg text-display-lg text-on-surface font-bold uppercase tracking-brand-title">
+                Estamos aquí.</h1>
+              <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">Visítenos en nuestra Casa Taller
+                para
+                experimentar la calidez de nuestras maderas y acabados en persona, o escríbanos para proyectos
+                especiales a medida.</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div class="space-y-4">
-                <h3 class="font-label-md text-label-md text-primary uppercase tracking-widest font-bold">Casa Taller</h3>
+                <h3 class="font-label-md text-label-md text-primary uppercase tracking-widest font-bold">Casa Taller
+                </h3>
                 <p class="font-body-md text-body-md text-on-surface-variant flex items-start gap-3">
                   <span class="material-symbols-outlined text-primary mt-1">location_on</span>
                   <span>Av. San Juan 2847 <br> C1232AAB — Barrio de San Cristóbal <br> Ciudad Autónoma de Buenos Aires,
@@ -161,7 +185,8 @@
                 </a>
               </div>
             </div>
-            <div class="w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-md bg-cover bg-center contacto-showroom-bg"
+            <div
+              class="w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-md bg-cover bg-center contacto-showroom-bg"
               data-location="Av. San Juan 2847, Buenos Aires, Argentina">
             </div>
           </div>
@@ -239,7 +264,8 @@
             <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span
                 class="material-symbols-outlined text-sm">location_on</span> Av. San Juan 2847, CABA</p>
             <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span
-                class="material-symbols-outlined text-sm">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00 - 14:00</p>
+                class="material-symbols-outlined text-sm">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00 - 14:00
+            </p>
           </div>
         </div>
         <div class="space-y-4">
@@ -265,9 +291,11 @@
 
 
   <!-- CART / PRESUPUESTO MODAL -->
-  <div id="cartModal" class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+  <div id="cartModal"
+    class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-surface rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl relative">
-      <button onclick="closeModal('cartModal')" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1" aria-label="Cerrar carrito">
+      <button onclick="closeModal('cartModal')"
+        class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1" aria-label="Cerrar carrito">
         <span class="material-symbols-outlined text-2xl">close</span>
       </button>
       <h3 class="font-headline-md text-headline-md text-on-surface mb-2 font-bold">Tu Selección de Cotización</h3>
@@ -276,7 +304,8 @@
         <span class="font-semibold text-on-surface">Total Estimado:</span>
         <span id="cartTotalAmount" class="font-bold text-primary font-headline-md text-xl">$ 0</span>
       </div>
-      <button onclick="submitQuoteRequest()" class="w-full py-3.5 bg-primary text-on-primary font-label-md rounded-lg shadow-md hover:bg-on-primary-fixed-variant transition-colors uppercase tracking-wider font-semibold mt-4">
+      <button onclick="submitQuoteRequest()"
+        class="w-full py-3.5 bg-primary text-on-primary font-label-md rounded-lg shadow-md hover:bg-on-primary-fixed-variant transition-colors uppercase tracking-wider font-semibold mt-4">
         Solicitar Presupuesto Formal
       </button>
     </div>
@@ -287,4 +316,5 @@
 
   <script src="../js/app.js"></script>
 </body>
+
 </html>
