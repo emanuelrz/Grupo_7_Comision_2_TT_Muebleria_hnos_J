@@ -449,7 +449,13 @@ function getFilteredProducts() {
   }).sort((a, b) => {
     if (state.sortBy === "precio-asc") return a.price - b.price;
     if (state.sortBy === "precio-desc") return b.price - a.price;
-    if (state.sortBy === "alfabetico") return a.title.localeCompare(b.title);
+    if (state.sortBy === "alfabetico") return a.title.localeCompare(b.title, "es", { sensitivity: "base" });
+    if (state.sortBy === "novedades") {
+      const aIsNew = a.badge && a.badge.text === "NUEVO" ? 1 : 0;
+      const bIsNew = b.badge && b.badge.text === "NUEVO" ? 1 : 0;
+      if (aIsNew !== bIsNew) return bIsNew - aIsNew;
+      return a.id - b.id;
+    }
     return 0;
   });
 }
@@ -837,10 +843,16 @@ document.addEventListener("DOMContentLoaded", () => {
   if (sortSelect) {
     sortSelect.addEventListener("change", (e) => {
       const v = e.target.value;
-      if (v.includes("Menor")) state.sortBy = "precio-asc";
-      else if (v.includes("Mayor")) state.sortBy = "precio-desc";
-      else if (v.includes("Nombre")) state.sortBy = "alfabetico";
-      else state.sortBy = "novedades";
+      if (v === "precio-asc" || v.includes("Menor")) {
+        state.sortBy = "precio-asc";
+      } else if (v === "precio-desc" || v.includes("Mayor")) {
+        state.sortBy = "precio-desc";
+      } else if (v === "alfabetico" || v.includes("Nombre") || v.includes("A-Z")) {
+        state.sortBy = "alfabetico";
+      } else {
+        state.sortBy = "novedades";
+      }
+      state.currentPage = 1;
       renderCatalog();
     });
   }
