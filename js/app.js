@@ -311,47 +311,43 @@ const getPagePath = (path) => {
 const FEATURED_PRODUCTS = [
   {
     id: 101,
-    catalogId: 9, // Sillas Córdoba
-    title: 'Silla "Otoño"',
-    materialBadge: "Roble Macizo",
-    price: 450000,
-    priceFormatted: "$450.000",
-    finish: "Acabado en cera de abejas",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCABaF6bgYwg48RyLq2b_2sAUizYvZD5T_yPurNRn5A0F_rxtalkYv6ckj8Yi08QPCIkeiiVLBJVetXNuXi47RxnbspsaB2j7ouht-6YSKeLQwAjM6a8JCrsEsa5r0IKd4TAdJi9Xey0yePudtFJq5LwyKKNdkaK0OeIWlwgLw0Cl6Ln2eC4KT7Fhxrs_fFP1gjioNljt94JSoHM0MYXi-KkWEkg3cSQH5U90viL16UBXmwBdCKx5rg",
-    isOffsetDesktop: false
+    catalogId: 1, // Aparador Uspallata
+    title: "Aparador Uspallata",
+    materialBadge: "Nogal FSC®",
+    price: 2350000,
+    priceFormatted: "$ 2.350.000",
+    finish: "Aceite natural ecológico",
+    image: "assets/images/aparador-uspallata.png"
   },
   {
     id: 102,
-    catalogId: 5, // Mesa de Centro Araucaria
-    title: 'Mesa Lateral "Eco"',
-    materialBadge: "Nogal & Ratán",
-    price: 280000,
-    priceFormatted: "$280.000",
-    finish: "Aceite de Tung natural",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBqFIUQBx8tWll-sGLEFpOT_9HHHb6rtydegXDd3R8cuMaW6wLAGQrWcMc7PtfBjdqwyVWmWeyp_7BSTI97xr0r-HnTrF37ZSI9ZoIjww_iNVY_zkFfIgYtBrYEgP2aVOtvmYGt2r3gQSOHYhbXJWeSqmi-NONZ4rRojDewdow95yrwk6XzGP3xmBm9sfF4b1k21FTbSaiazxtclDpxDj8FW4YBIFHoPcNVsWVZOno73oSWzuEaUe9C",
-    isOffsetDesktop: false
+    catalogId: 4, // Sillón Copacabana
+    title: "Sillón Copacabana",
+    materialBadge: "Cuero Cognac",
+    price: 1450000,
+    priceFormatted: "$ 1.450.000",
+    finish: "Cuero curtido vegetal",
+    image: "assets/images/sillon-copacabana.png"
   },
   {
     id: 103,
-    catalogId: 3, // Butaca Mendoza
-    title: 'Sillón "Luz"',
-    materialBadge: "Fresno Nativo",
-    price: 890000,
-    priceFormatted: "$890.000",
-    finish: "Laca al agua mate",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCdrxanOI82RTSGHVmp78Brr0sQuVl5eEZWAadvw1lOA8sugzHmX9h-c8Mp0XMcon4XD_N3nGKzGZjHtkVBzmcIijxVUTnEx4iQ_ZZSKF2SLD1PalAx2AyvE6hnfcAbV2q9gKQTKVv0miFXeiqv2QITiw2sj9f2AqhzcEFqG70uW7CMEVODnlbBrFhXDZ-R3xZMQRRZHDqwIw6rrC1dphIQ6bahErY0DQWDvCYuHAZ1RMxZQ8ExxNrM",
-    isOffsetDesktop: true
+    catalogId: 5, // Mesa de Centro Araucaria
+    title: "Mesa de Centro Araucaria",
+    materialBadge: "Mármol Patagonia",
+    price: 1120000,
+    priceFormatted: "$ 1.120.000",
+    finish: "Mármol y patas de nogal",
+    image: "assets/images/mesa-centro-araucaria.png"
   },
   {
     id: 104,
-    catalogId: 10, // Escritorio Costa
-    title: 'Escritorio "Trazo"',
-    materialBadge: "Cerezo Sólido",
-    price: 1150000,
-    priceFormatted: "$1.150.000",
-    finish: "Aceite de lino",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAemkwymiTenFdRmTK4jTCxcYKcHrEWrqlkg9ew7m5eSnVl2v4zm75P8GF5h39QtQEUfxs5HL05TTSjw--SqEnBQgIerM6AJFmnL3vCiINRIssAtG7aMA9osA4lhqZQQ7VkQyjwSlFxtL6n-yYw8yrzqEmRjoHZLA7T_ZDpGFBy6LjP57TnLk4JKC6bmcaDfVUy25V5nyFO0v3n6CxJp40MxikIT_6F9C4aO7tRtUNDkAbI6VKHSMFI",
-    isOffsetDesktop: true
+    catalogId: 3, // Butaca Mendoza
+    title: "Butaca Mendoza",
+    materialBadge: "Bouclé Dusty Rose",
+    price: 890000,
+    priceFormatted: "$ 890.000",
+    finish: "Guatambú y tela bouclé",
+    image: "assets/images/butaca-mendoza.png"
   }
 ];
 
@@ -381,11 +377,11 @@ async function loadFeaturedProducts() {
 
   FEATURED_PRODUCTS.forEach((prod) => {
     const card = document.createElement("article");
-    card.className = `group flex flex-col bg-surface-container-low rounded-2xl md:rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 snap-start shrink-0 w-[78vw] sm:w-[260px] md:w-auto cursor-pointer ${prod.isOffsetDesktop ? 'lg:mt-8' : ''}`;
+    card.className = "group flex flex-col h-full bg-surface-container-low rounded-2xl md:rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 snap-start shrink-0 w-[78vw] sm:w-[260px] md:w-auto cursor-pointer";
 
     card.innerHTML = `
-      <div class="relative aspect-[4/5] overflow-hidden bg-surface-dim">
-        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="${prod.image}" alt="${prod.title}" loading="lazy"/>
+      <div class="relative aspect-[4/5] overflow-hidden bg-surface-container flex items-center justify-center">
+        <img class="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700 ease-out" src="${getAssetPath(prod.image)}" alt="${prod.title}" loading="lazy"/>
         <div class="absolute top-4 right-4 bg-secondary/15 text-secondary px-3 py-1 rounded-full font-label-sm text-label-sm backdrop-blur-sm shadow-sm font-medium">
           ${prod.materialBadge}
         </div>
