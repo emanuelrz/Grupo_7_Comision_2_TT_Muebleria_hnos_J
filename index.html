@@ -38,22 +38,22 @@
 
         <!-- Logotipo Hermanos Jota -->
         <a href="index.html" class="flex items-center gap-3 group">
-          <img alt="Logo Circular hj" class="h-8 md:h-10 w-auto object-contain transition-transform group-hover:scale-105" src="assets/images/logo.svg" />
-          <span class="font-headline-md text-xl md:text-headline-md tracking-tight text-primary font-bold">Hermanos Jota</span>
+          <img alt="Logo Circular hj" class="h-9 md:h-11 w-auto object-contain transition-transform group-hover:scale-105" src="assets/images/logo.svg" />
+          <span class="font-headline-md text-lg md:text-xl tracking-[0.08em] text-primary font-bold uppercase">Hermanos Jota</span>
         </a>
       </div>
 
       <!-- Navegación Principal (Desktop) -->
       <nav class="hidden md:flex items-center gap-8" aria-label="Navegación principal">
-        <a aria-current="page" class="font-label-md text-label-md transition-colors tracking-widest uppercase text-primary font-semibold border-b-2 border-primary pb-0.5" href="index.html">Inicio</a>
-        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase" href="html/catalogo.html">Catálogo</a>
-        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase" href="html/contacto.html">Contacto</a>
+        <a aria-current="page" class="font-label-md text-label-md transition-colors tracking-brand-cta uppercase text-primary font-semibold border-b-2 border-primary pb-0.5" href="index.html">Inicio</a>
+        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-brand-cta uppercase font-medium" href="html/catalogo.html">Catálogo</a>
+        <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors tracking-brand-cta uppercase font-medium" href="html/contacto.html">Contacto</a>
       </nav>
 
       <!-- Lado Derecho: Carrito & Consultor -->
       <div class="flex items-center gap-3 md:gap-6">
         <!-- Botón de Carrito / Cotización -->
-        <button type="button" class="relative p-2 text-primary hover:text-primary-container transition-colors cursor-pointer" onclick="openCartModal()" aria-label="Ver carrito de cotización">
+        <button type="button" class="relative p-2 text-primary hover:text-primary-hover transition-colors cursor-pointer" onclick="openCartModal()" aria-label="Ver carrito de cotización">
           <span class="material-symbols-outlined text-2xl">shopping_bag</span>
           <span id="cartCount" class="absolute top-1 right-1 bg-secondary text-on-secondary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
@@ -79,7 +79,7 @@
       <div class="flex items-center justify-between pb-5 border-b border-outline-variant/40">
         <div class="flex items-center gap-2.5">
           <img alt="Logo" class="h-7 w-auto" src="assets/images/logo.svg" />
-          <span class="font-headline-md text-lg text-primary font-bold">Hermanos Jota</span>
+          <span class="font-headline-md text-lg text-primary font-bold uppercase tracking-wider">Hermanos Jota</span>
         </div>
         <button id="closeMobileMenuBtn" type="button" class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg cursor-pointer" aria-label="Cerrar menú">
           <span class="material-symbols-outlined text-2xl">close</span>
@@ -87,16 +87,16 @@
       </div>
 
       <nav class="flex flex-col gap-2.5 mt-6" aria-label="Navegación móvil">
-        <a class="flex items-center gap-3 px-3.5 py-2.5 bg-surface-container rounded-xl text-primary font-bold tracking-wider uppercase text-xs" href="index.html">
+        <a class="flex items-center gap-3 px-3.5 py-2.5 bg-surface-container rounded-xl text-primary font-bold tracking-brand-cta uppercase text-xs" href="index.html">
           <span class="material-symbols-outlined text-xl">home</span> Inicio
         </a>
-        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-wider uppercase text-xs transition-colors" href="html/catalogo.html">
+        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors" href="html/catalogo.html">
           <span class="material-symbols-outlined text-xl">chair</span> Catálogo
         </a>
-        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-wider uppercase text-xs transition-colors" href="html/contacto.html">
+        <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors" href="html/contacto.html">
           <span class="material-symbols-outlined text-xl">mail</span> Contacto
         </a>
-        <button type="button" onclick="openCartModal()" class="flex items-center justify-between px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-wider uppercase text-xs transition-colors text-left cursor-pointer">
+        <button type="button" onclick="openCartModal()" class="flex items-center justify-between px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors text-left cursor-pointer">
           <span class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">shopping_bag</span> Cotización</span>
           <span class="cart-count-badge bg-primary text-on-primary text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
@@ -104,12 +104,12 @@
     </div>
 
     <div class="pt-5 border-t border-outline-variant/40 space-y-2 text-xs">
-      <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Showroom</p>
+      <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Casa Taller</p>
       <p class="font-body-sm text-on-surface flex items-center gap-2">
         <span class="material-symbols-outlined text-sm text-primary">location_on</span> Av. San Juan 2847, CABA
       </p>
       <p class="font-body-sm text-on-surface-variant flex items-center gap-2">
-        <span class="material-symbols-outlined text-sm text-primary">schedule</span> Lun - Vie 10:00 a 19:00
+        <span class="material-symbols-outlined text-sm text-primary">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00 a 14:00
       </p>
     </div>
   </aside>
@@ -135,22 +135,22 @@
             <!-- Etiqueta de Colección -->
             <div class="flex items-center gap-3">
               <span class="w-8 md:w-12 h-[2px] bg-primary"></span>
-              <span class="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold">Colección 2026</span>
+              <span class="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold">Colección 2026 · Buenos Aires</span>
             </div>
 
-            <!-- Título Principal con tipografía serif editorial -->
-            <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface leading-tight font-bold">
+            <!-- Título Principal con tipografía serif editorial (Manual de Marca) -->
+            <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface leading-tight font-bold uppercase tracking-brand-title">
               Muebles que <br/>
               <span class="italic font-light text-primary">alimentan el alma.</span>
             </h1>
 
             <!-- Descripción -->
             <p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
-              Diseño moderno con alma de los 60. Piezas únicas hechas a mano con maderas nativas sustentables, pensadas para durar generaciones.
+              El redescubrimiento de un arte olvidado: la calidez y el optimismo de los años 60 se encuentran con la sustentabilidad de 2026. Maderas nativas certificadas y diseño atemporal.
             </p>
 
             <!-- Call to Action -->
-            <a href="html/catalogo.html" class="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 rounded-full font-label-md text-label-md uppercase tracking-wider hover:bg-on-primary-fixed-variant transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 active:scale-95">
+            <a href="html/catalogo.html" class="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 rounded-full font-label-md text-label-md uppercase tracking-brand-cta hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 active:scale-95">
               Explorar Catálogo
               <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
             </a>
@@ -164,12 +164,12 @@
       <section class="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-4">
           <div>
-            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2 font-bold">Piezas Destacadas</h2>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2 font-bold uppercase tracking-brand-title">Piezas Destacadas</h2>
             <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
-              Nuestra selección curada de diseño atemporal. Cada pieza cuenta una historia de artesanía y dedicación.
+              Cada pieza cuenta la historia de manos expertas y materiales nobles de origen responsable.
             </p>
           </div>
-          <a class="font-label-md text-label-md text-primary hover:text-on-primary-fixed-variant transition-colors flex items-center gap-2 group font-semibold uppercase tracking-wider" href="html/catalogo.html">
+          <a class="font-label-md text-label-md text-primary hover:text-primary-hover transition-colors flex items-center gap-2 group font-medium uppercase tracking-brand-cta" href="html/catalogo.html">
             Ver todas las piezas
             <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </a>
@@ -182,7 +182,7 @@
       </section>
 
       <!-- ==========================================
-           3. SECCIÓN: SOSTENIBILIDAD / NUESTRO COMPROMISO
+           3. SECCIÓN: SUSTENTABILIDAD & PROGRAMA "HERENCIA VIVA"
            ========================================== -->
       <section class="w-full bg-surface-container py-16 md:py-24 my-6 md:my-12 relative overflow-hidden">
         <!-- Efectos decorativos de fondo -->
@@ -200,17 +200,17 @@
               <div class="hidden sm:block absolute -bottom-5 -left-5 w-3/4 h-full bg-secondary-container rounded-3xl -z-10"></div>
             </div>
 
-            <!-- Columna Derecha: Información y Valores -->
+            <!-- Columna Derecha: Información y Valores del Manual -->
             <div class="order-1 md:order-2 flex flex-col gap-6 md:gap-8">
               <div class="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-secondary/15 text-secondary shadow-sm">
                 <span class="material-symbols-outlined text-[28px] md:text-[32px]">eco</span>
               </div>
 
-              <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Compromiso con el Origen</h2>
+              <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold uppercase tracking-brand-title">Programa "Herencia Viva"</h2>
 
               <div class="space-y-6">
                 <p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant leading-relaxed">
-                  Creemos que un buen diseño no solo debe ser hermoso, sino también responsable. Nuestra filosofía se basa en el respeto por los materiales nobles y su entorno natural.
+                  Creemos que un buen diseño no solo debe ser hermoso, sino un legado sustentable. Cada pieza cuenta con garantía extendida y trazabilidad de origen.
                 </p>
 
                 <ul class="space-y-4">
@@ -220,7 +220,7 @@
                     </div>
                     <div>
                       <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">Maderas Nativas FSC®</h3>
-                      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Solo trabajamos con maderas provenientes de bosques gestionados de manera sostenible, garantizando la regeneración.</p>
+                      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Prioridad a maderas de bosques responsables argentinos (algarrobo, quebracho, caldén, nogal) con certificado de origen.</p>
                     </div>
                   </li>
 
@@ -229,16 +229,26 @@
                       <span class="material-symbols-outlined text-[20px]">water_drop</span>
                     </div>
                     <div>
-                      <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">Acabados Naturales</h3>
-                      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Utilizamos ceras de abejas locales y aceites vegetales libres de tóxicos, protegiendo tanto el mueble como tu hogar.</p>
+                      <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">Acabados 100% Naturales</h3>
+                      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Aceite de lino prensado en frío, ceras de abejas de origen local y tintes vegetales base agua libres de COV.</p>
+                    </div>
+                  </li>
+
+                  <li class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center shrink-0 text-on-secondary-container mt-1">
+                      <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+                    </div>
+                    <div>
+                      <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">10 Años de Garantía</h3>
+                      <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Servicio de restauración permanente, taller de cuidados gratuito y recompra garantizada de hasta el 40%.</p>
                     </div>
                   </li>
                 </ul>
               </div>
 
               <div class="pt-2">
-                <button type="button" onclick="openBespokeModal('Consulta sobre Sostenibilidad')" class="border-2 border-primary text-primary px-7 py-3.5 rounded-full font-label-md text-label-md uppercase tracking-wider hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-sm active:scale-95">
-                  Nuestra Filosofía
+                <button type="button" onclick="openBespokeModal('Consulta sobre Programa Herencia Viva')" class="border-2 border-primary text-primary px-7 py-3.5 rounded-full font-label-md text-label-md uppercase tracking-brand-cta hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-sm active:scale-95">
+                  Conocer Herencia Viva
                 </button>
               </div>
             </div>
