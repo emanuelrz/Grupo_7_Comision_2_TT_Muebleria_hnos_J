@@ -500,32 +500,25 @@ function renderCatalog() {
       : '';
 
     return `
-      <div class="group flex flex-col h-full bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-        <div class="relative aspect-[4/5] overflow-hidden bg-surface-container">
-          <img class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-105" alt="${item.title}" src="${getAssetPath(item.image)}"/>
+      <a href="${getPagePath('producto.html')}?id=${item.id}" class="group flex flex-col h-full bg-surface-container-lowest rounded-2xl md:rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-pointer">
+        <div class="relative aspect-[4/5] overflow-hidden bg-surface-container flex items-center justify-center">
+          <img class="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700 ease-out" alt="${item.title}" src="${getAssetPath(item.image)}" loading="lazy"/>
           ${badgeHtml}
-          <div class="absolute inset-0 bg-surface/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-            <a href="${getPagePath('producto.html')}?id=${item.id}" class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
-              <span class="material-symbols-outlined text-[18px]">visibility</span> Ver Detalle
-            </a>
-          </div>
         </div>
-        <div class="p-6 flex flex-col flex-grow">
+        <div class="p-5 md:p-6 flex flex-col flex-grow">
           <div class="flex items-start justify-between mb-2">
-            <a href="${getPagePath('producto.html')}?id=${item.id}" class="hover:text-primary transition-colors flex-1">
-              <h2 class="font-headline-md text-headline-md text-on-surface line-clamp-1">${item.title}</h2>
-            </a>
+            <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors line-clamp-1 text-lg md:text-xl font-semibold">${item.title}</h2>
           </div>
           <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">${item.desc}</p>
           <div class="flex items-center justify-between mt-auto">
-            <span class="font-headline-md text-headline-md text-primary">${formatCurrency(item.price)}</span>
+            <span class="font-headline-md text-headline-md text-primary font-bold">${formatCurrency(item.price)}</span>
             <div class="flex items-center gap-1.5">
               ${swatchesHtml}
               ${stockHtml}
             </div>
           </div>
         </div>
-      </div>
+      </a>
     `;
   }).join('');
 
