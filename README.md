@@ -75,9 +75,8 @@ muebleria-hnosj/
 * **Persistencia local**: Guarda los productos en `localStorage` (`muebleria_cart`) para mantener la cotización activa entre recargas y navegación.
 * **Notificaciones Toast**: Alertas emergentes no bloqueantes al agregar, modificar o enviar cotizaciones.
 
-### 5. Asesoramiento a Medida y Contacto
-* **Modal de Servicio Bespoke / Consultoría**: Formulario para solicitar presupuestos de piezas personalizadas o asesoramiento directo de diseño.
-* **Página de Contacto (`html/contacto.html`)**: Horarios de taller, dirección del showroom y enlaces directos a canales de atención y WhatsApp.
+### 5. Asesoramiento y Contacto
+* **Página de Contacto (`html/contacto.html`)**: Horarios de taller, dirección del showroom, formulario integral de consultas y enlaces directos a canales de atención y WhatsApp.
 
 ---
 

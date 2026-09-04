@@ -581,68 +581,6 @@ main > :last-child {
 .material-swatch-box.roble { background-color: var(--wood-roble); }
 .material-swatch-box.ebano { background-color: var(--wood-ebano); }
 
-/* Bespoke Banner Box (Siena Tostado Gradient) */
-.bespoke-card {
-  background: linear-gradient(145deg, #A0522D 0%, #7E3B1B 100%);
-  color: #FFFFFF;
-  border-radius: 8px;
-  padding: 1.75rem 1.5rem;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 10px 24px rgba(160, 82, 45, 0.25);
-}
-
-.bespoke-card::before {
-  content: '';
-  position: absolute;
-  top: -30px;
-  right: -30px;
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
-  border-radius: 50%;
-}
-
-.bespoke-icon {
-  margin-bottom: 0.85rem;
-  color: var(--alabastro-calido);
-}
-
-.bespoke-title {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.45rem;
-  line-height: 1.2;
-}
-
-.bespoke-text {
-  font-size: 0.84rem;
-  color: var(--alabastro-calido);
-  margin-bottom: 1.25rem;
-  line-height: 1.4;
-}
-
-.bespoke-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  border-bottom: 1.5px solid var(--alabastro-calido);
-  padding-bottom: 2px;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.bespoke-cta:hover {
-  border-bottom-color: #FFFFFF;
-  transform: translateX(3px);
-}
-
 /* ==========================================================================
    CATALOG GRID CONTROLS & PRODUCTS
    ========================================================================== */

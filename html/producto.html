@@ -62,7 +62,7 @@
           href="contacto.html">Contacto</a>
       </nav>
 
-      <!-- Acciones: Carrito & Consultor -->
+      <!-- Acciones: Carrito -->
       <div class="flex items-center gap-5">
         <button id="cartBtn" class="relative p-2 text-primary hover:text-primary-hover transition-colors cursor-pointer"
           onclick="openCartModal()" aria-label="Ver Carrito de Cotización">
@@ -70,19 +70,6 @@
           <span id="cartCount"
             class="absolute top-0 right-0 bg-secondary text-on-secondary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
-
-        <div class="flex items-center gap-3 pl-5 border-l border-outline-variant/60 cursor-pointer group"
-          onclick="openBespokeModal('Consulta Especializada')">
-          <div class="text-right hidden sm:block leading-tight">
-            <p class="font-label-sm text-label-sm text-on-surface-variant font-medium">Consultor</p>
-            <p
-              class="font-label-md text-label-md font-semibold text-on-surface group-hover:text-primary transition-colors">
-              En Línea</p>
-          </div>
-          <img alt="Consultor en Línea"
-            class="w-9 h-9 rounded-full object-cover ring-2 ring-surface-container-high group-hover:ring-primary transition-all"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHJubnYO2u0cZVbfvyc016i5t7jUM2kH8hnHizm_6U1Kx7mLNsCgGo2U-YhMJCtd52AKmIThY1x5qIFbuD2EQEGjEbdu1tr-yvcl6sdYylXj8gperE_L9OQKHXRO34YfzkO3WJwdxCLIjlF0cpQtE8vvbSkUf0v5w2LN1Tx7BN8j7oG427piyRtvgoPe34Ugvc9ruJSm6UglFklqhqYkC7ByehpgbJxhD7cLTZzMoH8Z4sdFidxcAs" />
-        </div>
       </div>
     </div>
   </header>
@@ -431,56 +418,7 @@
     </div>
   </div>
 
-  <!-- ==========================================
-       MODAL DE SERVICIO BESPOKE / CONSULTORÍA
-       ========================================== -->
-  <div id="bespokeModal"
-    class="fixed inset-0 bg-on-surface/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div
-      class="bg-surface rounded-2xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border border-surface-container-high relative">
-      <button onclick="closeBespokeModal()"
-        class="absolute top-4 right-4 text-on-surface-variant hover:text-primary cursor-pointer p-1"
-        aria-label="Cerrar">
-        <span class="material-symbols-outlined text-2xl">close</span>
-      </button>
-      <h2 class="font-display text-2xl font-bold text-on-surface mb-1.5">Servicio Bespoke &amp; Consultoría</h2>
-      <p class="text-xs text-on-surface-variant mb-5">Personalice medidas, especies de madera noble y acabados para su
-        proyecto.</p>
 
-      <form onsubmit="handleBespokeSubmit(event)" class="space-y-4">
-        <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface mb-1.5">Pieza o
-            Tipología</label>
-          <input id="bespokePieceInput"
-            class="w-full p-3 bg-surface-container/60 rounded-xl border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary text-sm"
-            value="Mesa Raíz Algarrobo" required />
-        </div>
-        <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface mb-1.5">Madera / Acabado
-            Deseado</label>
-          <select
-            class="w-full p-3 bg-surface-container/60 rounded-xl border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary text-sm">
-            <option>Algarrobo Macizo al Aceite Orgánico</option>
-            <option>Nogal Macizo FSC®</option>
-            <option>Roble Claro al Aceite Natural</option>
-            <option>Guatambú Macizo</option>
-            <option>Ébano / Fresno Teñido</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface mb-1.5">Contacto (Email o
-            WhatsApp)</label>
-          <input type="text"
-            class="w-full p-3 bg-surface-container/60 rounded-xl border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary text-sm"
-            placeholder="tu@email.com o +54 9 11..." required />
-        </div>
-        <button type="submit"
-          class="btn-add-cart w-full py-3.5 rounded-xl font-semibold text-sm uppercase tracking-wider transition-all mt-2">
-          Enviar Consulta al Taller
-        </button>
-      </form>
-    </div>
-  </div>
 
   <!-- Contenedor de Notificaciones Toast -->
   <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
@@ -609,23 +547,6 @@
       }
     }
 
-    function openBespokeModal(title = "Mesa Raíz Algarrobo") {
-      const modal = document.getElementById("bespokeModal");
-      const input = document.getElementById("bespokePieceInput");
-      if (input && currentProduct) input.value = currentProduct.title || title;
-      if (modal) modal.classList.remove("hidden");
-    }
-
-    function closeBespokeModal() {
-      const modal = document.getElementById("bespokeModal");
-      if (modal) modal.classList.add("hidden");
-    }
-
-    function handleBespokeSubmit(e) {
-      e.preventDefault();
-      closeBespokeModal();
-      showToast("Solicitud de personalización enviada al taller.", "✨");
-    }
 
     // Feedback Toast
     function showToast(message, icon = "✓") {
