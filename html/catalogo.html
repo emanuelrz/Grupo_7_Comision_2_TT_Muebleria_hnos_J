@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     name="viewport" />
   <meta name="description"
     content="Hermanos Jota - Muebles de autor con alma de los 60. Artesanía sostenible, maderas nobles y diseño atemporal para hogares contemporáneos." />
@@ -31,7 +31,7 @@
         <button id="mobileMenuBtn" type="button"
           class="w-10 h-10 flex md:hidden items-center justify-center text-primary hover:bg-surface-container rounded-lg transition-colors cursor-pointer"
           aria-label="Abrir menú de navegación">
-          <span class="material-symbols-outlined text-2xl">menu</span>
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">menu</span>
         </button>
         <a href="../index.html" class="flex items-center gap-3 group">
           <img alt="Logo Circular hj"
@@ -53,7 +53,7 @@
       <div class="flex items-center gap-6">
         <button class="relative p-2 text-primary hover:text-primary-hover transition-colors" onclick="openCartModal()"
           aria-label="Ver carrito de cotización">
-          <span class="material-symbols-outlined">shopping_bag</span>
+          <span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span>
           <span id="cartCount"
             class="absolute top-0 right-0 bg-secondary text-on-secondary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
@@ -75,27 +75,27 @@
         </div>
         <button id="closeMobileMenuBtn" type="button"
           class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg cursor-pointer" aria-label="Cerrar menú">
-          <span class="material-symbols-outlined text-2xl">close</span>
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
         </button>
       </div>
 
       <nav class="flex flex-col gap-2.5 mt-6" aria-label="Navegación móvil">
         <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors"
           href="../index.html">
-          <span class="material-symbols-outlined text-xl">home</span> Inicio
+          <span class="material-symbols-outlined text-xl" aria-hidden="true">home</span> Inicio
         </a>
         <a aria-current="page"
           class="flex items-center gap-3 px-3.5 py-2.5 bg-surface-container rounded-xl text-primary font-bold tracking-brand-cta uppercase text-xs"
           href="catalogo.html">
-          <span class="material-symbols-outlined text-xl">chair</span> Catálogo
+          <span class="material-symbols-outlined text-xl" aria-hidden="true">chair</span> Catálogo
         </a>
         <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors"
           href="contacto.html">
-          <span class="material-symbols-outlined text-xl">mail</span> Contacto
+          <span class="material-symbols-outlined text-xl" aria-hidden="true">mail</span> Contacto
         </a>
         <button type="button" onclick="openCartModal()"
           class="flex items-center justify-between px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors text-left cursor-pointer">
-          <span class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">shopping_bag</span>
+          <span class="flex items-center gap-3"><span class="material-symbols-outlined text-xl" aria-hidden="true">shopping_bag</span>
             Cotización</span>
           <span
             class="cart-count-badge bg-primary text-on-primary text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
@@ -107,10 +107,10 @@
       <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Casa Taller
       </p>
       <p class="font-body-sm text-on-surface flex items-center gap-2">
-        <span class="material-symbols-outlined text-sm text-primary">location_on</span> Av. San Juan 2847, CABA
+        <span class="material-symbols-outlined text-sm text-primary" aria-hidden="true">location_on</span> Av. San Juan 2847, CABA
       </p>
       <p class="font-body-sm text-on-surface-variant flex items-center gap-2">
-        <span class="material-symbols-outlined text-sm text-primary">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00
+        <span class="material-symbols-outlined text-sm text-primary" aria-hidden="true">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00
         a 14:00
       </p>
     </div>
@@ -141,11 +141,12 @@
             <div class="relative group">
               <div
                 class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary transition-colors group-focus-within:text-primary">
-                <span class="material-symbols-outlined text-[20px]">search</span>
+                <span class="material-symbols-outlined text-[20px]" aria-hidden="true">search</span>
               </div>
               <input id="searchInput"
                 class="w-full pl-12 pr-4 py-4 bg-surface text-on-surface font-body-md text-body-md rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow placeholder:text-on-surface-variant/50"
-                placeholder="Buscar por material, línea o tipo..." type="text" />
+                placeholder="Buscar por material, línea o tipo..." type="text"
+                aria-label="Buscar productos" />
               <button id="searchBtn"
                 class="absolute inset-y-2 right-2 px-4 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-brand-cta rounded shadow-sm hover:bg-primary-hover hover:-translate-y-0.5 transition-all">
                 Buscar
@@ -177,7 +178,7 @@
             <div>
               <h3
                 class="font-label-md text-label-md uppercase tracking-widest text-on-surface mb-6 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[18px]">filter_list</span> Filtrar
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">filter_list</span> Filtrar
               </h3>
 
               <!-- Categorías -->
@@ -206,7 +207,7 @@
                   <label class="flex items-center gap-3 cursor-pointer group">
                     <div
                       class="w-5 h-5 rounded-sm bg-[#5c4033] shadow-inner flex items-center justify-center text-white/0 group-has-[:checked]:text-white">
-                      <span class="material-symbols-outlined text-[14px]">check</span>
+                      <span class="material-symbols-outlined text-[14px]" aria-hidden="true">check</span>
                     </div>
                     <input class="sr-only filter-mat" data-material="nogal" type="checkbox" />
                     <span
@@ -215,7 +216,7 @@
                   <label class="flex items-center gap-3 cursor-pointer group">
                     <div
                       class="w-5 h-5 rounded-sm bg-[#d2b48c] shadow-inner flex items-center justify-center text-white/0 group-has-[:checked]:text-white">
-                      <span class="material-symbols-outlined text-[14px]">check</span>
+                      <span class="material-symbols-outlined text-[14px]" aria-hidden="true">check</span>
                     </div>
                     <input class="sr-only filter-mat" data-material="roble" type="checkbox" />
                     <span
@@ -225,7 +226,7 @@
                   <label class="flex items-center gap-3 cursor-pointer group">
                     <div
                       class="w-5 h-5 rounded-sm bg-[#3a2f28] shadow-inner flex items-center justify-center text-white/0 group-has-[:checked]:text-white">
-                      <span class="material-symbols-outlined text-[14px]">check</span>
+                      <span class="material-symbols-outlined text-[14px]" aria-hidden="true">check</span>
                     </div>
                     <input class="sr-only filter-mat" data-material="ebano" type="checkbox" />
                     <span
@@ -240,13 +241,13 @@
           <!-- Product Grid Area -->
           <div class="flex-1 w-full min-w-0">
             <!-- Toolbar -->
-            <div class="flex justify-between items-center mb-8 pb-4 border-b border-surface-variant hidden md:flex">
+            <div class="flex flex-wrap justify-between items-center gap-4 mb-8 pb-4 border-b border-surface-variant">
               <span class="font-body-md text-body-md text-on-surface-variant">Mostrando <strong id="shownCount"
                   class="text-on-surface">6</strong> de <strong id="totalPiecesCount">11</strong> piezas</span>
               <div class="flex items-center gap-6">
                 <div class="flex items-center gap-2">
-                  <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Ordenar
-                    por:</span>
+                  <label for="sortSelect" class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Ordenar
+                    por:</label>
                   <select id="sortSelect"
                     class="bg-transparent font-body-md text-body-md text-on-surface focus:outline-none cursor-pointer">
                     <option value="novedades">Novedades</option>
@@ -255,10 +256,13 @@
                     <option value="alfabetico">Nombre A-Z</option>
                   </select>
                 </div>
-                <div class="flex gap-2 text-on-surface-variant">
-                  <button class="p-1 text-primary"><span class="material-symbols-outlined">grid_view</span></button>
-                  <button class="p-1 hover:text-primary transition-colors"><span
-                      class="material-symbols-outlined">view_list</span></button>
+                <div class="flex items-center gap-1 text-on-surface-variant" role="group" aria-label="Modo de visualización">
+                  <button id="viewGridBtn" type="button" class="p-1.5 rounded-lg text-primary hover:text-primary hover:bg-surface-container transition-colors cursor-pointer" title="Vista en cuadrícula" aria-label="Vista en cuadrícula">
+                    <span class="material-symbols-outlined text-[22px]" aria-hidden="true">grid_view</span>
+                  </button>
+                  <button id="viewListBtn" type="button" class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors cursor-pointer" title="Vista en lista" aria-label="Vista en lista">
+                    <span class="material-symbols-outlined text-[22px]" aria-hidden="true">view_list</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -295,9 +299,9 @@
           <div>
             <h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">Showroom</h5>
             <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span
-                class="material-symbols-outlined text-sm">location_on</span> Av. San Juan 2847, CABA</p>
+                class="material-symbols-outlined text-sm" aria-hidden="true">location_on</span> Av. San Juan 2847, CABA</p>
             <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span
-                class="material-symbols-outlined text-sm">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00 - 14:00
+                class="material-symbols-outlined text-sm" aria-hidden="true">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00 - 14:00
             </p>
           </div>
         </div>
@@ -306,11 +310,11 @@
             <h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">Conectemos</h5>
             <p
               class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
-              <span class="material-symbols-outlined text-sm">share</span> @hermanosjota_ba
+              <span class="material-symbols-outlined text-sm" aria-hidden="true">share</span> @hermanosjota_ba
             </p>
             <p
               class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
-              <span class="material-symbols-outlined text-sm">chat</span> +54 11 4567-8900
+              <span class="material-symbols-outlined text-sm" aria-hidden="true">chat</span> +54 11 4567-8900
             </p>
           </div>
         </div>
@@ -323,12 +327,12 @@
   </footer>
 
   <!-- PRODUCT MODAL -->
-  <div id="productModal"
+  <div id="productModal" role="dialog" aria-modal="true"
     class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-surface rounded-xl p-8 max-w-2xl w-full shadow-xl relative max-h-[90vh] overflow-y-auto">
-      <button onclick="closeModal('productModal')"
+      <button onclick="closeModal('productModal')" aria-label="Cerrar"
         class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span
-          class="material-symbols-outlined">close</span></button>
+          class="material-symbols-outlined" aria-hidden="true">close</span></button>
       <div id="productModalContent"></div>
     </div>
   </div>
@@ -336,12 +340,12 @@
 
 
   <!-- CART MODAL -->
-  <div id="cartModal"
+  <div id="cartModal" role="dialog" aria-modal="true"
     class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-surface rounded-xl p-8 max-w-md w-full shadow-xl relative">
-      <button onclick="closeModal('cartModal')"
+      <button onclick="closeModal('cartModal')" aria-label="Cerrar"
         class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span
-          class="material-symbols-outlined">close</span></button>
+          class="material-symbols-outlined" aria-hidden="true">close</span></button>
       <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Tu Selección de Cotización</h3>
       <div id="cartItemsList" class="my-4 max-h-60 overflow-y-auto"></div>
       <div class="flex justify-between items-center py-3 border-t border-outline-variant">

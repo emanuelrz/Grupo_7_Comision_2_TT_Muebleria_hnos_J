@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     name="viewport" />
   <meta name="description"
     content="Hermanos Jota - Muebles de autor con alma de los 60. Artesanía sostenible, maderas nobles y diseño atemporal para hogares contemporáneos." />
@@ -44,7 +44,7 @@
         <button id="mobileMenuBtn" type="button"
           class="w-10 h-10 flex md:hidden items-center justify-center text-primary hover:bg-surface-container rounded-lg transition-colors"
           aria-label="Abrir menú de navegación">
-          <span class="material-symbols-outlined text-2xl">menu</span>
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">menu</span>
         </button>
 
         <!-- Logotipo Hermanos Jota -->
@@ -74,7 +74,7 @@
         <button type="button"
           class="relative p-2 text-primary hover:text-primary-hover transition-colors cursor-pointer"
           onclick="openCartModal()" aria-label="Ver carrito de cotización">
-          <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">shopping_bag</span>
           <span id="cartCount"
             class="absolute top-1 right-1 bg-secondary text-on-secondary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
@@ -96,26 +96,26 @@
         </div>
         <button id="closeMobileMenuBtn" type="button"
           class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg cursor-pointer" aria-label="Cerrar menú">
-          <span class="material-symbols-outlined text-2xl">close</span>
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
         </button>
       </div>
 
       <nav class="flex flex-col gap-2.5 mt-6" aria-label="Navegación móvil">
         <a class="flex items-center gap-3 px-3.5 py-2.5 bg-surface-container rounded-xl text-primary font-bold tracking-brand-cta uppercase text-xs"
           href="index.html">
-          <span class="material-symbols-outlined text-xl">home</span> Inicio
+          <span class="material-symbols-outlined text-xl" aria-hidden="true">home</span> Inicio
         </a>
         <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors"
           href="html/catalogo.html">
-          <span class="material-symbols-outlined text-xl">chair</span> Catálogo
+          <span class="material-symbols-outlined text-xl" aria-hidden="true">chair</span> Catálogo
         </a>
         <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors"
           href="html/contacto.html">
-          <span class="material-symbols-outlined text-xl">mail</span> Contacto
+          <span class="material-symbols-outlined text-xl" aria-hidden="true">mail</span> Contacto
         </a>
         <button type="button" onclick="openCartModal()"
           class="flex items-center justify-between px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors text-left cursor-pointer">
-          <span class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">shopping_bag</span>
+          <span class="flex items-center gap-3"><span class="material-symbols-outlined text-xl" aria-hidden="true">shopping_bag</span>
             Cotización</span>
           <span
             class="cart-count-badge bg-primary text-on-primary text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
@@ -127,10 +127,10 @@
       <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Casa Taller
       </p>
       <p class="font-body-sm text-on-surface flex items-center gap-2">
-        <span class="material-symbols-outlined text-sm text-primary">location_on</span> Av. San Juan 2847, CABA
+        <span class="material-symbols-outlined text-sm text-primary" aria-hidden="true">location_on</span> Av. San Juan 2847, CABA
       </p>
       <p class="font-body-sm text-on-surface-variant flex items-center gap-2">
-        <span class="material-symbols-outlined text-sm text-primary">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00
+        <span class="material-symbols-outlined text-sm text-primary" aria-hidden="true">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00
         a 14:00
       </p>
     </div>
@@ -181,7 +181,7 @@
             <a href="html/catalogo.html"
               class="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 rounded-full font-label-md text-label-md uppercase tracking-brand-cta hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 active:scale-95">
               Explorar Catálogo
-              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
             </a>
           </div>
         </div>
@@ -202,7 +202,7 @@
           <a class="font-label-md text-label-md text-primary hover:text-primary-hover transition-colors flex items-center gap-2 group font-medium uppercase tracking-brand-cta"
             href="html/catalogo.html">
             Ver todas las piezas
-            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
           </a>
         </div>
 
@@ -243,7 +243,7 @@
             <div class="order-1 md:order-2 flex flex-col gap-6 md:gap-8">
               <div
                 class="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-secondary/15 text-secondary shadow-sm">
-                <span class="material-symbols-outlined text-[28px] md:text-[32px]">eco</span>
+                <span class="material-symbols-outlined text-[28px] md:text-[32px]" aria-hidden="true">eco</span>
               </div>
 
               <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold uppercase tracking-brand-title">
@@ -259,7 +259,7 @@
                   <li class="flex items-start gap-4">
                     <div
                       class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center shrink-0 text-on-secondary-container mt-1">
-                      <span class="material-symbols-outlined text-[20px]">forest</span>
+                      <span class="material-symbols-outlined text-[20px]" aria-hidden="true">forest</span>
                     </div>
                     <div>
                       <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">
@@ -273,7 +273,7 @@
                   <li class="flex items-start gap-4">
                     <div
                       class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center shrink-0 text-on-secondary-container mt-1">
-                      <span class="material-symbols-outlined text-[20px]">water_drop</span>
+                      <span class="material-symbols-outlined text-[20px]" aria-hidden="true">water_drop</span>
                     </div>
                     <div>
                       <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">
@@ -287,7 +287,7 @@
                   <li class="flex items-start gap-4">
                     <div
                       class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center shrink-0 text-on-secondary-container mt-1">
-                      <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+                      <span class="material-symbols-outlined text-[20px]" aria-hidden="true">workspace_premium</span>
                     </div>
                     <div>
                       <h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1">10
@@ -317,64 +317,46 @@
   <!-- ==========================================
        FOOTER / PIE DE PÁGINA OFICIAL
        ========================================== -->
-  <footer class="w-full bg-surface-container-high py-12 md:py-16 pb-24 md:pb-16 border-t border-outline-variant/20">
-    <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-gutter items-start">
-
-        <!-- Bloque Marca -->
+  <!-- FOOTER -->
+  <footer class="w-full bg-surface-container-high mt-20 py-16" id="contacto">
+    <div class="max-w-[1280px] mx-auto px-margin-desktop">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-start">
         <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <img alt="Logo Hermanos Jota" class="h-8 w-auto opacity-90" src="assets/images/logo.svg" />
+            <img alt="Logo" class="h-8 opacity-80" src="assets/images/logo.svg" />
             <div>
-              <h3 class="font-headline-md text-headline-md text-on-surface font-bold">Hermanos Jota</h3>
-              <p class="font-body-md text-body-sm md:text-body-md text-on-surface-variant">Estética de los 60, calidad
-                eterna.</p>
+              <h4 class="font-headline-md text-headline-md text-on-surface">Hermanos Jota</h4>
+              <p class="font-body-md text-body-md text-on-surface-variant">Estética de los 60, calidad eterna.</p>
             </div>
           </div>
         </div>
-
-        <!-- Bloque Showroom -->
-        <div class="space-y-3">
-          <h4 class="font-label-md text-label-md text-primary uppercase tracking-widest font-bold">Showroom</h4>
-          <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
-            <span class="material-symbols-outlined text-sm text-primary">location_on</span> Av. San Juan 2847, CABA
-          </p>
-          <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
-            <span class="material-symbols-outlined text-sm text-primary">schedule</span> Lun - Vie 10:00 a 19:00
-          </p>
-          <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 pl-6">
-            Sábados: 10:00 - 14:00
-          </p>
-        </div>
-
-        <!-- Bloque Conexión / Redes -->
-        <div class="space-y-3">
-          <h4 class="font-label-md text-label-md text-primary uppercase tracking-widest font-bold">Conectemos</h4>
-          <p
-            class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
-            <span class="material-symbols-outlined text-sm text-primary">share</span> @hermanosjota_ba
-          </p>
-          <div class="flex gap-4 pt-2">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-              class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
-              aria-label="Instagram">
-              <span class="material-symbols-outlined text-[18px]">camera</span>
-            </a>
-            <a href="mailto:info@hermanosjota.com.ar"
-              class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
-              aria-label="Email">
-              <span class="material-symbols-outlined text-[18px]">mail</span>
-            </a>
+        <div class="space-y-4">
+          <div>
+            <h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">Showroom</h5>
+            <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm" aria-hidden="true">location_on</span> Av. San Juan 2847, CABA</p>
+            <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm" aria-hidden="true">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00 - 14:00
+            </p>
           </div>
         </div>
-
+        <div class="space-y-4">
+          <div>
+            <h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">Conectemos</h5>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
+              <span class="material-symbols-outlined text-sm" aria-hidden="true">share</span> @hermanosjota_ba
+            </p>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
+              <span class="material-symbols-outlined text-sm" aria-hidden="true">chat</span> +54 11 4567-8900
+            </p>
+          </div>
+        </div>
       </div>
-
-      <!-- Copyright -->
-      <div class="mt-12 pt-8 border-t border-outline-variant/30 text-center">
-        <p class="font-label-sm text-label-sm text-on-surface-variant opacity-70 italic">
-          © 2026 Hermanos Jota. Hecho a mano con herencia y modernidad.
-        </p>
+      <div class="mt-16 pt-8 border-t border-outline-variant text-center">
+        <p class="font-label-sm text-label-sm text-on-surface-variant opacity-60 italic">© 2026 Hermanos Jota. Hecho a
+          mano con herencia y modernidad.</p>
       </div>
     </div>
   </footer>
@@ -385,12 +367,12 @@
        ========================================== -->
 
   <!-- PRODUCT QUICK VIEW MODAL -->
-  <div id="productModal"
+  <div id="productModal" role="dialog" aria-modal="true"
     class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-surface rounded-2xl p-6 md:p-8 max-w-2xl w-full shadow-2xl relative max-h-[90vh] overflow-y-auto">
       <button onclick="closeModal('productModal')"
         class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1" aria-label="Cerrar modal">
-        <span class="material-symbols-outlined text-2xl">close</span>
+        <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
       </button>
       <div id="productModalContent"></div>
     </div>
@@ -398,12 +380,12 @@
 
 
   <!-- CART / PRESUPUESTO MODAL -->
-  <div id="cartModal"
+  <div id="cartModal" role="dialog" aria-modal="true"
     class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-surface rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl relative">
       <button onclick="closeModal('cartModal')"
         class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1" aria-label="Cerrar carrito">
-        <span class="material-symbols-outlined text-2xl">close</span>
+        <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
       </button>
       <h3 class="font-headline-md text-headline-md text-on-surface mb-2 font-bold">Tu Selección de Cotización</h3>
       <div id="cartItemsList" class="my-4 max-h-60 overflow-y-auto space-y-2"></div>

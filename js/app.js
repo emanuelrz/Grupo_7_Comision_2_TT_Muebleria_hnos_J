@@ -392,7 +392,7 @@ async function loadFeaturedProducts() {
           <span class="font-label-md text-label-md text-primary font-bold whitespace-nowrap">${prod.priceFormatted}</span>
         </div>
         <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 text-sm mt-auto">
-          <span class="material-symbols-outlined text-[16px] text-outline">format_paint</span>
+          <span class="material-symbols-outlined text-[16px] text-outline" aria-hidden="true">format_paint</span>
           ${prod.finish}
         </p>
       </div>
@@ -430,10 +430,11 @@ function showToast(message, icon = "✓") {
 function getFilteredProducts() {
   return PRODUCTS_DATA.filter(p => {
     if (state.searchQuery) {
-      const q = state.searchQuery.toLowerCase();
-      const matchTitle = p.title.toLowerCase().includes(q);
-      const matchDesc = p.desc.toLowerCase().includes(q);
-      const matchMaterial = p.material.toLowerCase().includes(q);
+      const normalize = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+      const q = normalize(state.searchQuery);
+      const matchTitle = normalize(p.title).includes(q);
+      const matchDesc = normalize(p.desc).includes(q);
+      const matchMaterial = normalize(p.material).includes(q);
       if (!matchTitle && !matchDesc && !matchMaterial) return false;
     }
     if (state.activeCategories.size > 0 && !state.activeCategories.has(p.category)) {
@@ -486,41 +487,117 @@ function renderCatalog() {
   const startIndex = (state.currentPage - 1) * state.itemsPerPage;
   const pageItems = filtered.slice(startIndex, startIndex + state.itemsPerPage);
 
-  grid.innerHTML = pageItems.map(item => {
-    const badgeHtml = item.badge
-      ? `<div class="absolute top-4 left-4 ${item.badge.class === 'badge-nuevo' ? 'bg-secondary/90' : 'bg-secondary/90'} backdrop-blur text-on-secondary font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider">${item.badge.text}</div>`
-      : '';
+  // Actualizar estado visual de los botones de vista
+  const viewGridBtn = document.getElementById("viewGridBtn");
+  const viewListBtn = document.getElementById("viewListBtn");
+  if (viewGridBtn && viewListBtn) {
+    if (state.viewMode === "list") {
+      viewListBtn.classList.add("text-primary");
+      viewListBtn.classList.remove("text-on-surface-variant");
+      viewGridBtn.classList.remove("text-primary");
+      viewGridBtn.classList.add("text-on-surface-variant");
+    } else {
+      viewGridBtn.classList.add("text-primary");
+      viewGridBtn.classList.remove("text-on-surface-variant");
+      viewListBtn.classList.remove("text-primary");
+      viewListBtn.classList.add("text-on-surface-variant");
+    }
+  }
 
-    const swatchesHtml = item.swatches ? item.swatches.map(color =>
-      `<div class="w-4 h-4 rounded-full shadow-sm" style="background-color: ${color};" title="Muestra"></div>`
-    ).join('') : '';
+  if (state.viewMode === "list") {
+    grid.className = "flex flex-col gap-6";
+    grid.innerHTML = pageItems.map(item => {
+      const badgeHtml = item.badge
+        ? `<div class="absolute top-4 left-4 ${item.badge.class === 'badge-nuevo' ? 'bg-secondary/90' : 'bg-green-700/90'} backdrop-blur text-on-secondary font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider">${item.badge.text}</div>`
+        : '';
 
-    const stockHtml = item.stockLabel
-      ? `<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-1 rounded">${item.stockLabel}</span>`
-      : '';
+      const swatchesHtml = item.swatches ? item.swatches.map(color =>
+        `<div class="w-4 h-4 rounded-full shadow-sm" style="background-color: ${color};" title="Muestra"></div>`
+      ).join('') : '';
 
-    return `
-      <a href="${getPagePath('producto.html')}?id=${item.id}" class="group flex flex-col h-full bg-surface-container-lowest rounded-2xl md:rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-        <div class="relative aspect-[4/5] overflow-hidden bg-surface-container flex items-center justify-center">
-          <img class="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700 ease-out" alt="${item.title}" src="${getAssetPath(item.image)}" loading="lazy"/>
-          ${badgeHtml}
-        </div>
-        <div class="p-5 md:p-6 flex flex-col flex-grow">
-          <div class="flex items-start justify-between mb-2">
-            <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors line-clamp-1 text-lg md:text-xl font-semibold">${item.title}</h2>
+      const stockHtml = item.stockLabel
+        ? `<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-1 rounded">${item.stockLabel}</span>`
+        : '';
+
+      const medidasHtml = item.specs && item.specs.medidas
+        ? `<span class="inline-flex items-center gap-1.5 bg-surface-container/70 text-on-surface-variant px-2.5 py-1 rounded-md text-xs font-body-sm"><span class="material-symbols-outlined text-[15px] text-primary" aria-hidden="true">straighten</span>${item.specs.medidas}</span>`
+        : '';
+
+      const materialesHtml = item.specs && item.specs.materiales
+        ? `<span class="inline-flex items-center gap-1.5 bg-surface-container/70 text-on-surface-variant px-2.5 py-1 rounded-md text-xs font-body-sm"><span class="material-symbols-outlined text-[15px] text-primary" aria-hidden="true">forest</span>${item.specs.materiales}</span>`
+        : '';
+
+      return `
+        <a href="${getPagePath('producto.html')}?id=${item.id}" class="group flex flex-col sm:flex-row bg-surface-container-lowest rounded-2xl md:rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 cursor-pointer border border-outline-variant/20">
+          <div class="relative w-full sm:w-64 md:w-72 aspect-[4/3] sm:aspect-auto shrink-0 overflow-hidden bg-surface-container flex items-center justify-center p-6">
+            <img class="w-full h-full max-h-56 object-contain group-hover:scale-105 transition-transform duration-700 ease-out" alt="${item.title}" src="${getAssetPath(item.image)}" loading="lazy"/>
+            ${badgeHtml}
           </div>
-          <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">${item.desc}</p>
-          <div class="flex items-center justify-between mt-auto">
-            <span class="font-headline-md text-headline-md text-primary font-bold">${formatCurrency(item.price)}</span>
-            <div class="flex items-center gap-1.5">
-              ${swatchesHtml}
-              ${stockHtml}
+          <div class="p-5 md:p-6 flex flex-col justify-between flex-grow">
+            <div>
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-2">
+                <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors text-xl md:text-2xl font-semibold">${item.title}</h2>
+                <span class="font-headline-md text-headline-md text-primary font-bold text-xl md:text-2xl whitespace-nowrap">${formatCurrency(item.price)}</span>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-4 leading-relaxed">${item.desc}</p>
+              <div class="flex flex-wrap items-center gap-2 mb-4">
+                <span class="bg-surface-container/80 text-primary font-semibold px-2.5 py-1 rounded-md text-xs uppercase tracking-wider font-label-sm">${item.category}</span>
+                <span class="bg-surface-container/80 text-on-surface-variant px-2.5 py-1 rounded-md text-xs capitalize font-label-sm">${item.material}</span>
+                ${medidasHtml}
+                ${materialesHtml}
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-outline-variant/30 mt-auto">
+              <div class="flex items-center gap-2">
+                ${swatchesHtml}
+                ${stockHtml}
+              </div>
+              <span class="inline-flex items-center gap-1 font-label-md text-sm text-primary font-semibold group-hover:translate-x-1 transition-transform">
+                Ver detalle <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+              </span>
             </div>
           </div>
-        </div>
-      </a>
-    `;
-  }).join('');
+        </a>
+      `;
+    }).join('');
+  } else {
+    grid.className = "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-12";
+    grid.innerHTML = pageItems.map(item => {
+      const badgeHtml = item.badge
+        ? `<div class="absolute top-4 left-4 ${item.badge.class === 'badge-nuevo' ? 'bg-secondary/90' : 'bg-green-700/90'} backdrop-blur text-on-secondary font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider">${item.badge.text}</div>`
+        : '';
+
+      const swatchesHtml = item.swatches ? item.swatches.map(color =>
+        `<div class="w-4 h-4 rounded-full shadow-sm" style="background-color: ${color};" title="Muestra"></div>`
+      ).join('') : '';
+
+      const stockHtml = item.stockLabel
+        ? `<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-1 rounded">${item.stockLabel}</span>`
+        : '';
+
+      return `
+        <a href="${getPagePath('producto.html')}?id=${item.id}" class="group flex flex-col h-full bg-surface-container-lowest rounded-2xl md:rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-pointer">
+          <div class="relative aspect-[4/5] overflow-hidden bg-surface-container flex items-center justify-center">
+            <img class="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700 ease-out" alt="${item.title}" src="${getAssetPath(item.image)}" loading="lazy"/>
+            ${badgeHtml}
+          </div>
+          <div class="p-5 md:p-6 flex flex-col flex-grow">
+            <div class="flex items-start justify-between mb-2">
+              <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors line-clamp-1 text-lg md:text-xl font-semibold">${item.title}</h2>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">${item.desc}</p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="font-headline-md text-headline-md text-primary font-bold">${formatCurrency(item.price)}</span>
+              <div class="flex items-center gap-1.5">
+                ${swatchesHtml}
+                ${stockHtml}
+              </div>
+            </div>
+          </div>
+        </a>
+      `;
+    }).join('');
+  }
 
   renderPagination(Math.ceil(totalCount / state.itemsPerPage));
 }
@@ -535,7 +612,7 @@ function renderPagination(totalPages) {
 
   let html = `
     <button class="w-10 h-10 flex items-center justify-center rounded bg-surface-container text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors shadow-sm disabled:opacity-50" ${state.currentPage === 1 ? 'disabled' : ''} onclick="changePage(${state.currentPage - 1})">
-      <span class="material-symbols-outlined">chevron_left</span>
+      <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
     </button>
   `;
 
@@ -549,7 +626,7 @@ function renderPagination(totalPages) {
 
   html += `
     <button class="w-10 h-10 flex items-center justify-center rounded bg-surface-container text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors shadow-sm disabled:opacity-50" ${state.currentPage === totalPages ? 'disabled' : ''} onclick="changePage(${state.currentPage + 1})">
-      <span class="material-symbols-outlined">chevron_right</span>
+      <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
     </button>
   `;
 
@@ -559,63 +636,9 @@ function renderPagination(totalPages) {
 function changePage(page) {
   state.currentPage = page;
   renderCatalog();
-  document.getElementById("catalogSection").scrollIntoView({ behavior: "smooth" });
+  document.getElementById("catalogSection")?.scrollIntoView({ behavior: "smooth" });
 }
 
-function toggleFavorite(productId) {
-  if (state.favorites.has(productId)) {
-    state.favorites.delete(productId);
-    showToast("Eliminado de guardados", "♡");
-  } else {
-    state.favorites.add(productId);
-    showToast("Guardado en favoritos", "♥");
-  }
-  renderCatalog();
-}
-
-function openProductModal(productId) {
-  const product = PRODUCTS_DATA.find(p => p.id === productId);
-  if (!product) return;
-
-  const modal = document.getElementById("productModal");
-  const modalContent = document.getElementById("productModalContent");
-  if (!modal || !modalContent) return;
-
-  let specsHtml = "";
-  if (product.specs) {
-    specsHtml = `
-      <div class="mt-4 p-4 bg-surface-container rounded-lg space-y-2 text-sm">
-        ${Object.entries(product.specs).map(([k, v]) => `
-          <div class="flex justify-between border-b border-outline-variant/30 pb-1">
-            <span class="capitalize text-on-surface-variant font-medium">${k}:</span>
-            <span class="text-on-surface font-semibold">${v}</span>
-          </div>
-        `).join('')}
-      </div>
-    `;
-  }
-
-  modalContent.innerHTML = `
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-      <div class="bg-surface-container p-6 rounded-xl flex items-center justify-center">
-        <img src="${getAssetPath(product.image)}" alt="${product.title}" class="max-h-72 object-contain"/>
-      </div>
-      <div>
-        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">${product.title}</h2>
-        <p class="font-headline-md text-primary font-bold mb-3">${formatCurrency(product.price)}</p>
-        <p class="font-body-md text-on-surface-variant leading-relaxed mb-4">${product.fullDesc}</p>
-        ${specsHtml}
-        <div class="mt-6">
-          <button onclick="addToCart('${product.title}', ${product.price}); closeModal('productModal')" class="w-full py-3 bg-primary text-on-primary font-label-md rounded shadow hover:bg-primary-container transition-colors">
-            Agregar a Cotización
-          </button>
-        </div>
-      </div>
-    </div>
-  `;
-
-  modal.classList.remove("hidden");
-}
 
 function updateCartCounter() {
   const totalCount = (state.cart || []).reduce((acc, item) => acc + (item.quantity || 1), 0);
@@ -834,16 +857,115 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // View mode toggle (grid vs list)
+  const viewGridBtn = document.getElementById("viewGridBtn");
+  const viewListBtn = document.getElementById("viewListBtn");
+  if (viewGridBtn && viewListBtn) {
+    viewGridBtn.addEventListener("click", () => {
+      if (state.viewMode !== "grid") {
+        state.viewMode = "grid";
+        renderCatalog();
+      }
+    });
+    viewListBtn.addEventListener("click", () => {
+      if (state.viewMode !== "list") {
+        state.viewMode = "list";
+        renderCatalog();
+      }
+    });
+  }
+
   // Formulario de contacto (contacto.html)
   const contactForm = document.getElementById("contact-form");
   const successBanner = document.getElementById("success-banner");
   const closeSuccessBtn = document.getElementById("close-success");
   if (contactForm && successBanner) {
     let autoHideTimer = null;
+
+    // Helper: show field error
+    function showFieldError(fieldId, message) {
+      const field = document.getElementById(fieldId);
+      const errorSpan = document.getElementById(fieldId + "-error");
+      if (field) {
+        field.classList.add("border-red-500");
+        field.classList.remove("border-outline-variant");
+        field.setAttribute("aria-invalid", "true");
+      }
+      if (errorSpan) {
+        errorSpan.textContent = message;
+        errorSpan.classList.remove("hidden");
+      }
+    }
+
+    // Helper: clear field error
+    function clearFieldError(fieldId) {
+      const field = document.getElementById(fieldId);
+      const errorSpan = document.getElementById(fieldId + "-error");
+      if (field) {
+        field.classList.remove("border-red-500");
+        field.classList.add("border-outline-variant");
+        field.removeAttribute("aria-invalid");
+      }
+      if (errorSpan) {
+        errorSpan.textContent = "";
+        errorSpan.classList.add("hidden");
+      }
+    }
+
+    // Validate form fields
+    function validateContactForm() {
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const message = document.getElementById("message");
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      let isValid = true;
+
+      // Validate name
+      if (!name || name.value.trim().length === 0) {
+        showFieldError("name", "Por favor, ingresá tu nombre completo.");
+        isValid = false;
+      } else if (name.value.trim().length < 2) {
+        showFieldError("name", "El nombre debe tener al menos 2 caracteres.");
+        isValid = false;
+      } else {
+        clearFieldError("name");
+      }
+
+      // Validate email
+      if (!email || email.value.trim().length === 0) {
+        showFieldError("email", "Por favor, ingresá tu correo electrónico.");
+        isValid = false;
+      } else if (!emailRegex.test(email.value.trim())) {
+        showFieldError("email", "Por favor, ingresá un correo electrónico válido.");
+        isValid = false;
+      } else {
+        clearFieldError("email");
+      }
+
+      // Validate message
+      if (!message || message.value.trim().length === 0) {
+        showFieldError("message", "Por favor, escribí tu mensaje.");
+        isValid = false;
+      } else if (message.value.trim().length < 10) {
+        showFieldError("message", "El mensaje debe tener al menos 10 caracteres.");
+        isValid = false;
+      } else {
+        clearFieldError("message");
+      }
+
+      return isValid;
+    }
+
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
+
+      if (!validateContactForm()) return;
+
       successBanner.classList.remove("-translate-y-full");
       contactForm.reset();
+      clearFieldError("name");
+      clearFieldError("email");
+      clearFieldError("message");
       if (autoHideTimer) clearTimeout(autoHideTimer);
       autoHideTimer = setTimeout(() => {
         successBanner.classList.add("-translate-y-full");

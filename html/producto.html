@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     name="viewport" />
   <meta name="description"
     content="Hermanos Jota - Muebles de autor con alma de los 60. Artesanía sostenible, maderas nobles y diseño atemporal para hogares contemporáneos." />
@@ -41,7 +41,7 @@
         <button id="mobileMenuBtn" type="button"
           class="w-10 h-10 flex md:hidden items-center justify-center text-primary hover:bg-surface-container rounded-lg transition-colors cursor-pointer"
           aria-label="Abrir menú de navegación">
-          <span class="material-symbols-outlined text-2xl">menu</span>
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">menu</span>
         </button>
         <!-- Logotipo de la Marca -->
         <a href="../index.html" class="flex items-center gap-3.5 group">
@@ -66,7 +66,7 @@
       <div class="flex items-center gap-5">
         <button id="cartBtn" class="relative p-2 text-primary hover:text-primary-hover transition-colors cursor-pointer"
           onclick="openCartModal()" aria-label="Ver Carrito de Cotización">
-          <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">shopping_bag</span>
           <span id="cartCount"
             class="absolute top-0 right-0 bg-secondary text-on-secondary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
@@ -88,26 +88,26 @@
         </div>
         <button id="closeMobileMenuBtn" type="button"
           class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg cursor-pointer" aria-label="Cerrar menú">
-          <span class="material-symbols-outlined text-2xl">close</span>
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
         </button>
       </div>
 
       <nav class="flex flex-col gap-2.5 mt-6" aria-label="Navegación móvil">
         <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors"
           href="../index.html">
-          <span class="material-symbols-outlined text-xl">home</span> Inicio
+          <span class="material-symbols-outlined text-xl" aria-hidden="true">home</span> Inicio
         </a>
         <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors"
           href="catalogo.html">
-          <span class="material-symbols-outlined text-xl">chair</span> Catálogo
+          <span class="material-symbols-outlined text-xl" aria-hidden="true">chair</span> Catálogo
         </a>
         <a class="flex items-center gap-3 px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors"
           href="contacto.html">
-          <span class="material-symbols-outlined text-xl">mail</span> Contacto
+          <span class="material-symbols-outlined text-xl" aria-hidden="true">mail</span> Contacto
         </a>
         <button type="button" onclick="openCartModal()"
           class="flex items-center justify-between px-3.5 py-2.5 text-on-surface hover:bg-surface-container rounded-xl font-medium tracking-brand-cta uppercase text-xs transition-colors text-left cursor-pointer">
-          <span class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">shopping_bag</span>
+          <span class="flex items-center gap-3"><span class="material-symbols-outlined text-xl" aria-hidden="true">shopping_bag</span>
             Cotización</span>
           <span
             class="cart-count-badge bg-primary text-on-primary text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
@@ -119,10 +119,10 @@
       <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">Casa Taller
       </p>
       <p class="font-body-sm text-on-surface flex items-center gap-2">
-        <span class="material-symbols-outlined text-sm text-primary">location_on</span> Av. San Juan 2847, CABA
+        <span class="material-symbols-outlined text-sm text-primary" aria-hidden="true">location_on</span> Av. San Juan 2847, CABA
       </p>
       <p class="font-body-sm text-on-surface-variant flex items-center gap-2">
-        <span class="material-symbols-outlined text-sm text-primary">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00
+        <span class="material-symbols-outlined text-sm text-primary" aria-hidden="true">schedule</span> Lun - Vie 10:00 a 19:00 | Sáb 10:00
         a 14:00
       </p>
     </div>
@@ -208,15 +208,15 @@
         <!-- Píldoras de Atributos de Sustentabilidad y Manufactura -->
         <div class="flex flex-wrap gap-2 pt-1" id="featurePills">
           <div class="feature-pill">
-            <span class="material-symbols-outlined text-[18px]">nature</span>
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">nature</span>
             <span>Madera Certificada FSC</span>
           </div>
           <div class="feature-pill">
-            <span class="material-symbols-outlined text-[18px]">opacity</span>
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">opacity</span>
             <span>Acabado Aceites Naturales</span>
           </div>
           <div class="feature-pill">
-            <span class="material-symbols-outlined text-[18px]">handyman</span>
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">handyman</span>
             <span>Ensamble Artesanal</span>
           </div>
         </div>
@@ -225,7 +225,7 @@
         <div class="pt-2">
           <button id="btnAddToCart" onclick="handleAddToCartClick()"
             class="btn-add-cart w-full py-4 px-6 rounded-xl font-semibold text-sm uppercase tracking-wider flex items-center justify-center gap-3 cursor-pointer">
-            <span class="material-symbols-outlined text-xl">shopping_bag</span>
+            <span class="material-symbols-outlined text-xl" aria-hidden="true">shopping_bag</span>
             <span>Añadir al Carrito</span>
           </button>
         </div>
@@ -236,7 +236,7 @@
           <!-- Tarjeta 1: Garantía -->
           <div class="benefit-card">
             <div class="benefit-icon-wrapper">
-              <span class="material-symbols-outlined text-xl">verified</span>
+              <span class="material-symbols-outlined text-xl" aria-hidden="true">verified</span>
             </div>
             <div>
               <h3 class="text-sm font-bold text-on-surface">Garantía de Por Vida</h3>
@@ -249,7 +249,7 @@
           <!-- Tarjeta 2: Envío -->
           <div class="benefit-card">
             <div class="benefit-icon-wrapper">
-              <span class="material-symbols-outlined text-xl">local_shipping</span>
+              <span class="material-symbols-outlined text-xl" aria-hidden="true">local_shipping</span>
             </div>
             <div>
               <h3 class="text-sm font-bold text-on-surface">Envío Especializado</h3>
@@ -267,25 +267,25 @@
           <div class="accordion-item open" id="accordionDimensions">
             <button class="accordion-header" onclick="toggleAccordion('accordionDimensions')">
               <span>Dimensiones y Peso</span>
-              <span class="material-symbols-outlined accordion-chevron">expand_more</span>
+              <span class="material-symbols-outlined accordion-chevron" aria-hidden="true">expand_more</span>
             </button>
             <div class="accordion-content">
               <table class="specs-table" id="specsTable">
                 <tbody>
                   <tr>
-                    <td>Largo</td>
+                    <th scope="row">Largo</th>
                     <td id="specLength">220 cm</td>
                   </tr>
                   <tr>
-                    <td>Ancho</td>
+                    <th scope="row">Ancho</th>
                     <td id="specWidth">100 cm</td>
                   </tr>
                   <tr>
-                    <td>Alto</td>
+                    <th scope="row">Alto</th>
                     <td id="specHeight">76 cm</td>
                   </tr>
                   <tr>
-                    <td>Peso Aprox.</td>
+                    <th scope="row">Peso Aprox.</th>
                     <td id="specWeight">85 kg</td>
                   </tr>
                 </tbody>
@@ -297,7 +297,7 @@
           <div class="accordion-item" id="accordionCare">
             <button class="accordion-header" onclick="toggleAccordion('accordionCare')">
               <span>Cuidados</span>
-              <span class="material-symbols-outlined accordion-chevron">expand_more</span>
+              <span class="material-symbols-outlined accordion-chevron" aria-hidden="true">expand_more</span>
             </button>
             <div class="accordion-content text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2">
               <p>&bull; Limpiar regularmente con un paño de microfibra suave, seco o ligeramente húmedo con agua tibia.
@@ -314,7 +314,7 @@
           <div class="accordion-item" id="accordionManufacturing">
             <button class="accordion-header" onclick="toggleAccordion('accordionManufacturing')">
               <span>Detalles de Fabricación &amp; Materiales</span>
-              <span class="material-symbols-outlined accordion-chevron">expand_more</span>
+              <span class="material-symbols-outlined accordion-chevron" aria-hidden="true">expand_more</span>
             </button>
             <div class="accordion-content text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2">
               <p><strong class="text-on-surface">Material:</strong> <span id="manufMaterial">Madera maciza seleccionada
@@ -354,11 +354,11 @@
         <div class="space-y-3">
           <h4 class="text-xs text-primary uppercase tracking-widest font-bold">Showroom</h4>
           <p class="text-sm text-on-surface-variant flex items-center gap-2">
-            <span class="material-symbols-outlined text-base text-primary">location_on</span>
+            <span class="material-symbols-outlined text-base text-primary" aria-hidden="true">location_on</span>
             Av. San Juan 2847, CABA
           </p>
           <p class="text-sm text-on-surface-variant flex items-center gap-2">
-            <span class="material-symbols-outlined text-base text-primary">schedule</span>
+            <span class="material-symbols-outlined text-base text-primary" aria-hidden="true">schedule</span>
             Lun - Vie 10:00 a 19:00 | Sáb 10:00 - 14:00
           </p>
         </div>
@@ -368,12 +368,12 @@
           <h4 class="text-xs text-primary uppercase tracking-widest font-bold">Conectemos</h4>
           <p
             class="text-sm text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
-            <span class="material-symbols-outlined text-base text-primary">share</span>
+            <span class="material-symbols-outlined text-base text-primary" aria-hidden="true">share</span>
             @hermanosjota_ba
           </p>
           <p
             class="text-sm text-on-surface-variant flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
-            <span class="material-symbols-outlined text-base text-primary">chat</span>
+            <span class="material-symbols-outlined text-base text-primary" aria-hidden="true">chat</span>
             +54 11 4567-8900
           </p>
         </div>
@@ -392,14 +392,14 @@
   <!-- ==========================================
        MODAL DE CARRITO DE COTIZACIÓN
        ========================================== -->
-  <div id="cartModal"
+  <div id="cartModal" role="dialog" aria-modal="true"
     class="fixed inset-0 bg-on-surface/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div
       class="bg-surface rounded-2xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-surface-container-high relative">
       <button onclick="closeCartModal()"
         class="absolute top-4 right-4 text-on-surface-variant hover:text-primary cursor-pointer p-1"
         aria-label="Cerrar">
-        <span class="material-symbols-outlined text-2xl">close</span>
+        <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
       </button>
       <h2 class="font-display text-2xl font-bold text-on-surface mb-2">Tu Selección de Cotización</h2>
       <p class="text-xs text-on-surface-variant mb-4">Piezas seleccionadas para presupuesto formal y entrega.</p>
@@ -548,22 +548,6 @@
     }
 
 
-    // Feedback Toast
-    function showToast(message, icon = "✓") {
-      const container = document.getElementById("toastContainer");
-      if (!container) return;
-      const toast = document.createElement("div");
-      toast.className = "toast";
-      toast.innerHTML = `<span class="text-lg">${icon}</span> <span>${message}</span>`;
-      container.appendChild(toast);
-
-      setTimeout(() => {
-        toast.style.opacity = "0";
-        toast.style.transform = "translateY(10px)";
-        toast.style.transition = "all 0.3s ease";
-        setTimeout(() => toast.remove(), 300);
-      }, 3400);
-    }
   </script>
 </body>
 
