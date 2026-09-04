@@ -57,15 +57,6 @@
           <span id="cartCount"
             class="absolute top-0 right-0 bg-secondary text-on-secondary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
-        <div class="flex items-center gap-3 pl-6 border-l border-outline-variant cursor-pointer"
-          onclick="openBespokeModal('Consulta General')">
-          <div class="text-right hidden sm:block">
-            <p class="font-label-sm text-label-sm text-on-surface-variant">Consultor</p>
-            <p class="font-label-md text-label-md text-on-surface font-semibold">En Línea</p>
-          </div>
-          <img alt="Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-surface-container-high"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHJubnYO2u0cZVbfvyc016i5t7jUM2kH8hnHizm_6U1Kx7mLNsCgGo2U-YhMJCtd52AKmIThY1x5qIFbuD2EQEGjEbdu1tr-yvcl6sdYylXj8gperE_L9OQKHXRO34YfzkO3WJwdxCLIjlF0cpQtE8vvbSkUf0v5w2LN1Tx7BN8j7oG427piyRtvgoPe34Ugvc9ruJSm6UglFklqhqYkC7ByehpgbJxhD7cLTZzMoH8Z4sdFidxcAs" />
-        </div>
       </div>
     </div>
   </header>
@@ -244,22 +235,6 @@
               </div>
             </div>
 
-            <!-- Servicio Bespoke -->
-            <div
-              class="mt-12 bg-primary-container p-6 rounded-xl text-on-primary-container relative overflow-hidden group">
-              <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
-              <div class="relative z-10">
-                <span class="material-symbols-outlined mb-2">auto_awesome</span>
-                <h5 class="font-headline-md text-headline-md mb-2">Servicio Bespoke</h5>
-                <p class="font-body-md text-body-md text-on-primary-container/80 mb-4">Personalice dimensiones y
-                  acabados.</p>
-                <a class="font-label-md text-label-md uppercase tracking-wider hover:underline flex items-center gap-1 cursor-pointer"
-                  onclick="openBespokeModal()">
-                  Consultar <span
-                    class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                </a>
-              </div>
-            </div>
           </aside>
 
           <!-- Product Grid Area -->
@@ -358,47 +333,6 @@
     </div>
   </div>
 
-  <!-- BESPOKE MODAL -->
-  <div id="bespokeModal"
-    class="fixed inset-0 bg-on-background/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-surface rounded-xl p-8 max-w-lg w-full shadow-xl relative">
-      <button onclick="closeBespokeModal()"
-        class="absolute top-4 right-4 text-on-surface-variant hover:text-primary"><span
-          class="material-symbols-outlined">close</span></button>
-      <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Servicio Bespoke</h3>
-      <p class="font-body-md text-on-surface-variant mb-6">Personalice dimensiones, maderas nobles y acabados a medida.
-      </p>
-      <form onsubmit="event.preventDefault(); showToast('Solicitud Bespoke recibida', '✨'); closeBespokeModal();"
-        class="space-y-4">
-        <div>
-          <label class="block font-label-sm text-on-surface mb-1">Pieza o Tipología</label>
-          <input id="bespokePieceInput"
-            class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary"
-            placeholder="Ej. Aparador Uspallata o Mesa Comedor Pampa" required />
-        </div>
-        <div>
-          <label class="block font-label-sm text-on-surface mb-1">Madera / Acabado</label>
-          <select
-            class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary">
-            <option>Nogal Macizo FSC®</option>
-            <option>Roble Claro al Aceite</option>
-            <option>Guatambú Macizo</option>
-            <option>Ébano / Fresno Teñido</option>
-            <option>Bambú Laminado</option>
-          </select>
-        </div>
-        <div>
-          <label class="block font-label-sm text-on-surface mb-1">Contacto (Email o WhatsApp)</label>
-          <input
-            class="w-full p-3 bg-surface-container rounded border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary"
-            placeholder="tu@email.com o +54..." required />
-        </div>
-        <button type="submit"
-          class="w-full py-3 bg-primary text-on-primary font-label-md rounded shadow hover:bg-primary-container transition-colors">Enviar
-          Solicitud</button>
-      </form>
-    </div>
-  </div>
 
 
   <!-- CART MODAL -->

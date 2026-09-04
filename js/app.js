@@ -605,12 +605,9 @@ function openProductModal(productId) {
         <p class="font-headline-md text-primary font-bold mb-3">${formatCurrency(product.price)}</p>
         <p class="font-body-md text-on-surface-variant leading-relaxed mb-4">${product.fullDesc}</p>
         ${specsHtml}
-        <div class="mt-6 flex gap-3">
-          <button onclick="addToCart('${product.title}', ${product.price}); closeModal('productModal')" class="flex-1 py-3 bg-primary text-on-primary font-label-md rounded shadow hover:bg-primary-container transition-colors">
+        <div class="mt-6">
+          <button onclick="addToCart('${product.title}', ${product.price}); closeModal('productModal')" class="w-full py-3 bg-primary text-on-primary font-label-md rounded shadow hover:bg-primary-container transition-colors">
             Agregar a Cotización
-          </button>
-          <button onclick="openBespokeModal('${product.title}'); closeModal('productModal')" class="px-5 py-3 bg-surface-container text-on-surface font-label-md rounded border border-outline-variant hover:border-primary transition-colors">
-            Personalizar
           </button>
         </div>
       </div>
@@ -744,19 +741,6 @@ function submitQuoteRequest() {
   updateCartCounter();
 }
 
-function openBespokeModal(initialPiece = "") {
-  const modal = document.getElementById("bespokeModal");
-  if (initialPiece) {
-    const input = document.getElementById("bespokePieceInput");
-    if (input) input.value = initialPiece;
-  }
-  if (modal) modal.classList.remove("hidden");
-}
-
-function closeBespokeModal() {
-  const modal = document.getElementById("bespokeModal");
-  if (modal) modal.classList.add("hidden");
-}
 
 function closeModal(modalId) {
   const modal = document.getElementById(modalId);
